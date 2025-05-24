@@ -1,6 +1,12 @@
-import Footer from "@/layout/Footer";
-import Header from "@/layout/Header";
+import Home from '@/components/Home/page'
+import React from 'react'
 
-export default function Home() {
-  return <div className="container">HOME</div>;
+const Main = () => {
+  return (
+    <main>
+      <Home />
+    </main>
+  )
 }
+
+export default Main
