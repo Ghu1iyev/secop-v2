@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        monda: ["Monda", "sans-serif"],
+        vesber: ["Vesper Libre", "sans-serif"]
+      }, 
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
