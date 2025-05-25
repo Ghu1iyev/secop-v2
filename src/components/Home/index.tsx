@@ -3,6 +3,8 @@ import AboutUs from './about-us'
 import PartnersSlider from './partners-slider'
 import OurProjects from './our-projects'
 import Services from './home-services'
+import Marquee from './marquee'
+import Certificates from './certificates'
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
       <PartnersSlider />
       <OurProjects />
       <Services />
+      <Marquee />
+      <Certificates />
     </div>
   )
 }
