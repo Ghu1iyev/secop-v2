@@ -4,8 +4,10 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="container pb-20">
-      <div className="px-24">
-        <h3 className="text-[#fff] text-[76px] font-normal tracking-wider">Let’s Talk.</h3>
+      <div className="px-24 mt-20">
+        <h3 className="text-[#fff] text-[76px] font-normal tracking-wider">
+          Let’s Talk.
+        </h3>
       </div>
 
       <div className="flex justify-between leading-8 mt-20 px-24 text-base w-[100%]">
