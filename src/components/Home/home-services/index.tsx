@@ -8,7 +8,7 @@ const Services = () => {
         <h4 className="font-monda text-[20px] leading-[14px] text-[#B0B0B0]">
           Services
         </h4>
-        <h3 className="font-vesber leading-[42px] text-[36px] mt-[24px]">
+        <h3 className="text-[#fff] font-vesber leading-[42px] text-[36px] mt-[24px]">
           We provide modern design, development, and branding solutions tailored
           to elevate your digital presence.
         </h3>

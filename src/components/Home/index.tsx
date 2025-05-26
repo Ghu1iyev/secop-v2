@@ -6,6 +6,8 @@ import Services from './home-services'
 import Marquee from './marquee'
 import Certificates from './certificates'
 import Info from './info'
+import Blogs from './blogs'
+import OurTeam from './our-team'
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
       <Marquee />
       <Info />
       <Certificates />
+      <Blogs />
+      {/* <OurTeam /> */}
     </div>
   )
 }

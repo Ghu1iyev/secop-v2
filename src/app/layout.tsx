@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import '../styles/global.scss'
-import '../styles/swiper.scss'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "../styles/global.scss";
+import '../styles/mantine.scss'
+import "../styles/swiper.scss";
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
+import { MantineProvider } from "@mantine/core";
+import '@mantine/core/styles.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +36,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <MantineProvider>
+          <Header />
+          {children}
+          <Footer />
+        </MantineProvider>
       </body>
     </html>
   );

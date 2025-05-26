@@ -5,12 +5,12 @@ export default function Footer() {
   return (
     <footer className="container pb-20">
       <div className="px-24">
-        <h2 className="text-[76px] font-normal tracking-wider">Let’s Talk.</h2>
+        <h3 className="text-[#fff] text-[76px] font-normal tracking-wider">Let’s Talk.</h3>
       </div>
 
       <div className="flex justify-between leading-8 mt-20 px-24 text-base w-[100%]">
         <div>
-          <p className="font-semibold pb-5 ">Company</p>
+          <p className="text-[#fff] font-semibold pb-5 ">Company</p>
           <ul>
             <li className="text-[#B0B0B0]">
               <Link href={"/"}>Home</Link>
@@ -32,14 +32,14 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <p className="font-semibold pb-5 ">Certificates</p>
+          <p className="text-[#fff] font-semibold pb-5 ">Certificates</p>
           <ul>
             <li className="text-[#B0B0B0]"> TEAM Certificates</li>
             <li className="text-[#B0B0B0]">Our Certificates </li>
           </ul>
         </div>
         <div>
-          <p className="font-semibold pb-5 ">Services</p>
+          <p className="text-[#fff] font-semibold pb-5 ">Services</p>
           <ul>
             <li className="text-[#B0B0B0]"> Projects</li>
             <li className="text-[#B0B0B0]">Services</li>
@@ -47,7 +47,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <p className="font-semibold pb-5 ">Social</p>
+          <p className="text-[#fff] font-semibold pb-5 ">Social</p>
           <ul>
             <li className="text-[#B0B0B0]">LinkedIn</li>
             <li className="text-[#B0B0B0]">Instagram</li>
@@ -59,10 +59,10 @@ export default function Footer() {
 
         <div>
           <ul>
-            <li className="font-semibold pb-5 ">SECOP</li>
+            <li className="text-[#fff] font-semibold pb-5 ">SECOP</li>
             <div className="flex justify-between flex-col gap-12">
               <li className="text-[#B0B0B0]">
-                © 2025. All rights are protected.
+                &copy; {new Date().getFullYear()}. All rights are protected.
               </li>
               <li className="text-[#B0B0B0]">Terms. Sitemap.</li>
             </div>
