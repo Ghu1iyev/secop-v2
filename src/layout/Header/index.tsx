@@ -30,7 +30,7 @@ export default function Header() {
               <Link href={"team"}>Team</Link>
             </li>
             <li>
-              <Link href={"contacts"}>Contacts</Link>
+              <Link href="/contact-us">Contacts</Link>
             </li>
           </ul>
         </nav>

@@ -24,9 +24,9 @@ const Info = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="pt-[80px] relative">
+    <section className="py-[80px] relative">
       <div className="absolute top-4 left-[60px] flex items-center space-x-2 z-10">
-        <span className="font-monda text-[24px]">
+        <span className="font-monda text-[#fff] text-[24px]">
           {String(activeIndex + 1).padStart(2, '0')}/{String(testimonials.length).padStart(2, '0')}
         </span>
       </div>
@@ -42,10 +42,10 @@ const Info = () => {
           <SwiperSlide key={index}>
             <div className="flex flex-col md:flex-row items-start justify-between gap-6 px-6">
               <div className="w-full md:w-1/2">
-                <p className="text-[30px] font-monda">{item.company}</p>
+                <p className="text-[30px] text-[#fff] font-monda">{item.company}</p>
               </div>
               <div className="w-full md:w-1/2">
-                <p className="leading-[47px] font-vesber text-[42px]">{`"${item.text}"`}</p>
+                <p className="leading-[47px] text-[#fff] font-vesber text-[42px]">{`"${item.text}"`}</p>
               </div>
             </div>
           </SwiperSlide>

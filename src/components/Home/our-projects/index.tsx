@@ -20,7 +20,7 @@ const OurProjects = () => {
         <h4 className="font-monda text-[#B0B0B0] text-[20px] leading-[14px]">
           Our Projects
         </h4>
-        <h3 className="font-vesber text-[36px] leading-[43px] mt-[24px]">
+        <h3 className="font-vesber text-[#fff] text-[36px] leading-[43px] mt-[24px]">
           CyberShield for AzNet Telecom
         </h3>
         <p className="text-[#B0B0B0] text-[20px] leading-[34px] font-monda mb-[38px]">

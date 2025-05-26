@@ -6,7 +6,7 @@ const AboutUs = () => {
     <section className="grid grid-cols-2 gap-[100px] items-center py-[80px] mt-[80px]">
       <div>
         <h4 className="font-monda text-[#B0B0B0] text-[20px]">About Us</h4>
-        <h3 className="font-vesber text-[48px] leading-[54px] mt-[24px]">
+        <h3 className="text-[#fff] font-vesber text-[48px] leading-[54px] mt-[24px]">
           Cyber threats evolve, and so do we — to keep your digital assets safe.
         </h3>
       </div>
