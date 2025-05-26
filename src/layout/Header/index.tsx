@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { LogoIcon } from "../../../public/assets/images/vector";
 
 export default function Header() {
   return (
     <header className="container pt-16 flex justify-between items-center">
       <div>
         <Link href={"/"}>
-          {/* <LogoIcon /> */}
+          <LogoIcon />
         </Link>
       </div>
 
@@ -17,7 +18,7 @@ export default function Header() {
               <Link href={"about"}>About Us</Link>
             </li>
             <li>
-              <Link href={"projects"}>Projects</Link>
+              <Link href={"project"}>Projects</Link>
             </li>
             <li>
               <Link href={"services"}>Services</Link>
