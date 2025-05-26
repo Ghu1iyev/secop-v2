@@ -1,0 +1,23 @@
+.mySwiper-tech-info{
+    position: unset;
+    .swiper-wrapper{
+        .swiper-slide{
+
+        }
+    }
+    .swiper-button-next, .swiper-button-prev{
+        top: 40px;
+        background-color: #121212;
+        border: 1px solid #2A2A2A;
+        border-radius: 100%;
+        width: 32px;
+        height: 32px;
+        &::after{
+            color: #fff;
+            font-size: 13px;
+        }
+    }
+    .swiper-button-next{
+        left: 150px;
+    }
+}
