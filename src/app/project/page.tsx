@@ -1,10 +1,10 @@
 "use client";
 
-import Title from "@/components/shared/Title/Title";
-import Image from "next/image";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Title from "@/components/shared/Title/Title";
 
 const ProjectPage = () => {
   return (

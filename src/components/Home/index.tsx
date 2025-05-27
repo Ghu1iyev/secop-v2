@@ -8,9 +8,10 @@ import Certificates from './certificates'
 import Blogs from './blogs'
 import CompanySwiper from '../swiper/company-swiper'
 
+
 const Home = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <AboutUs />
       <PartnersSlider />
       <OurProjects />
@@ -21,7 +22,7 @@ const Home = () => {
       <Blogs />
       {/* <OurTeam /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
