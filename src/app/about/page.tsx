@@ -1,6 +1,8 @@
-import Title from "@/components/shared/Title/Title";
-import Image from "next/image";
 import React from "react";
+import Team from "./team";
+import Image from "next/image";
+import Title from "@/components/shared/Title/Title";
+import PartnersSlider from "@/components/shared/partners-slider";
 
 const Aboutpage = () => {
   return (
@@ -10,18 +12,18 @@ const Aboutpage = () => {
         subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."
       />
 
-      <div className="flex gap-36 mt-20">
-        <div className="w-[40%] h-[94px] ">
+      <div className="flex gap-36 my-20">
+        <div className="w-[40%] rounded-3xl ">
           <Image
             alt="about"
             src={"/assets/images/png/about.jpg"}
-            className="rounded-3xl"
+            className="rounded-3xl object-cover"
             width={554}
             height={494}
             style={{ height: "494px" }}
           />
         </div>
-        <div className="w-[50%] mt-5 ">
+        <div className="w-[44%] mt-5 ">
           <h3 className="font-vesber font-medium text-3xl leading-8 ">
             Where We Started
           </h3>
@@ -32,13 +34,30 @@ const Aboutpage = () => {
             solutions. What began as a small team of cybersecurity and network
             enthusiasts has grown into a trusted partner for businesses seeking
             digital protection. From day one, our mission has been to make
-            security smarter, stronger, and more accessible. What drove us
-            wasn’t just technology — it was the need for trust in a connected
-            world. Every system we build today reflects that same purpose we
-            started with.We’ve grown, but our core commitment to secure,
-            reliable, and user-focused solutions remains unchanged.
+            security smarter, stronger, and more accessible.
+            <p className="mt-8">
+              What drove us wasn’t just technology — it was the need for trust
+              in a connected world. Every system we build today reflects that
+              same purpose we started with.We’ve grown, but our core commitment
+              to secure, reliable, and user-focused solutions remains unchanged.
+            </p>
           </p>
         </div>
+      </div>
+      <div>
+        <Title
+          title="Our Trusted Partners"
+          subtitle="We grow stronger through collaboration — meet the trusted partners who help us shape secure digital futures"
+        />
+        <PartnersSlider />
+      </div>
+      <div>
+        <Title
+          title="Meet Our Team"
+          subtitle="Meet the Experts Behind Our
+          Secure Solutions"
+        />
+        <Team />
       </div>
     </div>
   );
