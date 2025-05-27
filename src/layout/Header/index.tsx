@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { LogoIcon } from "../../../public/assets/images/vector";
+import { Select } from "@mantine/core";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
   return (
@@ -35,19 +37,27 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* <div>
-          <Select>
-            <SelectTrigger className="w-[121px] rounded-xl bg-[#121212CC] border-[#2A2A2A] text-[#B0B0B0] font-semibold text-xl ">
-              <SelectValue placeholder="ENG" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="aze">AZE</SelectItem>
-                <SelectItem value="eng">ENG</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div> */}
+        <div className="flex items-center">
+          <Select
+            placeholder="ENG"
+            data={["AZE", "ENG"]}
+            rightSection={<IoIosArrowDown size={16} className="text-white" />}
+            styles={{
+              input: {
+                width: "100px",
+                fontFamily: "Monda",
+                height: "46px",
+                backgroundColor: "#121212CC",
+                borderColor: "#2A2A2A",
+                color: "#B0B0B0",
+                fontWeight: 600,
+                lineHeight: "30px",
+                fontSize: "1.25rem",
+                borderRadius: "0.75rem",
+              },
+            }}
+          />
+        </div>
       </div>
     </header>
   );

@@ -1,17 +1,17 @@
-import React from 'react'
-import AboutUs from './about-us'
-import PartnersSlider from './partners-slider'
-import OurProjects from './our-projects'
-import Services from './home-services'
-import Marquee from './marquee'
-import Certificates from './certificates'
-import Info from './info'
-import Blogs from './blogs'
-import OurTeam from './our-team'
+import React from "react";
+import AboutUs from "./about-us";
+import PartnersSlider from "../shared/partners-slider";
+import OurProjects from "./our-projects";
+import Services from "./home-services";
+import Marquee from "./marquee";
+import Certificates from "./certificates";
+import Info from "./info";
+import Blogs from "./blogs";
+import OurTeam from "./our-team";
 
 const Home = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <AboutUs />
       <PartnersSlider />
       <OurProjects />
@@ -22,7 +22,7 @@ const Home = () => {
       <Blogs />
       {/* <OurTeam /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
