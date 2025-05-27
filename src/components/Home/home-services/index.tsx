@@ -21,7 +21,7 @@ const Services = () => {
           scalable digital experiences. Whether you re launching a startup or
           growing your brand, we re here to support your vision.
         </p>
-        <Button text="See Our Services" url="services" iconColor="#fff" customClass="bg-[#FF7A00]" />
+        <Button text="See Our Services" url="services" />
       </div>
     </section>
   );

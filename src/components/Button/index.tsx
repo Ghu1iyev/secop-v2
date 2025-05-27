@@ -5,17 +5,19 @@ import { IoMdArrowForward } from "react-icons/io";
 type ButtonProps = {
   text: string;
   url: string;
-  customClass?: string;  
-  iconColor?: string;
 }
 
-const Button = ({text, url, customClass, iconColor}: ButtonProps) => {
+const Button = ({ text, url }: ButtonProps) => {
   return (
     <Link
-      className={`bg-[#2A2A2A] text-[#fff] inline-flex items-center gap-[10px] font-monda rounded-[12px] py-[19px] px-[24px] text-[20px] ${customClass}`} 
+      className={`bg-[#2A2A2A] text-[#fff] inline-flex items-center gap-[10px] font-monda rounded-[12px] py-[19px] px-[24px] duration-200 text-[20px] hover:bg-[#FF7A00] group`} 
       href={`/${url}`}
     >
-      {text} <IoMdArrowForward size={24} color={iconColor ? iconColor : "#B0B0B0"} />
+      {text}
+      <IoMdArrowForward 
+        size={24} 
+        className="text-[#B0B0B0] group-hover:text-[#fff]" 
+      />
     </Link>
   );
 };
