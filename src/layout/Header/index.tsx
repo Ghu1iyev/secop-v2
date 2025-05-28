@@ -23,7 +23,7 @@ export default function Header() {
               <Link href={"project"}>Projects</Link>
             </li>
             <li>
-              <Link href={"services"}>Services</Link>
+              <Link href={"/our-services"}>Services</Link>
             </li>
             <li>
               <Link href={"certificates"}>Certificates</Link>
