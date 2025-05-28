@@ -44,7 +44,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -56,7 +56,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -68,7 +68,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -80,7 +80,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -92,7 +92,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -104,7 +104,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -116,7 +116,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -128,7 +128,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
@@ -140,7 +140,7 @@ const CertificateSwiper = () => {
               placeholder="blur"
             />
           </div>
-          <p className="font-monda mt-[24px]">Certified Ethical Hacker (CEH)</p>
+          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
         </SwiperSlide>
       </Swiper>
     </>
