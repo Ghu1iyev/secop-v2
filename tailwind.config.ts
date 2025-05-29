@@ -27,7 +27,14 @@ export default {
       animation: {
         marquee: 'marquee 15s linear infinite',
       },
-      
+      screens: {
+      's': '390px',
+      'sm': '550px',   
+      'md': '768px',   
+      "lg": '1024px',
+      "xl": '1200px',  
+      '2xl': '1440px',
+    }
     },
   },
   plugins: [],

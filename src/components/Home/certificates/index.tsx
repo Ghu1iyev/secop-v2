@@ -5,7 +5,7 @@ import React from "react";
 const Certificates = () => {
   return (
     <section className="mt-[80px]">
-      <TitleAnimation />
+      <TitleAnimation title="CERTIFICATES"/>
       <div>
         <CertificateSwiper />
       </div>

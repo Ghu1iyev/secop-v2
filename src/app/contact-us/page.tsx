@@ -5,6 +5,7 @@ import { useForm } from "@mantine/form";
 import React from "react";
 import { IoMdArrowForward } from "react-icons/io";
 import ContactInfo from "./contact-info";
+import TitleAnimation from "@/components/title-animation";
 
 const ContactUs = () => {
   const form = useForm({
@@ -33,7 +34,7 @@ const ContactUs = () => {
         to you shortly with the information or support you need.
       </p>
       <form
-        className="mt-[80px] w-[675px]"
+        className="my-[80px] w-[675px]"
         onSubmit={form.onSubmit((values) => console.log(values))}
       >
         <TextInput
@@ -72,6 +73,7 @@ const ContactUs = () => {
           Send your message <IoMdArrowForward />
         </button>
       </form>
+      <TitleAnimation title="OUR CONTACTS" />
       <ContactInfo />
     </main>
   );
