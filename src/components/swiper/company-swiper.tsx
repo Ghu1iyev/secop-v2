@@ -1,8 +1,7 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import 'swiper/css/navigation';
 
 
 const testimonials = [
@@ -24,7 +23,7 @@ const CompanySwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-[80px] relative">
+    <section className="py-[80px] relative ">
       <div className="absolute top-4 left-[60px] flex items-center space-x-2 z-10">
         <span className="font-monda text-[#fff] text-[24px]">
           {String(activeIndex + 1).padStart(2, "0")}/
