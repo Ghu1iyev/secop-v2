@@ -1,29 +1,28 @@
-import Title from "@/components/shared/Title/Title";
 import React from "react";
-import LatestBlog from "./latest-blog";
 import ArticleItem from "@/components/article-item";
 import { ScrollArea } from "@mantine/core";
-import classes from './blog.module.scss';
+import classes from "../blog.module.scss";
 
-const Blog = () => {
+const BlogDetail = () => {
   return (
     <main className="container">
-      <div className="w-[990px]">
-        <Title
-          title="Blogs"
-          fontSize="text-[48px]"
-          subtitle="Insights and updates on cybersecurity, tech, and innovation — straight from our team."
-        />
-      </div>
-      <h4 className="text-[#B0B0B0] text-[20px] font-monda my-[80px]">
-        The latest Blogs
-      </h4>
-      <div className="mb-[80px] grid grid-cols-4 gap-[24px]">
-        <LatestBlog />
-        <LatestBlog />
-        <LatestBlog />
-        <LatestBlog />
-      </div>
+      <h1 className="text-[48px] mb-[60px] font-vesber text-center mt-[80px]">
+        Employee Awareness & Training
+      </h1>
+      <p className="text-[20px] text-[#B0B0B0] font-monda">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+        tempore, consequuntur assumenda illum et accusamus natus cum
+        consectetur, eius error aperiam numquam odit eligendi suscipit labore
+        consequatur recusandae officia! Doloribus laudantium molestias
+        consequatur deleniti, tenetur qui ratione dolorem assumenda possimus
+        unde laboriosam vitae nulla! Nisi possimus omnis blanditiis
+        exercitationem saepe enim doloribus sed pariatur optio quidem quia
+        facilis harum inventore consequuntur, quo debitis libero animi. Fugit,
+        reiciendis ratione vero doloribus saepe hic, perspiciatis beatae nam
+        optio velit ipsam repellat sapiente minus eius. Quo doloribus nisi
+        dicta, ipsam tempore distinctio tempora reprehenderit. Impedit eaque
+        quisquam deserunt omnis libero, praesentium eligendi nam!
+      </p>
       <div className="pt-[80px] flex gap-[140px]">
         <div className="w-[30%] flex-none">
           <p className="text-[#fff] text-[20px] font-vesber mb-[24px]">
@@ -70,4 +69,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogDetail;
