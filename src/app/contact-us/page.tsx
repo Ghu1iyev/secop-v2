@@ -20,10 +20,12 @@ const ContactUs = () => {
   });
   return (
     <main className="container">
-      <Title
-        title="Contact Us"
-        subtitle="Drop us a message — we’ll get back shortly."
-      />
+      <div className="mt-20">
+        <Title
+          title="Contact Us"
+          subtitle="Drop us a message — we’ll get back shortly."
+        />
+      </div>
       <p
         className="
       text-[#B0B0B0] text-[20px] font-monda leading-[35px] mt-[40px]"

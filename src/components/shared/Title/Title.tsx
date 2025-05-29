@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 
 const Title = ({ title, subtitle }: SectionHeaderProps) => {
   return (
-    <div className="flex flex-col gap-6 mt-20 w-[60%]">
+    <div className="flex flex-col gap-6  w-[60%] ">
       <h4 className="text-xl font-normal font-monda leading-3 text-[#B0B0B0]">
         {title}{" "}
       </h4>

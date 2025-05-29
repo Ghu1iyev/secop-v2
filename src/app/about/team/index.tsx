@@ -53,8 +53,9 @@ const Team = () => {
   return (
     <>
       <Swiper
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 0, disableOnInteraction: false }}
         slidesPerView={4}
+        speed={3000}
         breakpoints={{
           0: { slidesPerView: 3, spaceBetween: 0 },
           500: { slidesPerView: 3, spaceBetween: 20 },
@@ -63,6 +64,7 @@ const Team = () => {
         }}
         modules={[Autoplay]}
         loop={true}
+        allowTouchMove={false}
         className="mySwiper"
       >
         {teamData.map((member, index) => (
