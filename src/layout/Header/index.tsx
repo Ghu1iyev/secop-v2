@@ -17,19 +17,19 @@ export default function Header() {
         <nav>
           <ul className="flex gap-14 text-xl font-semibold text-[#B0B0B099]">
             <li>
-              <Link href={"about"}>About Us</Link>
+              <Link href={"/about"}>About Us</Link>
             </li>
             <li>
-              <Link href={"project"}>Projects</Link>
+              <Link href={"/project"}>Projects</Link>
             </li>
             <li>
               <Link href={"/our-services"}>Services</Link>
             </li>
             <li>
-              <Link href={"certificates"}>Certificates</Link>
+              <Link href={"/certificates"}>Certificates</Link>
             </li>
             <li>
-              <Link href={"team"}>Team</Link>
+              <Link href={"/team"}>Team</Link>
             </li>
             <li>
               <Link href="/contact-us">Contacts</Link>

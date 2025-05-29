@@ -8,7 +8,7 @@ import Certificates from "@/components/Home/certificates";
 const Aboutpage = () => {
   return (
     <div className="container">
-      <div className="mt-20">
+      <div className="mt-20 w-[40%]">
         <Title
           title="About Us"
           subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."
@@ -46,19 +46,23 @@ const Aboutpage = () => {
           </div>
         </div>
       </div>
-      <div className="mt-44">
-        <Title
-          title="Our Trusted Partners"
-          subtitle="We grow stronger through collaboration — meet the trusted partners who help us shape secure digital futures"
-        />
+      <div className="mt-44 ">
+        <div className=" w-[50%]">
+          <Title
+            title="Our Trusted Partners"
+            subtitle="We grow stronger through collaboration — meet the trusted partners who help us shape secure digital futures"
+          />
+        </div>
         <PartnersSlider />
       </div>
       <div className="mt-20">
-        <Title
-          title="Meet Our Team"
-          subtitle="Meet the Experts Behind Our
+        <div className="w-[40%]">
+          <Title
+            title="Meet Our Team"
+            subtitle="Meet the Experts Behind Our
           Secure Solutions"
-        />
+          />
+        </div>
         <Team />
         <div className="my-32">
           <Certificates />

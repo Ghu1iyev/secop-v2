@@ -4,9 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
-import Info from "@/components/Home/info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
+import CompanySwiper from "@/components/swiper/company-swiper";
 
 const slidesData = [
   {
@@ -132,7 +132,7 @@ const ProjectPage = () => {
         </Swiper>
       </div>
       <div className="mt-20">
-        <Info />
+        <CompanySwiper />
       </div>
     </div>
   );

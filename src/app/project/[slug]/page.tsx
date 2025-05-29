@@ -13,7 +13,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
   return (
     <div className="container">
       <div className="mt-36 mb-12">
-        <nav className="text-xl font-monda text-[#B0B0B099] leading-7 flex items-center gap-5">
+        <div className="text-xl font-monda text-[#B0B0B099] leading-7 flex items-center gap-5">
           <Link href="/" className="hover:text-white">
             Home
           </Link>
@@ -26,8 +26,8 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
           <span>
             <IoIosArrowForward />
           </span>
-          <span className="text-white font-semibold">{slug}</span>
-        </nav>
+          <span className="text-white font-semibold">Project Page</span>
+        </div>
       </div>
 
       <div className="p-20 bg-[#121212] rounded-3xl w-100% h-auto ">
