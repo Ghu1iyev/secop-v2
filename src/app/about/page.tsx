@@ -2,8 +2,8 @@ import React from "react";
 import Team from "./team";
 import Image from "next/image";
 import Title from "@/components/shared/Title/Title";
-import PartnersSlider from "@/components/swiper/partners-slider";
 import Certificates from "@/components/Home/certificates";
+import PartnersSlider from "@/components/swiper/partners-slider";
 
 const Aboutpage = () => {
   return (

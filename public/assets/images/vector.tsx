@@ -1,8 +1,12 @@
-export const LogoIcon = () => {
+type LogoIconProps = {
+  className?: string;
+};
+export const LogoIcon = ({ className = "" }: LogoIconProps) => {
   return (
     <svg
       width="137"
       height="40"
+      className={className}
       viewBox="0 0 137 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +57,55 @@ export const LogoIcon = () => {
             fill="white"
             transform="translate(0 0.750244)"
           />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const CancelIcon = ({ className = "" }: LogoIconProps) => {
+  return (
+    <svg
+      className={className}
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clipPath="url(#clip0_3190_3697)">
+        <path
+          d="M14.9999 13.2325L21.1874 7.04504L22.9549 8.81254L16.7674 15L22.9549 21.1875L21.1874 22.955L14.9999 16.7675L8.81242 22.955L7.04492 21.1875L13.2324 15L7.04492 8.81254L8.81242 7.04504L14.9999 13.2325Z"
+          fill="#121212"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_3190_3697">
+          <rect width="30" height="30" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const MenuIcon = () => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clipPath="url(#clip0_3160_1381)">
+        <path
+          d="M2.5 3.33337H17.5V5.00004H2.5V3.33337ZM2.5 9.16671H12.5V10.8334H2.5V9.16671ZM2.5 15H17.5V16.6667H2.5V15Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_3160_1381">
+          <rect width="20" height="20" fill="white" />
         </clipPath>
       </defs>
     </svg>
