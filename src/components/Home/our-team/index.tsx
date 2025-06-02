@@ -17,7 +17,7 @@ const OurTeams = () => {
   });
 
   return (
-    <div className="w-full py-6 mt-[80px]">
+    <div className="hidden md:block w-full py-6 mt-[80px]">
       <div className="w-[680px] mb-[80px]">
         <Title title="Meet Our Team" subtitle="Behind every secure system is a team like ours — driven by innovation, built on trust, and focused on your protection."/>
       </div>

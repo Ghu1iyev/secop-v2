@@ -48,16 +48,13 @@ const OurProjects = () => {
       const containerHeight = container.offsetHeight;
       const windowHeight = window.innerHeight;
 
-      // Container section içindeyken progress hesapla
       if (rect.top <= 0 && rect.bottom >= windowHeight) {
-        // Scroll progress hesapla (0-1 arası)
         const scrolled = Math.abs(rect.top);
         const maxScroll = containerHeight - windowHeight;
         const progress = Math.min(scrolled / maxScroll, 1);
 
         setScrollProgress(progress);
 
-        // Slide geçişlerini hesapla
         const slideIndex = Math.min(
           Math.floor(progress * slides.length),
           slides.length - 1
@@ -76,10 +73,8 @@ const OurProjects = () => {
   return (
     <div className=" text-white">
       <section ref={containerRef} className="h-[300vh] relative">
-        {/* Sticky Container */}
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-          {/* Scroll Progress Bar - Top Right */}
-          <div className="absolute top-[40%] right-8 z-40">
+          <div className="absolute top-[45%] lg:top-[40%] right-0 lg:right-[32px] z-40">
             <div className=" flex-col items-end gap-2">
               <div className="text-right">
                 <div className="text-[17px] text-[#B0B0B0] font-monda mb-[10px]">{currentSlide + 1}</div>
@@ -102,10 +97,9 @@ const OurProjects = () => {
           </div>
 
           <div> 
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Visual */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] lg:gap-16 items-center">
               <div className="relative">
-                <div className="bg-[#2A2A2A] p-[48px] rounded-[30px] w-[685px] h-[635px]">
+                <div className="bg-[#2A2A2A] p-[20px] lg:p-[48px] rounded-[30px] w-full h-[350px] lg:h-[635px]">
                   <div className="relative w-full h-full">
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -130,8 +124,7 @@ const OurProjects = () => {
                 </div>
               </div>
 
-              {/* Right Side - Content */}
-              <div className="pr-[55px]">
+              <div className="lg:pr-[55px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentSlide}
@@ -140,13 +133,13 @@ const OurProjects = () => {
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h3 className="text-[20px] text-[#B0B0B0] font-monda mb-[24px]">
+                    <h3 className="text-[16px] md:text-[20px] text-[#B0B0B0] font-monda mb-[24px]">
                       {slides[currentSlide]?.title}
                     </h3>
-                    <h4 className="text-[36px] text-[#fff] font-vesber">
+                    <h4 className="text-[20px] sm:text-[36px] text-[#fff] font-vesber">
                       {slides[currentSlide]?.subtitle}
                     </h4>
-                    <p className="text-[#B0B0B0] font-monda text-[20px]">
+                    <p className="text-[#B0B0B0] font-monda text-[15px] mt-[25px] lg:text-[20px]">
                       {slides[currentSlide]?.description}
                     </p>
                   </motion.div>

@@ -8,12 +8,10 @@ type SectionHeaderProps = {
 
 const Title = ({ title, subtitle, fontSize }: SectionHeaderProps) => {
   return (
-    <div className="flex flex-col gap-5 lg:gap-6 ">
-      <h4 className="lg:text-xl text-base md:text-lg font-normal lg:leading-3 text-[#B0B0B0]">
-        {title}{" "}
-      </h4>
+    <div className="flex flex-col gap-6 ">
+      <h4 className="text-[16px] md:text-[20px] font-normal leading-3 text-[#B0B0B0]">{title} </h4>
       <p
-        className={`lg:text-[36px] text-xl md:text-2xl font-vesber lg:leading-10  text-[#fff] ${fontSize}`}
+        className={`s:text-[25px] font-vesber text-[#fff] ${fontSize}`}
       >
         {subtitle}{" "}
       </p>
