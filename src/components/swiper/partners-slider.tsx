@@ -15,8 +15,8 @@ const PartnersSlider = () => {
         slidesPerView={4}
         breakpoints={{
           0: {
-            slidesPerView: 3,
-            spaceBetween: 0,
+            slidesPerView: 2.5,
+            spaceBetween: 20,
           },
           500: {
             slidesPerView: 3,
