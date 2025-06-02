@@ -16,7 +16,7 @@ export default function Marquee() {
         {[...items, ...items].map((text, idx) => (
           <div
             key={idx}
-            className="flex  gap-[10px] items-center bg-[#2A2A2A] rounded-[14px] text-white text-[18px] font-monda px-4 py-2  whitespace-nowrap"
+            className="flex gap-[10px] items-center bg-[#2A2A2A] rounded-[14px] text-white text-[12px] sm:text-[18px] font-monda px-4 py-2  whitespace-nowrap"
           >
             <MdDone />
             {text}

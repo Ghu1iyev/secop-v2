@@ -8,7 +8,7 @@ import PartnersSlider from "@/components/swiper/partners-slider";
 const Aboutpage = () => {
   return (
     <div className="container">
-      <div className="mt-20 w-[40%]">
+      <div className="mt-20 w-[60%]">
         <Title
           title="About Us"
           subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."

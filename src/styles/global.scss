@@ -38,5 +38,5 @@ body {
 }
 
 .container {
-  @apply max-w-[1440px] px-[32px] m-auto;
+  @apply max-w-[1440px] px-[16px] sm:px-[32px] m-auto;
 }
