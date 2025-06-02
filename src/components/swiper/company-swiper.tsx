@@ -23,9 +23,9 @@ const CompanySwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-[80px] relative ">
+    <section className="pt-[80px] md:pb-[80px] relative ">
       <div className="absolute top-4 left-[60px] flex items-center space-x-2 z-10">
-        <span className="font-monda text-[#fff] text-[24px]">
+        <span className="font-monda text-[#fff] text-[20px] sm:text-[24px]">
           {String(activeIndex + 1).padStart(2, "0")}/
           {String(testimonials.length).padStart(2, "0")}
         </span>
@@ -39,14 +39,14 @@ const CompanySwiper = () => {
       >
         {testimonials.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col md:flex-row items-start justify-between gap-6 px-6">
-              <div className="w-full md:w-1/2">
-                <p className="text-[30px] text-[#fff] font-monda">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-6 md:px-6">
+              <div>
+                <p className="text-[15px] sm:text-[30px] text-[#fff] font-monda">
                   {item.company}
                 </p>
               </div>
-              <div className="w-full md:w-1/2">
-                <p className="leading-[47px] text-[#fff] font-vesber text-[42px]">{`"${item.text}"`}</p>
+              <div>
+                <p className="leading-[24px] sm:leading-[47px] text-[#fff] font-vesber text-[20px] sm:text-[42px]">{`"${item.text}"`}</p>
               </div>
             </div>
           </SwiperSlide>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const PartnersSlider = () => {
   return (
-    <section className="py-[80px]">
+    <section className="pt-[80px] sm:pb-[80px]">
       <Swiper
         autoplay={{
           delay: 2000,
@@ -15,8 +15,8 @@ const PartnersSlider = () => {
         slidesPerView={4}
         breakpoints={{
           0: {
-            slidesPerView: 3,
-            spaceBetween: 0,
+            slidesPerView: 2,
+            spaceBetween: 20,
           },
           500: {
             slidesPerView: 3,
@@ -36,7 +36,7 @@ const PartnersSlider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -48,7 +48,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -60,7 +60,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -72,7 +72,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -84,7 +84,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -96,7 +96,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -108,7 +108,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -120,7 +120,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -132,7 +132,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -144,7 +144,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -156,7 +156,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -168,7 +168,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -180,7 +180,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
@@ -192,7 +192,7 @@ const PartnersSlider = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-[30px]">
+          <div className="relative w-full s:h-[22px] sm:h-[30px]">
             <Image
               src="/assets/images/png/Logo.png"
               objectFit="contain"
