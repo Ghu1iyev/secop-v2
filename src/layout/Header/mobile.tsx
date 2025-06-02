@@ -1,5 +1,6 @@
 import React from "react";
 import { CancelIcon } from "../../../public/assets/images/vector";
+import Link from "next/link";
 
 const MobileVersion = ({
   closeMenu,
@@ -23,14 +24,31 @@ const MobileVersion = ({
         <span className="text-[#B0B0B0] text-sm font-medium">Menu</span>
         <nav className="mt-8 text-base font-semibold tracking-tighter leading-8">
           <ul className="space-y-2">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Projects</li>
-            <li>Services</li>
-            <li>Certificates</li>
-            <li>Team</li>
-            <li>Blog</li>
-            <li>Contacts</li>
+            <li>
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link href={"/blog"}>Blog</Link>
+            </li>
+
+            <li>
+              <Link href={"/about"}>About Us</Link>
+            </li>
+            <li>
+              <Link href={"/project"}>Projects</Link>
+            </li>
+            <li>
+              <Link href={"/our-services"}>Services</Link>
+            </li>
+            <li>
+              <Link href={"/certificates"}>Certificates</Link>
+            </li>
+            <li>
+              <Link href={"/team"}>Team</Link>
+            </li>
+            <li>
+              <Link href="/contact-us">Contacts</Link>
+            </li>
           </ul>
         </nav>
         <div className="mt-8 text-sm font-semibold tracking-tighter flex flex-col gap-3">
