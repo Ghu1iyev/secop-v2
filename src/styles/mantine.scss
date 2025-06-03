@@ -12,3 +12,15 @@
         }
     }
 }
+
+.custom-dropdown{
+    .mantine-Select-options{
+        div{
+           .mantine-Select-option{
+            &:hover{
+                color: #000 !important;
+            }
+           }
+        }
+    }
+}

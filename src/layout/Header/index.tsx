@@ -46,10 +46,7 @@ export default function Header() {
                   <Link href={"/our-services"}>Services</Link>
                 </li>
                 <li>
-                  <Link href={"/certificates"}>Certificates</Link>
-                </li>
-                <li>
-                  <Link href={"/team"}>Team</Link>
+                  <Link href={"/blog"}>blogs</Link>
                 </li>
                 <li>
                   <Link href="/contact-us">Contacts</Link>
@@ -64,6 +61,9 @@ export default function Header() {
                 rightSection={
                   <IoIosArrowDown size={16} className="text-white" />
                 }
+                classNames={{
+                  dropdown: "custom-dropdown",
+                }}
                 styles={{
                   input: {
                     width: "100px",
@@ -76,6 +76,10 @@ export default function Header() {
                     lineHeight: "30px",
                     fontSize: "1.25rem",
                     borderRadius: "0.75rem",
+                  },
+                  dropdown: {
+                    backgroundColor: "#1F1F1F",
+                    borderColor: "#2A2A2A",
                   },
                 }}
               />
