@@ -5,7 +5,7 @@ import { IoMdArrowForward } from "react-icons/io";
 
 const Blogs = () => {
   return (
-    <section>
+    <section className="pt-[80px]">
       <div className="flex justify-end">
         <div className="w-6/12">
           <Title

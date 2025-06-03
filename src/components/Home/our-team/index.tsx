@@ -22,13 +22,13 @@ const OurTeams = () => {
         <Title title="Meet Our Team" subtitle="Behind every secure system is a team like ours — driven by innovation, built on trust, and focused on your protection."/>
       </div>
       <Swiper
-      spaceBetween={20}
+      spaceBetween={10}
       slidesPerView={"auto"}
     >
       {cards.map((card, index) => (
         <SwiperSlide key={index} style={{ width: "auto" }}>
           <div
-            className="relative w-[220px] h-[315px] rounded-xl overflow-hidden transition-all duration-500 group hover:w-[600px] hover:h-[320px] flex"
+            className="relative w-[250px] h-[315px] rounded-xl overflow-hidden transition-all duration-500 group hover:w-[600px] hover:h-[320px] flex"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
