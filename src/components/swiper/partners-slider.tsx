@@ -1,18 +1,37 @@
 "use client";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import Image from "next/image";
+import { GetApi } from "@/lib/axios";
+import { Autoplay } from "swiper/modules";
+import { useQuery } from "@tanstack/react-query";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+type PartnerProps = {
+  results: {
+    image: string;
+  }[];
+};
 const PartnersSlider = () => {
+  const { data, isLoading, isError } = useQuery<PartnerProps>({
+    queryKey: ["corporation"],
+    queryFn: () => GetApi("/corporation/"),
+    staleTime: 10 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading) {
+    return <p className="text-center mt-5">Yüklənir...</p>;
+  }
+
+  if (isError) {
+    return <p className="text-center text-red-500 mt-5">Xəta baş verdi.</p>;
+  }
+
   return (
     <section className="pt-[80px] sm:pb-[80px]">
       <Swiper
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        slidesPerView={4}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        slidesPerView={7}
         breakpoints={{
           0: {
             slidesPerView: 2,
@@ -35,174 +54,20 @@ const PartnersSlider = () => {
         loop={true}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full s:h-[22px] sm:h-[30px]">
-            <Image
-              src="/assets/images/png/Logo.png"
-              objectFit="contain"
-              blurDataURL="/assets/images/png/Logo.png"
-              fill
-              placeholder="blur"
-              alt=""
-            />
-          </div>
-        </SwiperSlide>
+        {data?.results?.map((partner, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-[30px]">
+              <Image
+                src={partner.image || "/assets/images/png/Logo.png"}
+                alt="Partner Logo"
+                fill
+                className="object-contain"
+                placeholder="blur"
+                blurDataURL={partner.image || "/assets/images/png/Logo.png"}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );
