@@ -33,9 +33,9 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="lg:flex justify-between items-center lg:gap-24 xl:gap-[136px] hidden">
+          <div className="lg:flex justify-between items-center font-monda lg:gap-24 xl:gap-[136px] hidden">
             <nav>
-              <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg font-semibold text-[#B0B0B099]">
+              <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg  font-semibold text-[#B0B0B099]">
                 <li>
                   <Link href={"/about"}>About Us</Link>
                 </li>
@@ -46,7 +46,7 @@ export default function Header() {
                   <Link href={"/our-services"}>Services</Link>
                 </li>
                 <li>
-                  <Link href={"/blog"}>blogs</Link>
+                  <Link href={"/blog"}>Blog</Link>
                 </li>
                 <li>
                   <Link href="/contact-us">Contacts</Link>
