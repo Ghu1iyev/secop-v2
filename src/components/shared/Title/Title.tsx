@@ -11,7 +11,7 @@ const Title = ({ title, subtitle, fontSize }: SectionHeaderProps) => {
     <div className="flex flex-col gap-6 ">
       <h4 className="text-[16px] md:text-[20px] font-normal leading-3 text-[#B0B0B0]">{title} </h4>
       <p
-        className={`s:text-[25px] font-vesber text-[#fff] ${fontSize}`}
+        className={`font-vesber text-[#fff] ${fontSize}`}
       >
         {subtitle}{" "}
       </p>
