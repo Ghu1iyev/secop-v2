@@ -12,21 +12,12 @@ type PartnerProps = {
   }[];
 };
 const PartnersSlider = () => {
-  const { data, isLoading, isError } = useQuery<PartnerProps>({
+  const { data } = useQuery<PartnerProps>({
     queryKey: ["corporation"],
     queryFn: () => GetApi("/corporation/"),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
-
-  if (isLoading) {
-    return <p className="text-center mt-5">Yüklənir...</p>;
-  }
-
-  if (isError) {
-    return <p className="text-center text-red-500 mt-5">Xəta baş verdi.</p>;
-  }
-
   return (
     <section className="pt-[80px] sm:pb-[80px]">
       <Swiper

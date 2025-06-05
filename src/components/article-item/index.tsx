@@ -3,8 +3,8 @@ import React from "react";
 
 const ArticleItem = () => {
   return (
-    <div className="border-b py-[30px] flex gap-[24px] items-center border-b-[#424242] ">
-      <div className="relative w-[93px] h-[96px] overflow-hidden rounded-[10px]">
+    <div className="border-b py-[20px] sm:py-[30px] flex gap-[24px] items-center border-b-[#424242] ">
+      <div className="relative flex-none w-[78px] sm:w-[93px]   h-[82px] sm:h-[96px] overflow-hidden rounded-[10px]">
         <Image
         alt=""
         fill
@@ -15,9 +15,9 @@ const ArticleItem = () => {
       />
       </div>
       <div>
-        <p className="text-[18px] font-monda text-[#fff]">Time to read : 3 min</p>
-        <p className="text-[15px] font-monda text-[#B0B0B0]">Audits & Compliance</p>
-        <h3 className="mt-[20px] text-[22px] font-vesber overflow-hidden whitespace-nowrap text-ellipsis">The Role of AI in Next-Gen Security Operations</h3>
+        <p className="text-[13px] sm:text-[18px] font-monda text-[#fff]">Time to read : 3 min</p>
+        <p className="text-[14px] sm:text-[15px] font-monda text-[#B0B0B0]">Audits & Compliance</p>
+        <h3 className="mt-[18px] sm:mt-[20px] text-[16px] sm:text-[22px] font-vesber sm:overflow-hidden sm:whitespace-nowrap sm:text-ellipsis">The Role of AI in Next-Gen Security Operations</h3>
       </div>
     </div>
   );
