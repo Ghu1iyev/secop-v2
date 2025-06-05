@@ -3,12 +3,12 @@ import Title from "@/components/shared/Title/Title";
 import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 
-type ProjectDetailProps = {
-  params: { slug: string };
-};
-
-export default async function ProjectDetail({ params }: ProjectDetailProps) {
-  const { slug } = params;
+export default async function ProjectDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
   return (
     <div className="container">
