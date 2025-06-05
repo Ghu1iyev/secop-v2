@@ -7,11 +7,14 @@ import Certificates from './certificates'
 import Blogs from './blogs'
 import CompanySwiper from '../swiper/company-swiper'
 import PartnersSlider from '../swiper/partners-slider'
+import OurTeams from './our-team'
+import HomeBanner from './home-banner'
 
 
 const Home = () => {
   return (
     <div className="container">
+      <HomeBanner />
       <AboutUs />
       <PartnersSlider />
       <OurProjects />
@@ -19,8 +22,8 @@ const Home = () => {
       <Marquee />
       <CompanySwiper />
       <Certificates />
+      <OurTeams />
       <Blogs />
-      {/* <OurTeam /> */}
     </div>
   );
 };

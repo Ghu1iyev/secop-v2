@@ -1,18 +1,16 @@
 .mySwiper-tech-info{
     position: unset !important;
     .swiper-button-next, .swiper-button-prev{
-        top: 35px;
-        background-color: #121212;
-        border: 1px solid #2A2A2A;
-        border-radius: 100%;
-        width: 40px;
-        height: 40px;
+        @apply top-[35px] bg-[#121212] border border-[#2A2A2A] rounded-full w-[35px] h-[35px] sm:w-[40px] sm:h-[40px];
         &::after{
             color: #fff;
             font-size: 13px;
         }
     }
+    .swiper-button-prev{
+        @apply left-0;
+    }
     .swiper-button-next{
-        left: 150px;
+        @apply left-[140px] sm:left-[150px];
     }
 }

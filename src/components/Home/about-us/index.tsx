@@ -1,23 +1,25 @@
 import Button from "@/components/Button";
+import Title from "@/components/shared/Title/Title";
 import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className="grid grid-cols-2 gap-[100px] items-center py-[80px] mt-[80px]">
+    <section className="grid grid-cols-1 md:grid-cols-2 md:gap-[100px] items-center sm:py-[80px] mt-[80px]">
       <div>
-        <h4 className="font-monda text-[#B0B0B0] text-[20px]">About Us</h4>
-        <h3 className="text-[#fff] font-vesber text-[48px] leading-[54px] mt-[24px]">
-          Cyber threats evolve, and so do we — to keep your digital assets safe.
-        </h3>
+        <Title
+          title="About Us"
+          subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."
+          fontSize="md:text-[48px]"
+        />
       </div>
       <div>
-        <p className="text-[#B0B0B0] text-[20px] leading-[34px] mb-[38px]">
+        <p className="text-[#B0B0B0] text-[15px] sm:text-[20px] leading-[34px] mb-[32px] sm:mb-[38px]">
           At SECOP, we design and secure digital infrastructures with precision
           and purpose. Our team combines deep technical expertise with a passion
           for cybersecurity, helping businesses stay safe in an ever-evolving
           digital world. Security isn’t just what we do — it’s who we are.
         </p>
-         <Button text="Learn About Us" url="about-us" />
+        <Button text="Learn About Us" url="about-us" />
       </div>
     </section>
   );

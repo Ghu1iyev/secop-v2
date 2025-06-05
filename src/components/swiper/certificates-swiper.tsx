@@ -3,8 +3,23 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { GetApi } from "@/lib/axios";
 
+type CertificateProps = {
+  results: {
+    image: string;
+    name: string;
+  }[];
+};
 const CertificateSwiper = () => {
+  const { data } = useQuery<CertificateProps>({
+    queryKey: ["certificates"],
+    queryFn: () => GetApi("/certificates/"),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
   return (
     <>
       <Swiper
@@ -34,114 +49,20 @@ const CertificateSwiper = () => {
         loop={true}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
-            <Image
-              alt=""
-              src="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              blurDataURL="/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg"
-              fill
-              placeholder="blur"
-            />
-          </div>
-          <p className="font-monda mt-[24px] text-[#fff]">Certified Ethical Hacker (CEH)</p>
-        </SwiperSlide>
+        {data?.results?.map((d, i: number) => (
+          <SwiperSlide key={i}>
+            <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
+              <Image
+                alt={d?.name}
+                src={d?.image || ""}
+                blurDataURL={d?.image || ""}
+                fill
+                placeholder="blur"
+              />
+            </div>
+            <p className="font-monda mt-[24px] text-[#fff]">{d?.name}</p>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

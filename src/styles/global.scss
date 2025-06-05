@@ -16,6 +16,16 @@
   }
 }
 
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+
 body {
   color: var(--foreground) !important;
   font-family: Arial, Helvetica, sans-serif;
@@ -28,5 +38,7 @@ body {
 }
 
 .container {
-  @apply max-w-[1440px] px-[32px] m-auto;
+  @apply max-w-[1440px] px-[16px] sm:px-[32px] m-auto;
 }
+
+
