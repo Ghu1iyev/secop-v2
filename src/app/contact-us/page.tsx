@@ -21,12 +21,12 @@ const ContactUs = () => {
   });
   return (
     <main className="container">
-      <div className="mt-20">
+      <div className="mt-20 lg:w-[990px]">
         <Title
           title="Contact Us"
+          fontSize="text-[20px] sm:text-[48px]"
           subtitle="Drop us a message — we’ll get back shortly."
         />
-      </div>
       <p
         className="
       text-[#B0B0B0] text-[20px] font-monda leading-[35px] mt-[40px]"
@@ -35,8 +35,9 @@ const ContactUs = () => {
         the form below and let us know how we can help. Our team will get back
         to you shortly with the information or support you need.
       </p>
+      </div>
       <form
-        className="my-[80px] w-[675px]"
+        className="my-[80px] lg:w-[675px]"
         onSubmit={form.onSubmit((values) => console.log(values))}
       >
         <TextInput
@@ -71,7 +72,7 @@ const ContactUs = () => {
           key={form.key("name")}
           {...form.getInputProps("name")}
         />
-        <button className="mt-[50px] border border-[#fff] w-full rounded-[12px] text-center  justify-center flex gap-[16px] text-[20px] font-monda py-[20px] items-center text-[#fff]">
+        <button className="mt-[50px] border border-[#fff] w-full rounded-[12px] text-center  justify-center flex gap-[16px] text-[20px] font-monda py-[12px] sm:py-[20px] items-center text-[#fff]">
           Send your message <IoMdArrowForward />
         </button>
       </form>
