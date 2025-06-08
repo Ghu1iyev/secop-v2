@@ -8,10 +8,11 @@ import PartnersSlider from "@/components/swiper/partners-slider";
 const Aboutpage = () => {
   return (
     <div className="container">
-      <div className="mt-20 lg:w-[40%]">
+      <div className="mt-20 xl:w-[54%] w-full ">
         <Title
           title="About Us"
           subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."
+          fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
       </div>
       <div className=" flex flex-col gap-7 lg:flex-row my-10 lg:gap-36 lg:my-20 ">

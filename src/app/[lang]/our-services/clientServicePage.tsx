@@ -1,7 +1,7 @@
 import Title from "@/components/shared/Title/Title";
 import React from "react";
 
-const OurServices = () => {
+const ClientOurServices = () => {
   return (
     <main className="container">
       <div className="mt-20">
@@ -53,4 +53,4 @@ const OurServices = () => {
   );
 };
 
-export default OurServices;
+export default ClientOurServices;

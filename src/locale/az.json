@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Ana Səhifə",
+    "welcome": "Xoş gəldiniz"
+  },
+  "navbar": {
+    "home": "Ana Səhifə",
+    "products": "Məhsullar"
+  }
+}

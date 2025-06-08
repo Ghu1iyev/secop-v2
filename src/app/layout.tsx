@@ -10,6 +10,7 @@ import Footer from "@/layout/Footer";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { LanguageProvider } from "@/context/LanguageProvider";
 
 const queryClient = new QueryClient();
 
@@ -21,13 +22,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` antialiased`}>
-        <QueryClientProvider client={queryClient}>
-          <MantineProvider>
-            <Header />
-            {children}
-            <Footer />
-          </MantineProvider>
-        </QueryClientProvider>
+        <LanguageProvider>
+          <QueryClientProvider client={queryClient}>
+            <MantineProvider>
+              <Header />
+              {children}
+              <Footer />
+            </MantineProvider>
+          </QueryClientProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
