@@ -1,14 +1,21 @@
 "use client";
-import Link from "next/link";
-import MobileVersion from "./mobile";
-import { Select } from "@mantine/core";
 import React, { useState } from "react";
+import Link from "next/link";
+import { Select } from "@mantine/core";
 import { IoIosArrowDown } from "react-icons/io";
 import { LogoIcon, MenuIcon } from "../../../public/assets/images/vector";
+import MobileVersion from "./mobile";
+import { useLanguage } from "@/context/LanguageProvider";
+import { useRouter, usePathname } from "next/navigation";
+import { useTranslation } from "@/utils/i18n";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+
+  const { language, setLanguage } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleOpenMenu = () => {
     setIsMenuOpen(true);
@@ -23,12 +30,34 @@ export default function Header() {
     }, 300);
   };
 
+  const handleLanguageChange = (value: string | null) => {
+    if (!value) return;
+
+    const newLang = value === "AZE" ? "az" : "en";
+    if (newLang !== language) {
+      setLanguage(newLang);
+
+      const segments = pathname.split("/").filter(Boolean);
+      if (segments.length > 0 && (segments[0] === "az" || segments[0] === "en")) {
+        segments[0] = newLang;
+      } else {
+        segments.unshift(newLang);
+      }
+
+      const newPath = "/" + segments.join("/");
+      router.push(newPath);
+    }
+  };
+
+    const { t } = useTranslation();
+
+
   return (
     <>
       {!isMenuOpen && (
         <header className="container pt-16 flex justify-between items-center">
           <div>
-            <Link href={"/"}>
+            <Link href={`/${language}`}>
               <LogoIcon className="w-24 md:w-28 lg:w-[137px]" />
             </Link>
           </div>
@@ -37,49 +66,43 @@ export default function Header() {
             <nav>
               <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg  font-semibold text-[#B0B0B099]">
                 <li>
-                  <Link href={"/about"}>About Us</Link>
+                  <Link href={`/${language}/about`}>{t('home.title')}</Link>
                 </li>
                 <li>
-                  <Link href={"/project"}>Projects</Link>
+                  <Link href={`/${language}/project`}>Projects</Link>
                 </li>
                 <li>
-                  <Link href={"/our-services"}>Services</Link>
+                  <Link href={`/${language}/our-services`}>Services</Link>
                 </li>
                 <li>
-                  <Link href={"/blog"}>Blog</Link>
+                  <Link href={`/${language}/blog`}>Blog</Link>
                 </li>
                 <li>
-                  <Link href="/contact-us">Contacts</Link>
+                  <Link href={`/${language}/contact-us`}>Contacts</Link>
                 </li>
               </ul>
             </nav>
 
             <div className="flex items-center">
               <Select
-                placeholder="ENG"
+                placeholder="Language"
+                value={language === "az" ? "AZE" : "ENG"}
+                onChange={handleLanguageChange}
                 data={["AZE", "ENG"]}
                 rightSection={
                   <IoIosArrowDown size={16} className="text-white" />
                 }
-                classNames={{
-                  dropdown: "custom-dropdown",
-                }}
                 styles={{
                   input: {
                     width: "100px",
-                    fontFamily: "Monda",
-                    height: "46px",
                     backgroundColor: "#121212CC",
-                    borderColor: "#2A2A2A",
                     color: "#B0B0B0",
                     fontWeight: 600,
-                    lineHeight: "30px",
                     fontSize: "1.25rem",
                     borderRadius: "0.75rem",
                   },
                   dropdown: {
                     backgroundColor: "#1F1F1F",
-                    borderColor: "#2A2A2A",
                   },
                 }}
               />

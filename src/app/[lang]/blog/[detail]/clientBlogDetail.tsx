@@ -3,7 +3,7 @@ import ArticleItem from "@/components/article-item";
 import { ScrollArea } from "@mantine/core";
 import classes from "../blog.module.scss";
 
-const BlogDetail = () => {
+const ClientBlogDetail = () => {
   return (
     <main className="container">
       <h1 className="text-[48px] mb-[60px] font-vesber text-center mt-[80px]">
@@ -69,4 +69,4 @@ const BlogDetail = () => {
   );
 };
 
-export default BlogDetail;
+export default ClientBlogDetail;

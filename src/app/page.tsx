@@ -1,12 +1,5 @@
-import Home from '@/components/Home'
-import React from 'react'
+import { redirect } from "next/navigation";
 
-const Main = () => {
-  return (
-    <main>
-      <Home />
-    </main>
-  )
+export default function Home() {
+  redirect("/az");
 }
-
-export default Main
