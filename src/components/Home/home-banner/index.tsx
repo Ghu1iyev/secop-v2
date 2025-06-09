@@ -9,7 +9,7 @@ const HomeBanner = () => {
         <p>UR PRIORITY</p>
       </div>
       <Image
-        src="/assets/images/jpg/secop-image.jpg"
+        src="/assets/images/jpg/secop.jpg"
         blurDataURL="/assets/images/jpg/secop-image.jpg"
         objectFit="cover"
         fill

@@ -1,10 +1,44 @@
 {
-  "home": {
-    "title": "Home",
-    "welcome": "Welcome"
-  },
+ 
   "navbar": {
-    "home": "Home",
-    "products": "Products"
+    "home":"Home",
+    "about us": "About us",
+    "projects": "Projects",
+    "services": "Services",
+    "blog": "Blog",
+    "contacts": "Contacts"
+  },
+
+
+  "footer":{
+    "letsTalk": "Let’s Talk.",
+      "company": "Company",
+      "navigation": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "team": "Team",
+        "partners": "Partners",
+        "contacts": "Contacts",
+        "certificates": "Certificates",
+        "teamCertificates": "TEAM Certificates",
+        "ourCertificates": "Our Certificates",
+        "services": "Services",
+        "projects": "Projects",
+        "blog": "Blog"
+      },
+        "social": {
+          "linkedin": "LinkedIn",
+          "instagram": "Instagram",
+          "youtube": "YouTube",
+          "dribbble": "Dribbble"
+        },
+        "legal": {
+          "secop": "SECOP",
+          "copyright": "© 2025. All rights are protected.",
+          "terms": "Terms",
+          "sitemap": "Sitemap"
+        }
+
   }
+
 }

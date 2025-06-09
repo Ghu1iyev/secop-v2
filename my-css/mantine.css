@@ -1,0 +1,14 @@
+.form-input .mantine-InputWrapper-description {
+  font-family: "Monda", sans-serif;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #fff;
+}
+.form-input .mantine-Input-wrapper input {
+  background: none;
+  color: #fff;
+}
+
+.custom-dropdown .mantine-Select-options div .mantine-Select-option:hover {
+  color: #000 !important;
+}

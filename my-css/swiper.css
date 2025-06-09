@@ -1,0 +1,16 @@
+.mySwiper-tech-info {
+  position: unset !important;
+}
+.mySwiper-tech-info .swiper-button-next, .mySwiper-tech-info .swiper-button-prev {
+  @apply top-[35px] bg-[#121212] border border-[#2A2A2A] rounded-full w-[35px] h-[35px] sm:w-[40px] sm:h-[40px];
+}
+.mySwiper-tech-info .swiper-button-next::after, .mySwiper-tech-info .swiper-button-prev::after {
+  color: #fff;
+  font-size: 13px;
+}
+.mySwiper-tech-info .swiper-button-prev {
+  @apply left-0;
+}
+.mySwiper-tech-info .swiper-button-next {
+  @apply left-[140px] sm:left-[150px];
+}

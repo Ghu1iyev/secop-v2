@@ -1,13 +1,17 @@
 "use client";
-import React, { useState } from "react";
 import Link from "next/link";
-import { Select } from "@mantine/core";
-import { IoIosArrowDown } from "react-icons/io";
-import { LogoIcon, MenuIcon } from "../../../public/assets/images/vector";
 import MobileVersion from "./mobile";
-import { useLanguage } from "@/context/LanguageProvider";
-import { useRouter, usePathname } from "next/navigation";
+import { Select } from "@mantine/core";
+import React, { useState } from "react";
 import { useTranslation } from "@/utils/i18n";
+import { IoIosArrowDown } from "react-icons/io";
+import { useRouter, usePathname } from "next/navigation";
+import { useLanguage } from "@/context/LanguageProvider";
+import {
+  LanguageIcon,
+  LogoIcon,
+  MenuIcon,
+} from "../../../public/assets/images/vector";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +42,10 @@ export default function Header() {
       setLanguage(newLang);
 
       const segments = pathname.split("/").filter(Boolean);
-      if (segments.length > 0 && (segments[0] === "az" || segments[0] === "en")) {
+      if (
+        segments.length > 0 &&
+        (segments[0] === "az" || segments[0] === "en")
+      ) {
         segments[0] = newLang;
       } else {
         segments.unshift(newLang);
@@ -49,8 +56,7 @@ export default function Header() {
     }
   };
 
-    const { t } = useTranslation();
-
+  const { t } = useTranslation();
 
   return (
     <>
@@ -66,19 +72,27 @@ export default function Header() {
             <nav>
               <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg  font-semibold text-[#B0B0B099]">
                 <li>
-                  <Link href={`/${language}/about`}>{t('home.title')}</Link>
+                  <Link href={`/${language}/about`}>
+                    {t("navbar.about us")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href={`/${language}/project`}>Projects</Link>
+                  <Link href={`/${language}/project`}>
+                    {t("navbar.projects")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href={`/${language}/our-services`}>Services</Link>
+                  <Link href={`/${language}/our-services`}>
+                    {t("navbar.services")}
+                  </Link>
                 </li>
                 <li>
-                  <Link href={`/${language}/blog`}>Blog</Link>
+                  <Link href={`/${language}/blog`}>{t("navbar.blog")}</Link>
                 </li>
                 <li>
-                  <Link href={`/${language}/contact-us`}>Contacts</Link>
+                  <Link href={`/${language}/contact-us`}>
+                    {t("navbar.contacts")}
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -109,8 +123,12 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="lg:hidden" onClick={handleOpenMenu}>
-            <MenuIcon />
+          <div className="lg:hidden flex justify-normal items-center gap-2">
+            <LanguageIcon />
+
+            <div onClick={handleOpenMenu}>
+              <MenuIcon />
+            </div>
           </div>
         </header>
       )}
