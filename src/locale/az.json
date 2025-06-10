@@ -24,7 +24,8 @@
       "ourCertificates": "Bizim Sertifikatlarımız",
       "services": "Xidmətlər",
       "projects": "Layihələr",
-      "blog": "Bloq"
+      "blog": "Bloq",
+      "social":"Sosial Media"
     },
     "social": {
       "linkedin": "LinkedIn",
@@ -33,7 +34,6 @@
       "dribbble": "Dribbble"
     },
     "legal": {
-      "secop": "SECOP",
       "copyright": "© 2025. Bütün hüquqlar qorunur.",
       "terms": "Şərtlər",
       "sitemap": "Sayt Xəritəsi"

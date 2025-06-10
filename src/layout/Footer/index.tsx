@@ -1,60 +1,125 @@
+import { useLanguage } from "@/context/LanguageProvider";
+import { useTranslation } from "@/utils/i18n";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 export default function Footer() {
+  const { language, setLanguage } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (value: string | null) => {
+    if (!value) return;
+
+    const newLang = value === "AZE" ? "az" : "en";
+    if (newLang !== language) {
+      setLanguage(newLang);
+
+      const segments = pathname.split("/").filter(Boolean);
+      if (
+        segments.length > 0 &&
+        (segments[0] === "az" || segments[0] === "en")
+      ) {
+        segments[0] = newLang;
+      } else {
+        segments.unshift(newLang);
+      }
+
+      const newPath = "/" + segments.join("/");
+      router.push(newPath);
+    }
+  };
+
+  const { t } = useTranslation();
+
   return (
     <footer className="container pb-20">
       <div className="lg:px-24 mt-20 ">
         <h3 className="text-[#fff] lg:text-[76px] text-5xl font-normal tracking-wider">
-          Let’s Talk.
+          {t("footer.letsTalk")}
         </h3>
       </div>
 
       <div className="flex flex-col gap-[34px] md:flex-row md:justify-between lg:leading-8 leading-6 lg:mt-20 lg:px-24 mt-12 lg:text-base text-sm w-full">
         <div>
-          <p className="text-[#fff] font-semibold lg:pb-5 ">Company</p>
+          <p className="text-[#fff] font-semibold lg:pb-5 ">
+            {t("footer.company")}
+          </p>
           <ul>
             <li className="text-[#B0B0B0 ] hidden lg:block">
-              <Link href={"/"}>Home</Link>
+              <Link href={`/${language}`}>{t("footer.navigation.home")}</Link>
             </li>
             <li className="text-[#B0B0B0]">
-              <Link href={"about"}>About Us</Link>
+              <Link href={`/${language}/about`}>
+                {t("footer.navigation.aboutUs")}
+              </Link>
             </li>
 
             <li className="text-[#B0B0B0]">
-              <Link href={"team"}>Team</Link>
+              <Link href={`/${language}/team`}>
+                {t("footer.navigation.team")}
+              </Link>
             </li>
 
             <li className="text-[#B0B0B0] hidden lg:block">
-              <Link href={"partners"}>Partners</Link>
+              <Link href={`#partnerSlider`}>
+                {t("footer.navigation.partners")}
+              </Link>
             </li>
             <li className="text-[#B0B0B0] hidden lg:block">
-              <Link href={"contacts"}>Contacts</Link>
+              <Link href={`/${language}/contact-us`}>
+                {t("footer.navigation.contacts")}
+              </Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="text-[#fff] font-semibold lg:pb-5 ">Certificates</p>
+          <p className="text-[#fff] font-semibold lg:pb-5 ">
+            {t("footer.navigation.certificates")}
+          </p>
           <ul>
-            <li className="text-[#B0B0B0]"> TEAM Certificates</li>
-            <li className="text-[#B0B0B0]">Our Certificates </li>
+            <li className="text-[#B0B0B0]">
+              <Link href={"#our-certificates"}>
+                {t("footer.navigation.teamCertificates")}
+              </Link>
+            </li>
+            <li className="text-[#B0B0B0]">
+              {t("footer.navigation.ourCertificates")}
+            </li>
           </ul>
         </div>
         <div className="hidden lg:block">
-          <p className="text-[#fff] font-semibold lg:pb-5 ">Services</p>
+          <p className="text-[#fff] font-semibold lg:pb-5 ">
+            {t("footer.navigation.services")}
+          </p>
           <ul>
-            <li className="text-[#B0B0B0]"> Projects</li>
-            <li className="text-[#B0B0B0]">Services</li>
-            <li className="text-[#B0B0B0]">Blog</li>
+            <li className="text-[#B0B0B0]">
+              <Link href={`/${language}/project`}>
+                {t("footer.navigation.projects")}
+              </Link>
+            </li>
+            <li className="text-[#B0B0B0]">
+              <Link href={`/${language}/our-services`}>
+                {t("footer.navigation.services")}
+              </Link>
+            </li>
+            <li className="text-[#B0B0B0]">
+              <Link href={`/${language}/blog`}>
+                {t("footer.navigation.blog")}
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
-          <p className="text-[#fff] font-semibold lg:pb-5 ">Social</p>
+          <p className="text-[#fff] font-semibold lg:pb-5 ">
+            {t("footer.navigation.social")}
+          </p>
           <ul>
-            <li className="text-[#B0B0B0]">LinkedIn</li>
-            <li className="text-[#B0B0B0]">Instagram</li>
-            <li className="text-[#B0B0B0]">YouTube</li>
-            <li className="text-[#B0B0B0]">Dribbble</li>
+            <li className="text-[#B0B0B0]">{t("footer.social.linkedin")}</li>
+            <li className="text-[#B0B0B0]">{t("footer.social.instagram")}</li>
+            <li className="text-[#B0B0B0]">{t("footer.social.youtube")}</li>
+            <li className="text-[#B0B0B0]">{t("footer.social.dribbble")}</li>
           </ul>
         </div>
 
@@ -63,9 +128,11 @@ export default function Footer() {
             <li className="text-[#fff] font-semibold lg:pb-5 ">SECOP</li>
             <div className="flex justify-between flex-col lg:gap-12 gap-7">
               <li className="text-[#B0B0B0]">
-                &copy; {new Date().getFullYear()}. All rights are protected.
+                &copy; {new Date().getFullYear()}.{t("footer.legal.copyright")}.
               </li>
-              <li className="text-[#B0B0B0]">Terms. Sitemap.</li>
+              <li className="text-[#B0B0B0]">
+                {t("footer.legal.terms")}. {t("footer.legal.sitemap")}
+              </li>
             </div>
           </ul>
         </div>

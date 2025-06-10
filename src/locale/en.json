@@ -24,7 +24,8 @@
         "ourCertificates": "Our Certificates",
         "services": "Services",
         "projects": "Projects",
-        "blog": "Blog"
+        "blog": "Blog",
+        "social":"Social"
       },
         "social": {
           "linkedin": "LinkedIn",
@@ -33,7 +34,6 @@
           "dribbble": "Dribbble"
         },
         "legal": {
-          "secop": "SECOP",
           "copyright": "© 2025. All rights are protected.",
           "terms": "Terms",
           "sitemap": "Sitemap"

@@ -4,8 +4,8 @@ import React from "react";
 
 const Certificates = () => {
   return (
-    <section className="md:mt-[80px]">
-      <TitleAnimation title="CERTIFICATES"/>
+    <section className="md:mt-[80px]" id="our-certificates">
+      <TitleAnimation title="CERTIFICATES" />
       <div>
         <CertificateSwiper />
       </div>
