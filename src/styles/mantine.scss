@@ -1,4 +1,4 @@
-.form-input{
+.form-input, .contact-phone-input{
     .mantine-InputWrapper-description{
         font-family: 'Monda', sans-serif;
         font-weight: 500;
@@ -9,10 +9,28 @@
         input{
             background: none;
             color: #fff;
+            &:focus{
+                border: 1px solid #FF7A00 !important;
+            }
         }
     }
 }
 
+.contact-phone-input{
+    .mantine-InputWrapper-description{
+          font-family: 'Monda', sans-serif ;
+        font-weight: 500;
+        margin-bottom: 18px !important;
+        font-size: 17px !important;
+        color: #fff;
+    }
+    .mantine-InputWrapper-error{
+        font-size: 16px !important;
+    }
+    input{
+        background: none !important;
+    }
+}
 .custom-dropdown{
     .mantine-Select-options{
         div{
