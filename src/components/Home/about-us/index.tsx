@@ -1,25 +1,26 @@
-import Button from "@/components/Button";
-import Title from "@/components/shared/Title/Title";
+"use client";
 import React from "react";
+import Button from "@/components/Button";
+import { useTranslation } from "@/utils/i18n";
+import Title from "@/components/shared/Title/Title";
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 md:gap-[100px] items-center sm:py-[80px] mt-[80px]">
       <div>
         <Title
-          title="About Us"
-          subtitle="Cyber threats evolve, and so do we — to keep your digital assets safe."
+          title={t("home.about.title")}
+          subtitle={t("home.about.subtitle")}
           fontSize="md:text-[48px]"
         />
       </div>
       <div>
-        <p className="text-[#B0B0B0] text-[15px] sm:text-[20px] leading-[34px] mb-[32px] sm:mb-[38px]">
-          At SECOP, we design and secure digital infrastructures with precision
-          and purpose. Our team combines deep technical expertise with a passion
-          for cybersecurity, helping businesses stay safe in an ever-evolving
-          digital world. Security isn’t just what we do — it’s who we are.
+        <p className="text-[#B0B0B0] font-monda text-[15px] sm:text-[20px] leading-[34px] mb-[32px] sm:mb-[38px]">
+          {t("home.about.description")}
         </p>
-        <Button text="Learn About Us" url="about-us" />
+        <Button text={t("home.about.button")} url="about-us" />
       </div>
     </section>
   );
