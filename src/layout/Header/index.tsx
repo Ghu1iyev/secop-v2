@@ -17,6 +17,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
+  const [showLanguages, setShowLanguages] = useState(false);
+
+  const toggleLanguageMenu = () => {
+    setShowLanguages((prev) => !prev);
+  };
+
   const { language, setLanguage } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
@@ -124,7 +130,40 @@ export default function Header() {
           </div>
 
           <div className="lg:hidden flex justify-normal items-center gap-2">
-            <LanguageIcon />
+            <div className="relative">
+              <div onClick={toggleLanguageMenu}>
+                <LanguageIcon />
+              </div>
+
+              {showLanguages && (
+                <div className="absolute top-full mt-1 right-0 z-10 w-[90px] flex rounded-xl bg-gradient-to-r from-[#D4D4D466] via-[#28282880] to-[#FF602680] p-[1px]">
+                  <div className="rounded-xl w-[90px] flex items-center flex-col bg-[#2A2A2A] p-2 text-white font-monda">
+                    <p
+                      onClick={() => {
+                        handleLanguageChange("AZE");
+                        setShowLanguages(false);
+                      }}
+                      className={`cursor-pointer ${
+                        language === "az" ? "AZE" : "ENG"
+                      }`}
+                    >
+                      AZE
+                    </p>
+                    <p
+                      onClick={() => {
+                        handleLanguageChange("ENG");
+                        setShowLanguages(false);
+                      }}
+                      className={`cursor-pointer ${
+                        language === "en" ? "AZE" : "ENG"
+                      }`}
+                    >
+                      ENG
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <div onClick={handleOpenMenu}>
               <MenuIcon />
