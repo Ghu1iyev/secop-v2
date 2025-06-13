@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { CancelIcon } from "../../../public/assets/images/vector";
+import { useTranslation } from "@/utils/i18n";
 import { useLanguage } from "@/context/LanguageProvider";
 import { usePathname, useRouter } from "next/navigation";
-import { useTranslation } from "@/utils/i18n";
+import { CancelIcon } from "../../../public/assets/images/vector";
 
 const MobileVersion = ({
   closeMenu,
@@ -77,6 +77,12 @@ const MobileVersion = ({
             <li>
               <Link href={`/${language}/contact-us`}>
                 {t("navbar.contacts")}
+              </Link>
+            </li>
+
+            <li>
+              <Link href={"/"}>
+                <p> {t("navbar.checkWebsite")}</p>
               </Link>
             </li>
           </ul>
