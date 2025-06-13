@@ -19,7 +19,7 @@ const PartnersSlider = () => {
     refetchOnWindowFocus: false,
   });
   return (
-    <section className="pt-[80px] sm:pb-[80px]">
+    <section className="pt-[80px] sm:pb-[80px]" id="partnerSlider">
       <Swiper
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         slidesPerView={7}

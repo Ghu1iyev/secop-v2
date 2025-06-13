@@ -1,10 +1,82 @@
 {
-  "home": {
-    "title": "Ana Səhifə",
-    "welcome": "Xoş gəldiniz"
-  },
+  
   "navbar": {
-    "home": "Ana Səhifə",
-    "products": "Məhsullar"
+    "home":"Ana Səhifə",
+    "about us": "Haqqımızda",
+    "projects": "Layihələr",
+    "services": "Xidmətlər",
+    "blog": "Bloq",
+    "contacts": "Əlaqə"
+  },
+
+  
+  "footer":{
+    "letsTalk": "Gəlin danışaq.",
+    "company": "Şirkət",
+    "navigation": {
+      "home": "Ana Səhifə",
+      "aboutUs": "Haqqımızda",
+      "team": "Komanda",
+      "partners": "Tərəfdaşlar",
+      "contacts": "Əlaqə",
+      "certificates": "Sertifikatlar",
+      "teamCertificates": "Komanda Sertifikatları",
+      "ourCertificates": "Bizim Sertifikatlarımız",
+      "services": "Xidmətlər",
+      "projects": "Layihələr",
+      "blog": "Bloq",
+      "social":"Sosial Media"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "dribbble": "Dribbble"
+    },
+    "legal": {
+      "copyright": "© 2025. Bütün hüquqlar qorunur.",
+      "terms": "Şərtlər",
+      "sitemap": "Sayt Xəritəsi"
+    }
+  },
+
+
+  "home":{
+    "banner":{
+      "security_priority": "SƏNİN TƏHLÜKƏSİZLİYİN SƏNİN PRİORİTETİNDİR"
+    },
+    "about":{
+      "title": "Haqqımızda",
+      "subtitle": "Kibertəhlükələr inkişaf edir, biz də inkişaf edirik — sizin rəqəmsal məlumatlarınızı qorumaq üçün.",
+      "description": "SECOP olaraq biz rəqəmsal infrastrukturun dizaynını və təhlükəsizliyini dəqiqlik və məqsədyönlülüklə həyata keçiririk. Komandamız dərin texniki biliklərlə kibertəhlükəsizlik ehtirasını birləşdirərək bizneslərin daim dəyişən rəqəmsal dünyada təhlükəsiz qalmasına kömək edir. Təhlükəsizlik bizim üçün sadəcə iş deyil — bu, bizim kimliyimizdir.",
+      "button": "Daha ətraflı"
+    },
+    "projects": {
+    "seeAll": "Bütün layihələrə bax"
+  },
+   "services": {
+    "title": "Xidmətlər",
+    "subtitle": "Biz sizin rəqəmsal mövcudluğunuzu gücləndirmək üçün müasir dizayn, inkişaf və brendinq həlləri təqdim edirik.",
+    "description": "Biz rəqəmsal dünyada biznesinizin fərqlənməsi üçün yaradıcı və müasir dizayn həlləri təklif edirik. İstifadəçi yönümlü məhsullar hazırlayaraq real dəyər yaradırıq. Məqsədimiz cəlbedici, funksional və miqyaslana bilən rəqəmsal təcrübələr qurmaqdır. İstər yeni bir startup başladın, istərsə də brendinizi böyüdün — biz sizin vizyonunuza dəstək olmaq üçün buradayıq.",
+    "button": "Xidmətlərimizə bax"
+  },
+  "certificates": {
+    "title": "SERTİFİKATLAR"
+  },
+
+
+  "team": {
+    "title": "Komandamızla Tanış Olun",
+    "subtitle": "Hər bir təhlükəsiz sistemin arxasında bizimki kimi bir komanda dayanır — innovasiya ilə irəliləyən, etibar üzərində qurulan və sizin təhlükəsizliyinizə fokuslanan."
+  },
+
+  "blogs": {
+    "title": "Bloqlar",
+    "subtitle": "Birləşmiş dünyada təhlükəsiz qalmaq üçün sizi biliklə gücləndiririk."
   }
+
+
+    
+  }
+  
 }

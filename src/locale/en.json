@@ -1,10 +1,79 @@
 {
-  "home": {
-    "title": "Home",
-    "welcome": "Welcome"
-  },
+ 
   "navbar": {
-    "home": "Home",
-    "products": "Products"
+    "home":"Home",
+    "about us": "About us",
+    "projects": "Projects",
+    "services": "Services",
+    "blog": "Blog",
+    "contacts": "Contacts"
+  },
+
+
+  "footer":{
+    "letsTalk": "Let’s Talk.",
+      "company": "Company",
+      "navigation": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "team": "Team",
+        "partners": "Partners",
+        "contacts": "Contacts",
+        "certificates": "Certificates",
+        "teamCertificates": "TEAM Certificates",
+        "ourCertificates": "Our Certificates",
+        "services": "Services",
+        "projects": "Projects",
+        "blog": "Blog",
+        "social":"Social"
+      },
+        "social": {
+          "linkedin": "LinkedIn",
+          "instagram": "Instagram",
+          "youtube": "YouTube",
+          "dribbble": "Dribbble"
+        },
+        "legal": {
+          "copyright": "© 2025. All rights are protected.",
+          "terms": "Terms",
+          "sitemap": "Sitemap"
+        }
+
+  },
+
+
+
+  "home":{
+    "banner":{
+     "security_priority": "YOUR SECURITY IS YOUR PRIORITY"
+    },
+    "about": {
+    "title": "About Us",
+    "subtitle": "Cyber threats evolve, and so do we — to keep your digital assets safe.",
+    "description": "At SECOP, we design and secure digital infrastructures with precision and purpose. Our team combines deep technical expertise with a passion for cybersecurity, helping businesses stay safe in an ever-evolving digital world. Security isn’t just what we do — it’s who we are.",
+    "button": "Learn About Us"
+  },
+  "projects": {
+    "seeAll": "See All Projects"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "We provide modern design, development, and branding solutions tailored to elevate your digital presence.",
+    "description": "We offer creative and modern design solutions to help your business stand out in the digital world. We craft user-centered products that deliver real value. Our goal is to build engaging, functional, and scalable digital experiences. Whether you're launching a startup or growing your brand, we're here to support your vision.",
+    "button": "See Our Services"
+  },
+  
+  "certificates": {
+    "title": "CERTIFICATES"
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "subtitle": "Behind every secure system is a team like ours — driven by innovation, built on trust, and focused on your protection."
+  },
+
+  "blogs": {
+    "title": "Blogs",
+    "subtitle": "Empowering you with knowledge to stay safe in a connected world."
+  }
   }
 }
