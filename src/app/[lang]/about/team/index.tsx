@@ -93,10 +93,10 @@ const Team = () => {
       >
         {teamData.map((member, index) => (
           <SwiperSlide key={index}>
-            <div className="mt-20 group transition-all duration-300">
+            <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
               <div className="h-full">
                 <Image
-                  className="rounded-xl object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="rounded-xl object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300"
                   alt={member.name}
                   width={326}
                   height={412}

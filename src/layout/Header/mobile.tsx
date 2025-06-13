@@ -1,6 +1,9 @@
 import React from "react";
-import { CancelIcon } from "../../../public/assets/images/vector";
 import Link from "next/link";
+import { CancelIcon } from "../../../public/assets/images/vector";
+import { useLanguage } from "@/context/LanguageProvider";
+import { usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "@/utils/i18n";
 
 const MobileVersion = ({
   closeMenu,
@@ -9,9 +12,37 @@ const MobileVersion = ({
   closeMenu: () => void;
   isClosing: boolean;
 }) => {
+  const { language, setLanguage } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (value: string | null) => {
+    if (!value) return;
+
+    const newLang = value === "AZE" ? "az" : "en";
+    if (newLang !== language) {
+      setLanguage(newLang);
+
+      const segments = pathname.split("/").filter(Boolean);
+      if (
+        segments.length > 0 &&
+        (segments[0] === "az" || segments[0] === "en")
+      ) {
+        segments[0] = newLang;
+      } else {
+        segments.unshift(newLang);
+      }
+
+      const newPath = "/" + segments.join("/");
+      router.push(newPath);
+    }
+  };
+
+  const { t } = useTranslation();
+
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-full z-50 bg-white text-[#1E1E1E] p-10 pt-16 font-monda transition-transform duration-300 ease-in-out
+      className={`fixed top-0 left-0 w-full h-full z-50 bg-white text-[#1E1E1E] p-10 pt-16 font-monda transition-transform duration-300 ease-in-out 
         ${isClosing ? "animate-slide-left-out" : "animate-slide-left"}`}
     >
       <div className="flex justify-end">
@@ -25,32 +56,32 @@ const MobileVersion = ({
         <nav className="mt-8 text-base font-semibold tracking-tighter leading-8">
           <ul className="space-y-2">
             <li>
-              <Link href={"/"}>Home</Link>
+              <Link href={`/${language}`}>{t("navbar.home")}</Link>
             </li>
             <li>
-              <Link href={"/blog"}>Blog</Link>
+              <Link href={`/${language}/about`}>{t("navbar.about us")}</Link>
+            </li>
+            <li>
+              <Link href={`/${language}/out-services`}>
+                {t("navbar.services")}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${language}/project`}>{t("navbar.projects")}</Link>
             </li>
 
             <li>
-              <Link href={"/about"}>About Us</Link>
+              <Link href={`/${language}/blog`}>{t("navbar.blog")}</Link>
             </li>
+
             <li>
-              <Link href={"/project"}>Projects</Link>
-            </li>
-            <li>
-              <Link href={"/our-services"}>Services</Link>
-            </li>
-            <li>
-              <Link href={"/certificates"}>Certificates</Link>
-            </li>
-            <li>
-              <Link href={"/team"}>Team</Link>
-            </li>
-            <li>
-              <Link href="/contact-us">Contacts</Link>
+              <Link href={`/${language}/contact-us`}>
+                {t("navbar.contacts")}
+              </Link>
             </li>
           </ul>
         </nav>
+
         <div className="mt-8 text-sm font-semibold tracking-tighter flex flex-col gap-3">
           <span className="font-medium text-sm leading-4 text-[#B0B0B0]">
             Get in touch

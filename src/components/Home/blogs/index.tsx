@@ -1,16 +1,21 @@
-import Title from "@/components/shared/Title/Title";
-import Link from "next/link";
+"use client";
 import React from "react";
+import Link from "next/link";
 import { IoMdArrowForward } from "react-icons/io";
+import Title from "@/components/shared/Title/Title";
+import { useTranslation } from "@/utils/i18n";
 
 const Blogs = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="pt-[80px]">
       <div className="flex justify-end">
         <div className="w-6/12">
           <Title
-            title="Blogs"
-            subtitle="Empowering you with knowledge to stay safe in a connected world."
+            title={t("home.blogs.title")}
+            subtitle={t("home.blogs.subtitle")}
+            fontSize="md:text-[36px]"
           />
         </div>
       </div>
@@ -26,7 +31,9 @@ const Blogs = () => {
         </div>
         <div className="flex w-full flex-col gap-[20px] md:gap-[40px]">
           <div className="flex flex-col md:flex-row relative justify-between w-full border-t border-t-[#424242] pt-[30px] sm:pt-[40px] item group">
-            <span className="text-[17px] text-[#B0B0B0] hidden md:block font-monda">/ 001</span>
+            <span className="text-[17px] text-[#B0B0B0] hidden md:block font-monda">
+              / 001
+            </span>
             <div>
               <p className="text-[#B0B0B0] md:text-[20px] font-monda text-[16px]">
                 ASU ABDULLA
@@ -41,9 +48,12 @@ const Blogs = () => {
               <li>UX/UI</li>
               <li>Design</li>
             </ul>
-            <Link href='/' className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]">
+            <Link
+              href="/"
+              className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]"
+            >
               Read Article
-              <IoMdArrowForward color="#FF7A00" size={20}/>
+              <IoMdArrowForward color="#FF7A00" size={20} />
             </Link>
             <Link
               className="hidden absolute w-[85px] h-[85px] sm:inline-flex items-center justify-center text-[#fff] bg-[#2A2A2A] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-[#929292] rounded-full opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"
@@ -53,7 +63,9 @@ const Blogs = () => {
             </Link>
           </div>
           <div className="flex flex-col md:flex-row relative justify-between w-full border-t border-t-[#424242] pt-[30px] sm:pt-[40px] item group">
-            <span className="text-[17px] text-[#B0B0B0] hidden md:block font-monda">/ 002</span>
+            <span className="text-[17px] text-[#B0B0B0] hidden md:block font-monda">
+              / 002
+            </span>
             <div>
               <p className="text-[#B0B0B0] md:text-[20px] font-monda text-[16px]">
                 ASU ABDULLA
@@ -68,9 +80,12 @@ const Blogs = () => {
               <li>UX/UI</li>
               <li>Design</li>
             </ul>
-            <Link href='/' className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]">
+            <Link
+              href="/"
+              className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]"
+            >
               Read Article
-              <IoMdArrowForward color="#FF7A00" size={20}/>
+              <IoMdArrowForward color="#FF7A00" size={20} />
             </Link>
             <Link
               className="hidden absolute w-[85px] h-[85px] sm:inline-flex items-center justify-center text-[#fff] bg-[#2A2A2A] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-[#929292] rounded-full opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"

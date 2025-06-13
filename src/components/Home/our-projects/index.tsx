@@ -3,11 +3,13 @@ import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
+import { useTranslation } from "@/utils/i18n";
 
 const OurProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { t } = useTranslation();
 
   const slides = [
     {
@@ -77,7 +79,9 @@ const OurProjects = () => {
           <div className="absolute top-[45%] lg:top-[40%] right-0 lg:right-[32px] z-40">
             <div className=" flex-col items-end gap-2">
               <div className="text-right">
-                <div className="text-[17px] text-[#B0B0B0] font-monda mb-[10px]">{currentSlide + 1}</div>
+                <div className="text-[17px] text-[#B0B0B0] font-monda mb-[10px]">
+                  {currentSlide + 1}
+                </div>
               </div>
               <div className="w-1 h-32 bg-white/20 rounded-full overflow-hidden">
                 <div
@@ -96,7 +100,7 @@ const OurProjects = () => {
             </div>
           </div>
 
-          <div> 
+          <div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] lg:gap-16 items-center">
               <div className="relative">
                 <div className="bg-[#2A2A2A] p-[20px] lg:p-[48px] rounded-[30px] w-full h-[350px] lg:h-[635px]">
@@ -145,10 +149,9 @@ const OurProjects = () => {
                   </motion.div>
                 </AnimatePresence>
                 <div className="mt-[38px]">
-                <Button text="See All Project" url="/" />
+                  <Button text={t("home.projects.seeAll")} url="/" />
+                </div>
               </div>
-              </div>
-              
             </div>
           </div>
         </div>
