@@ -1,5 +1,4 @@
 import React from "react";
-import ArticleItem from "@/components/article-item";
 import { ScrollArea } from "@mantine/core";
 import classes from "../blog.module.scss";
 
@@ -38,6 +37,7 @@ const ClientBlogDetail = () => {
         </div>
         <div className="w-full mb-[150px] flex flex-col">
           <ScrollArea classNames={classes} h={850}>
+            {/* <ArticleItem />
             <ArticleItem />
             <ArticleItem />
             <ArticleItem />
@@ -60,8 +60,7 @@ const ClientBlogDetail = () => {
             <ArticleItem />
             <ArticleItem />
             <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
+            <ArticleItem /> */}
           </ScrollArea>
         </div>
       </div>
