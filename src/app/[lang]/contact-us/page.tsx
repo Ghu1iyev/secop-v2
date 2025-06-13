@@ -39,8 +39,6 @@ const ContactUs = () => {
       phone: (value) =>
         value.trim() === ""
           ? "Telefon nömrəsi boş ola bilməz"
-          : !/^\+?[0-9]{7,15}$/.test(value)
-          ? "Telefon nömrəsi düzgün daxil edilməyib"
           : null,
       message: (value) => (value.trim() === "" ? "Mesaj boş ola bilməz" : null),
     },
@@ -53,6 +51,7 @@ const ContactUs = () => {
     },
     onSuccess: () => {
       toast.success("Mesaj göndərildi");
+      form.reset()
     },
   });
   const handleSubmit = (values: ContactValues) => {
