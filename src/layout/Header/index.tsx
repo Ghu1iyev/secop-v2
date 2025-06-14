@@ -143,7 +143,7 @@ export default function Header() {
                 )}
               </div>
 
-              <Link href={"/"}>
+              <Link href={`/${language}/check-your-website`}>
                 <div className="relative lg:inline-flex items-center gap-2   px-6 py-5 rounded-2xl text-white bg-[#2A2A2A] font-medium border border-transparent transition hidden">
                   <p className="text-xl font-monda leading-5 font-normal z-10">
                     {t("navbar.checkWebsite")}

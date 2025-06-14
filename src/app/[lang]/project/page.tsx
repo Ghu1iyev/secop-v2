@@ -9,10 +9,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
 import CompanySwiper from "@/components/swiper/company-swiper";
-import { useQuery } from "@tanstack/react-query";
-import { GetApi } from "@/lib/axios";
-
-
 
 type ProjectProps = {
   results: {
