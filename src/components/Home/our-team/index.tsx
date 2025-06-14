@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
 import { GetApi } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/context/LanguageProvider";
 
 interface teamTypes {
   results: {
@@ -19,10 +20,11 @@ interface teamTypes {
 }
 const OurTeams = () => {
   const { t } = useTranslation();
+  const {language} = useLanguage()
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { data } = useQuery<teamTypes>({
-    queryKey: ["team"],
-    queryFn: () => GetApi("/team/"),
+    queryKey: ["team", language],
+    queryFn: () => GetApi(`/team/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
