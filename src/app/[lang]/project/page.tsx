@@ -3,9 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { GetApi } from "@/lib/axios";
 import { Autoplay } from "swiper/modules";
-import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
 import CompanySwiper from "@/components/swiper/company-swiper";
