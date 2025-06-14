@@ -6,17 +6,25 @@ import React, { useState } from "react";
 import { useTranslation } from "@/utils/i18n";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
+import { GetApi } from "@/lib/axios";
+import { useQuery } from "@tanstack/react-query";
 
+interface teamTypes {
+  results: {
+    image: string;
+    text: string;
+    position: string;
+    full_name: string;
+  }[];
+}
 const OurTeams = () => {
   const { t } = useTranslation();
-
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const cards = Array(8).fill({
-    title: "Product Designer",
-    description:
-      "Our Product Designer transforms complex security systems into simple, user-friendly interfaces. By blending usability with precision, every design supports both function and trust. Their work ensures our tools are as intuitive as they are secure.",
-    image: "/assets/images/jpg/8a7324733c75c962d29ca33a935286eebf42afac.jpg",
+  const { data } = useQuery<teamTypes>({
+    queryKey: ["team"],
+    queryFn: () => GetApi("/team/"),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
   });
 
   return (
@@ -29,7 +37,7 @@ const OurTeams = () => {
         />
       </div>
       <Swiper spaceBetween={10} slidesPerView={"auto"}>
-        {cards.map((card, index) => (
+        {data?.results?.map((card, index: number) => (
           <SwiperSlide key={index} style={{ width: "auto" }}>
             <div
               className="relative w-[250px] h-[315px] rounded-xl overflow-hidden transition-all duration-500 group hover:w-[600px] hover:h-[320px] flex"
@@ -42,12 +50,18 @@ const OurTeams = () => {
                   hoveredIndex === index ? "w-1/2 rounded-r-none" : "w-full"
                 }`}
               >
-                <Image
-                  src={card.image}
-                  alt="Profile"
-                  fill
-                  className="object-cover"
-                />
+                <div className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <Image
+                    src={card?.image}
+                    alt="Profile"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <p className="absolute bottom-[20px] flex w-full justify-center font-vesber text-[18px] text-white">
+                  {card?.full_name}
+                </p>
               </div>
 
               {/* Right text section */}
@@ -65,7 +79,7 @@ const OurTeams = () => {
                       : "opacity-0 delay-0"
                   }`}
                 >
-                  {card.title}
+                  {card?.position}
                 </h3>
                 <p
                   className={`text-[#B0B0B0] text-[15px] font-monda transition-opacity duration-200 ${
@@ -74,7 +88,7 @@ const OurTeams = () => {
                       : "opacity-0 delay-0"
                   }`}
                 >
-                  {card.description}
+                  {card?.text}
                 </p>
               </div>
             </div>
