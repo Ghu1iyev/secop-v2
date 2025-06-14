@@ -7,17 +7,18 @@ import { useTranslation } from "@/utils/i18n";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ProjectProps } from "@/types/common";
-
+import { useLanguage } from "@/context/LanguageProvider";
 
 const OurProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const { data } = useQuery<ProjectProps>({
-    queryKey: ["projects"],
-    queryFn: () => GetApi("/projects/"),
+    queryKey: ["projects", language],
+    queryFn: () => GetApi(`/projects/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });

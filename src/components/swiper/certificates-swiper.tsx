@@ -5,6 +5,7 @@ import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
+import { useLanguage } from "@/context/LanguageProvider";
 
 type CertificateProps = {
   results: {
@@ -13,9 +14,10 @@ type CertificateProps = {
   }[];
 };
 const CertificateSwiper = () => {
+  const {language} = useLanguage()
   const { data } = useQuery<CertificateProps>({
     queryKey: ["certificates"],
-    queryFn: () => GetApi("/certificates/"),
+    queryFn: () => GetApi(`/certificates/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });

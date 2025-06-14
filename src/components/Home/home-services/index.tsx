@@ -6,7 +6,12 @@ import { useTranslation } from "@/utils/i18n";
 
 const Services = () => {
   const { t } = useTranslation();
-
+  // const {data} = useQuery({
+  //   queryKey: ['services'],
+  //   queryFn: () => GetApi('/services'),
+  //   staleTime: 1000 * 60 * 10,
+  //   refetchOnWindowFocus: false
+  // })
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-[34px] md:gap-[180px] items-start md:mt-[80px]">
       <Title

@@ -7,20 +7,21 @@ import { Tabs } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ArticlesType, CategoryType } from "@/types/common";
+import { useLanguage } from "@/context/LanguageProvider";
 
 
 const Blogs = () => {
   const { t } = useTranslation();
-
+  const {language} = useLanguage()
   const { data: CategoryData } = useQuery<CategoryType>({
-    queryKey: ["article-categories"],
-    queryFn: () => GetApi("/article-categories/"),
+    queryKey: ["article-categories", language],
+    queryFn: () => GetApi(`/article-categories/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
   const { data: Articles } = useQuery<ArticlesType>({
-    queryKey: ["articles"],
-    queryFn: () => GetApi("/articles/"),
+    queryKey: ["articles", language],
+    queryFn: () => GetApi(`/articles/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
