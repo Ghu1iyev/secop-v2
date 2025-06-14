@@ -1,6 +1,14 @@
 import React from "react";
 
+
 const ContactInfo = () => {
+  //  const { data } = useQuery<ContactInfoProps>({
+  //   queryKey: ["articles"],
+  //   queryFn: () => GetApi("/articles/"),
+  //   staleTime: 1000 * 60 * 10,
+  //   refetchOnWindowFocus: false,
+  // });
+
   return (
     <section className="grid justify-between grid-cols-1 md:grid-cols-2 gap-[50px] sm:gap-[100px] sm:mt-[60px]">
       <div>
