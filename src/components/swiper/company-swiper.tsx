@@ -5,14 +5,16 @@ import { Navigation } from 'swiper/modules';
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ClientFeedbackProps } from "@/types/common";
+import { useLanguage } from "@/context/LanguageProvider";
 
 
 
 const CompanySwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const {language} = useLanguage()
    const { data } = useQuery<ClientFeedbackProps>({
     queryKey: ["client-feedback"],
-    queryFn: () => GetApi("/client-feedbacks/"),
+    queryFn: () => GetApi(`/client-feedbacks/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });

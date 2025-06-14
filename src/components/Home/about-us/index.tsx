@@ -6,13 +6,15 @@ import Title from "@/components/shared/Title/Title";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { AboutUsProps } from "@/types/common";
+import { useLanguage } from "@/context/LanguageProvider";
 
 
 const AboutUs = () => {
   const { t } = useTranslation();
+  const {language} = useLanguage()
   const { data } = useQuery<AboutUsProps>({
-    queryKey: ["about"],
-    queryFn: () => GetApi("/about/"),
+    queryKey: ["about", language],
+    queryFn: () => GetApi(`/about/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
