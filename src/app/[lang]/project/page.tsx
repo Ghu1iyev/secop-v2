@@ -12,7 +12,6 @@ import { GetApi } from "@/lib/axios";
 import { useLanguage } from "@/context/LanguageProvider";
 
 
-
 type ProjectProps = {
   results: {
     name: string;

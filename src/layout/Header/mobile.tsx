@@ -55,7 +55,7 @@ const MobileVersion = ({
             </li>
 
             <li>
-              <Link href={"/"}>
+              <Link href={`/${language}/check-your-website`}>
                 <p> {t("navbar.checkWebsite")}</p>
               </Link>
             </li>
