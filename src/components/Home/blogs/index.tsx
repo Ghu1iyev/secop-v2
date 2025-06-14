@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { IoMdArrowForward } from "react-icons/io";
 import Title from "@/components/shared/Title/Title";
 import { useTranslation } from "@/utils/i18n";
 import { Tabs } from "@mantine/core";
@@ -75,16 +74,16 @@ const Blogs = () => {
               <ul className="text-[16px] md:text-[18px] font-monda text-[#B0B0B0] pr-[75px]">
                 <li>{d?.category?.name}</li>
               </ul>
-              <Link
-                href="/"
+              {/* <Link
+                href={d?.slug}
                 className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]"
               >
                 Read Article
                 <IoMdArrowForward color="#FF7A00" size={20} />
-              </Link>
+              </Link> */}
               <Link
                 className="hidden absolute w-[85px] h-[85px] sm:inline-flex items-center justify-center text-[#fff] bg-[#2A2A2A] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-[#929292] rounded-full opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"
-                href="/"
+                href={`/az/blog/${d?.slug}`}
               >
                 View
               </Link>

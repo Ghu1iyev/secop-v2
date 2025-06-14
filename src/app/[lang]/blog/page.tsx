@@ -1,20 +1,14 @@
 "use client";
 import Title from "@/components/shared/Title/Title";
 import React from "react";
-import ArticleItem from "@/components/article-item";
-import { Tabs } from "@mantine/core";
 // import classes from "./blog.module.scss";
 import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
-import { ArticlesType } from "@/types/common";
+import { ArticlesType, CategoriesType } from "@/types/common";
+import BlogCategories from "./blog-category";
 
 
-interface CategoriesType {
-  results: {
-    name: string;
-  }[];
-}
 
 const Blog = () => {
 
@@ -46,38 +40,7 @@ const Blog = () => {
       <div className="pb-[80px]">
         <LatestBlogSlider data={Articles ?? { results: [] }} />
       </div>
-      <Tabs
-        className="blog-categories mt-[80px] mb-[150px]"
-        defaultValue="gallery"
-        orientation="vertical"
-      >
-        <div className="md:w-[20%] mr-[100px] flex-none">
-          <Tabs.List>
-            <h4 className="font-vesber text-[#fff] text-[18px] mb-[24px]">
-              All articles
-            </h4>
-            {categories?.results?.map((d, i: number) => (
-              <Tabs.Tab
-                key={i}
-                value={d?.name?.toLowerCase().replace(/\s+/g, "-")}
-              >
-                {d?.name}
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
-        </div>
-
-        <div className="w-full">
-          {Articles?.results?.map((d, i: number) => (
-            <Tabs.Panel
-              key={i}
-              value={d?.category?.name?.toLowerCase().replace(/\s+/g, "-")}
-            >
-              <ArticleItem data={d} key={i} />
-            </Tabs.Panel>
-          ))}
-        </div>
-      </Tabs>
+      <BlogCategories categories={categories ?? { results: [] }} articles={Articles ?? { results: [] }} />
     </main>
   );
 };
