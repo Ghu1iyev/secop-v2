@@ -3,45 +3,16 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { GetApi } from "@/lib/axios";
 import { Autoplay } from "swiper/modules";
+import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Title from "@/components/shared/Title/Title";
 import CompanySwiper from "@/components/swiper/company-swiper";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 
-// const slidesData = [
-//   {
-//     src: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-//     alt: "Cisco Certified CyberOps Associate",
-//     title: "Cisco Certified CyberOps Associate",
-//     slug: "cyberops",
-//   },
-//   {
-//     src: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-//     alt: "Cisco Certified CyberOps Associate",
-//     title: "Cisco Certified CyberOps Associate",
-//     slug: "cyberops",
-//   },
-//   {
-//     src: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-//     alt: "Cisco Certified CyberOps Associate",
-//     title: "Cisco Certified CyberOps Associate",
-//     slug: "cyberops",
-//   },
-//   {
-//     src: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-//     alt: "Cisco Certified CyberOps Associate",
-//     title: "Cisco Certified CyberOps Associate",
-//     slug: "cyberops",
-//   },
-//   {
-//     src: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-//     alt: "Cisco Certified CyberOps Associate",
-//     title: "Cisco Certified CyberOps Associate",
-//     slug: "cyberops",
-//   },
-// ];
+
 
 type ProjectProps = {
   results: {

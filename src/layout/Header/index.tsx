@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
 import MobileVersion from "./mobile";
-import { Select } from "@mantine/core";
 import React, { useState } from "react";
 import { useTranslation } from "@/utils/i18n";
-import { IoIosArrowDown } from "react-icons/io";
 import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageProvider";
 import {
+  ArrowIcon,
   LanguageIcon,
   LogoIcon,
   MenuIcon,
@@ -68,14 +67,14 @@ export default function Header() {
     <>
       {!isMenuOpen && (
         <header className="container pt-16 flex justify-between items-center">
-          <div>
+          <div className="mr-5">
             <Link href={`/${language}`}>
               <LogoIcon className="w-24 md:w-28 lg:w-[137px]" />
             </Link>
           </div>
 
-          <div className="lg:flex justify-between items-center font-monda lg:gap-24 xl:gap-[136px] hidden">
-            <nav>
+          <div className="lg:flex justify-between items-center font-monda lg:gap-24  ">
+            <nav className="hidden lg:flex">
               <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg  font-semibold text-[#B0B0B099]">
                 <li>
                   <Link href={`/${language}/about`}>
@@ -103,70 +102,68 @@ export default function Header() {
               </ul>
             </nav>
 
-            <div className="flex items-center">
-              <Select
-                placeholder="Language"
-                value={language === "az" ? "AZE" : "ENG"}
-                onChange={handleLanguageChange}
-                data={["AZE", "ENG"]}
-                rightSection={
-                  <IoIosArrowDown size={16} className="text-white" />
-                }
-                styles={{
-                  input: {
-                    width: "100px",
-                    backgroundColor: "#121212CC",
-                    color: "#B0B0B0",
-                    fontWeight: 600,
-                    fontSize: "1.25rem",
-                    borderRadius: "0.75rem",
-                  },
-                  dropdown: {
-                    backgroundColor: "#1F1F1F",
-                  },
-                }}
-              />
-            </div>
-          </div>
+            <div className="flex items-center gap-2 lg:gap-8  ">
+              <div className="relative">
+                <div onClick={toggleLanguageMenu}>
+                  <LanguageIcon />
+                </div>
 
-          <div className="lg:hidden flex justify-normal items-center gap-2">
-            <div className="relative">
-              <div onClick={toggleLanguageMenu}>
-                <LanguageIcon />
+                {showLanguages && (
+                  <div className="absolute top-full mt-1 right-0 z-10 w-[90px] flex rounded-2xl bg-gradient-to-r ">
+                    <div className="rounded-2xl w-[90px] border border-transparent transition flex items-center flex-col bg-[#2A2A2A] p-2 text-white font-monda ">
+                      <p
+                        onClick={() => {
+                          handleLanguageChange("AZE");
+                          setShowLanguages(false);
+                        }}
+                        className={`cursor-pointer text-[#B0B0B099]  z-10 hover:text-white ${
+                          language === "az" ? "AZE" : "ENG"
+                        }`}
+                      >
+                        AZE
+                      </p>
+                      <p
+                        onClick={() => {
+                          handleLanguageChange("ENG");
+                          setShowLanguages(false);
+                        }}
+                        className={`cursor-pointer text-[#B0B0B099]  z-10 hover:text-white ${
+                          language === "en" ? "AZE" : "ENG"
+                        }`}
+                      >
+                        ENG
+                      </p>
+                      <span
+                        className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#2a2a2a] to-[#FF602680] blur-[0.5px]"
+                        aria-hidden="true"
+                      ></span>
+                      <span className="absolute inset-[1px] bg-[#1e1e1e] rounded-2xl"></span>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {showLanguages && (
-                <div className="absolute top-full mt-1 right-0 z-10 w-[90px] flex rounded-xl bg-gradient-to-r from-[#D4D4D466] via-[#28282880] to-[#FF602680] p-[1px]">
-                  <div className="rounded-xl w-[90px] flex items-center flex-col bg-[#2A2A2A] p-2 text-white font-monda">
-                    <p
-                      onClick={() => {
-                        handleLanguageChange("AZE");
-                        setShowLanguages(false);
-                      }}
-                      className={`cursor-pointer ${
-                        language === "az" ? "AZE" : "ENG"
-                      }`}
-                    >
-                      AZE
-                    </p>
-                    <p
-                      onClick={() => {
-                        handleLanguageChange("ENG");
-                        setShowLanguages(false);
-                      }}
-                      className={`cursor-pointer ${
-                        language === "en" ? "AZE" : "ENG"
-                      }`}
-                    >
-                      ENG
-                    </p>
-                  </div>
+              <Link href={"/"}>
+                <div className="relative lg:inline-flex items-center gap-2   px-6 py-5 rounded-2xl text-white bg-[#2A2A2A] font-medium border border-transparent transition hidden">
+                  <p className="text-xl font-monda leading-5 font-normal z-10">
+                    {t("navbar.checkWebsite")}
+                  </p>{" "}
+                  <span className="z-10">
+                    <ArrowIcon />
+                  </span>{" "}
+                  <span
+                    className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#2a2a2a] to-[#FF602680] blur-[0.5px]"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="absolute inset-[1px] bg-[#1e1e1e] rounded-2xl"></span>
                 </div>
-              )}
-            </div>
+              </Link>
 
-            <div onClick={handleOpenMenu}>
-              <MenuIcon />
+              <div className="lg:hidden flex justify-normal items-center gap-2">
+                <div onClick={handleOpenMenu}>
+                  <MenuIcon />
+                </div>
+              </div>
             </div>
           </div>
         </header>
