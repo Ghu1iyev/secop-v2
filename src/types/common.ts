@@ -15,10 +15,11 @@ export interface ArticlesType {
     name: string;
     image: string;
     created_at: string;
+    author: string;
+    slug: string;
     category: {
       name: string;
     };
-    author: string;
   }[];
 }
 
@@ -48,5 +49,21 @@ export interface AboutUsProps {
   results: {
     subtitle_1: string;
     text_1: string;
+  }[];
+}
+
+export interface BlogDetailProps {
+  article: {
+    name: string;
+    text: string;
+    image: string;
+  };
+    related_articles?: ArticlesType["results"];
+
+}
+
+export interface CategoriesType {
+  results: {
+    name: string;
   }[];
 }
