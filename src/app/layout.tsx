@@ -11,6 +11,7 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LanguageProvider } from "@/context/LanguageProvider";
+import ReactToastify from "@/components/ToastContainer";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ export default function RootLayout({
               <Header />
               {children}
               <Footer />
+            <ReactToastify />
             </MantineProvider>
           </QueryClientProvider>
         </LanguageProvider>

@@ -1,11 +1,36 @@
+"use client";
 import Title from "@/components/shared/Title/Title";
 import React from "react";
 import ArticleItem from "@/components/article-item";
-import { ScrollArea } from "@mantine/core";
-import classes from './blog.module.scss';
+import { Tabs } from "@mantine/core";
+// import classes from "./blog.module.scss";
 import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
+import { useQuery } from "@tanstack/react-query";
+import { GetApi } from "@/lib/axios";
+import { ArticlesType } from "@/types/common";
+
+
+interface CategoriesType {
+  results: {
+    name: string;
+  }[];
+}
 
 const Blog = () => {
+
+  const { data: categories } = useQuery<CategoriesType>({
+    queryKey: ["categories"],
+    queryFn: () => GetApi("/article-categories/"),
+    staleTime: 10 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
+  const { data: Articles } = useQuery<ArticlesType>({
+    queryKey: ["articles"],
+    queryFn: () => GetApi("/articles/"),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
   return (
     <main className="container">
       <div className="w-full mb-[40px] sm:mb-0 mt-[40px] lg:w-[990px]">
@@ -19,50 +44,40 @@ const Blog = () => {
         The latest Blogs
       </h4>
       <div className="pb-[80px]">
-      <LatestBlogSlider />
+        <LatestBlogSlider data={Articles ?? { results: [] }} />
       </div>
-      <div className="lg:pt-[80px] flex flex-col lg:flex-row gap-[15px] lg:gap-[140px]">
-        <div className="w-full lg:w-[30%] flex-none">
-          <p className="text-[#fff] text-[20px] font-vesber mb-[16px] sm:mb-[24px]">
-            All articles
-          </p>
-          <ul className="text-[#B0B0B0] text-[14px] sm:text-[20px] font-monda">
-            <li>Cybersecurity</li>
-            <li>UI/UX for Security Tools</li>
-            <li>Network Infrastructure</li>
-            <li>Network Infrastructure</li>
-            <li>Network Infrastructure</li>
-          </ul>
+      <Tabs
+        className="blog-categories mt-[80px] mb-[150px]"
+        defaultValue="gallery"
+        orientation="vertical"
+      >
+        <div className="md:w-[20%] mr-[100px] flex-none">
+          <Tabs.List>
+            <h4 className="font-vesber text-[#fff] text-[18px] mb-[24px]">
+              All articles
+            </h4>
+            {categories?.results?.map((d, i: number) => (
+              <Tabs.Tab
+                key={i}
+                value={d?.name?.toLowerCase().replace(/\s+/g, "-")}
+              >
+                {d?.name}
+              </Tabs.Tab>
+            ))}
+          </Tabs.List>
         </div>
-        <div className="w-full mb-[150px] flex flex-col">
-          <ScrollArea classNames={classes} h={850}>
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-            <ArticleItem />
-          </ScrollArea>
+
+        <div className="w-full">
+          {Articles?.results?.map((d, i: number) => (
+            <Tabs.Panel
+              key={i}
+              value={d?.category?.name?.toLowerCase().replace(/\s+/g, "-")}
+            >
+              <ArticleItem data={d} key={i} />
+            </Tabs.Panel>
+          ))}
         </div>
-      </div>
+      </Tabs>
     </main>
   );
 };

@@ -1,36 +1,10 @@
 import { useLanguage } from "@/context/LanguageProvider";
 import { useTranslation } from "@/utils/i18n";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 export default function Footer() {
-  const { language, setLanguage } = useLanguage();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleLanguageChange = (value: string | null) => {
-    if (!value) return;
-
-    const newLang = value === "AZE" ? "az" : "en";
-    if (newLang !== language) {
-      setLanguage(newLang);
-
-      const segments = pathname.split("/").filter(Boolean);
-      if (
-        segments.length > 0 &&
-        (segments[0] === "az" || segments[0] === "en")
-      ) {
-        segments[0] = newLang;
-      } else {
-        segments.unshift(newLang);
-      }
-
-      const newPath = "/" + segments.join("/");
-      router.push(newPath);
-    }
-  };
-
+  const { language } = useLanguage();
   const { t } = useTranslation();
 
   return (

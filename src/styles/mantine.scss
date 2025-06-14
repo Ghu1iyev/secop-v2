@@ -1,4 +1,4 @@
-.form-input{
+.form-input, .contact-phone-input{
     .mantine-InputWrapper-description{
         font-family: 'Monda', sans-serif;
         font-weight: 500;
@@ -9,10 +9,28 @@
         input{
             background: none;
             color: #fff;
+            &:focus{
+                border: 1px solid #FF7A00 !important;
+            }
         }
     }
 }
 
+.contact-phone-input{
+    .mantine-InputWrapper-description{
+          font-family: 'Monda', sans-serif ;
+        font-weight: 500;
+        margin-bottom: 18px !important;
+        font-size: 17px !important;
+        color: #fff;
+    }
+    .mantine-InputWrapper-error{
+        font-size: 16px !important;
+    }
+    input{
+        background: none !important;
+    }
+}
 .custom-dropdown{
     .mantine-Select-options{
         div{
@@ -22,5 +40,31 @@
             }
            }
         }
+    }
+}
+
+.blog-categories{
+    .mantine-Tabs-list{
+        &::before{
+           position: unset;
+           border: none;
+        }
+        .mantine-focus-auto{
+            @apply p-0 text-[#B0B0B0] mb-[16px] border-none font-monda text-[16px];
+             &:hover{
+                    background: none;
+                    border: none;
+                    color: #FF7A00;
+                }
+                &:focus{
+                    color: #FF7A00;
+                }
+            .mantine-Tabs-tabLabel{
+                text-align: start;
+            }
+        }
+    }
+    .mantine-Tabs-panel{
+        border-top: 1px solid #2A2A2A;
     }
 }
