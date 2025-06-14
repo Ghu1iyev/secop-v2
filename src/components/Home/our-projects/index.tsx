@@ -4,6 +4,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/Button";
 import { useTranslation } from "@/utils/i18n";
+import { useQuery } from "@tanstack/react-query";
+import { GetApi } from "@/lib/axios";
+import { ProjectProps } from "@/types/common";
+
 
 const OurProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,39 +15,18 @@ const OurProjects = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const { t } = useTranslation();
 
-  const slides = [
-    {
-      id: 1,
-      title: "Global reach for effortless expansion",
-      subtitle: "PROTECTION AVAILABLE ANYWHERE",
-      description:
-        "Available at Amazon, eBay, Wayfair, Descartes ShipRush and thousands more stores, Clyde optimizes protection for the global customers of the world's biggest digital retailers.",
-      number: "01",
-      image: "/assets/images/jpg/8a7324733c75c962d29ca33a935286eebf42afac.jpg",
-    },
-    {
-      id: 2,
-      title: "Seamless integration experience",
-      subtitle: "EASY SETUP & MANAGEMENT",
-      description:
-        "Our platform integrates seamlessly with your existing e-commerce stack. From Shopify to custom solutions, we provide APIs and plugins that work with your current workflow.",
-      number: "02",
-      image: "/assets/images/png/ba01947d8756425e65f7cdb33a7b49b58bbf8dc5.jpg",
-    },
-    {
-      id: 3,
-      title: "Customer satisfaction guarantee",
-      subtitle: "TRUSTED BY MILLIONS",
-      description:
-        "Over 95% customer satisfaction rate with lightning-fast claim resolution. Our dedicated support team processes claims in under 24 hours, ensuring your customers stay happy and loyal.",
-      number: "03",
-      image: "/assets/images/png/about.jpg",
-    },
-  ];
+  const { data } = useQuery<ProjectProps>({
+    queryKey: ["projects"],
+    queryFn: () => GetApi("/projects/"),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
+  const slides = data?.results || [];
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || slides.length === 0) return;
 
       const container = containerRef.current;
       const rect = container.getBoundingClientRect();
@@ -71,6 +54,8 @@ const OurProjects = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [slides.length]);
+
+  if (!slides.length) return null;
 
   return (
     <div className=" text-white">
@@ -100,14 +85,14 @@ const OurProjects = () => {
             </div>
           </div>
 
-          <div>
+          <div className="w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] lg:gap-16 items-center">
               <div className="relative">
                 <div className="bg-[#2A2A2A] p-[20px] lg:p-[48px] rounded-[30px] w-full h-[350px] lg:h-[635px]">
                   <div className="relative w-full h-full">
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentSlide}
+                        key={slides[currentSlide]?.id}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
@@ -118,7 +103,7 @@ const OurProjects = () => {
                           fill
                           blurDataURL={slides[currentSlide]?.image}
                           placeholder="blur"
-                          alt=""
+                          alt={slides[currentSlide]?.name || ""}
                           src={slides[currentSlide]?.image}
                           className="object-cover rounded-[20px]"
                         />
@@ -131,20 +116,20 @@ const OurProjects = () => {
               <div className="lg:pr-[55px]">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={currentSlide}
+                    key={slides[currentSlide]?.id}
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5 }}
                   >
                     <h3 className="text-[16px] md:text-[20px] text-[#B0B0B0] font-monda mb-[24px]">
-                      {slides[currentSlide]?.title}
+                      {slides[currentSlide]?.name}
                     </h3>
                     <h4 className="text-[20px] sm:text-[36px] text-[#fff] font-vesber">
-                      {slides[currentSlide]?.subtitle}
+                      {slides[currentSlide]?.list_text}
                     </h4>
                     <p className="text-[#B0B0B0] font-monda text-[15px] mt-[25px] lg:text-[20px]">
-                      {slides[currentSlide]?.description}
+                      {slides[currentSlide]?.detail_text}
                     </p>
                   </motion.div>
                 </AnimatePresence>

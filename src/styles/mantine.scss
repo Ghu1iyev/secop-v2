@@ -42,3 +42,29 @@
         }
     }
 }
+
+.blog-categories{
+    .mantine-Tabs-list{
+        &::before{
+           position: unset;
+           border: none;
+        }
+        .mantine-focus-auto{
+            @apply p-0 text-[#B0B0B0] mb-[16px] border-none font-monda text-[16px];
+             &:hover{
+                    background: none;
+                    border: none;
+                    color: #FF7A00;
+                }
+                &:focus{
+                    color: #FF7A00;
+                }
+            .mantine-Tabs-tabLabel{
+                text-align: start;
+            }
+        }
+    }
+    .mantine-Tabs-panel{
+        border-top: 1px solid #2A2A2A;
+    }
+}

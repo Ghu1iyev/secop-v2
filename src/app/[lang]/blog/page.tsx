@@ -2,33 +2,13 @@
 import Title from "@/components/shared/Title/Title";
 import React from "react";
 import ArticleItem from "@/components/article-item";
-import { ScrollArea, Tabs } from "@mantine/core";
-import classes from "./blog.module.scss";
+import { Tabs } from "@mantine/core";
+// import classes from "./blog.module.scss";
 import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
+import { ArticlesType } from "@/types/common";
 
-const test = [
-  {
-    id: 1,
-    name: "category 1",
-    slug: "category-1"
-  },
-  {
-    id: 2,
-    name: "category 2",
-    slug: "category-2"
-  },
-]
-interface BlogData {
-  results: {
-    image: string;
-    name: string;
-    author: string;
-    created_at: string;
-    category: string;
-  }[];
-}
 
 interface CategoriesType {
   results: {
@@ -37,17 +17,17 @@ interface CategoriesType {
 }
 
 const Blog = () => {
-  const { data } = useQuery<BlogData>({
-    queryKey: ["blogs"],
-    queryFn: () => GetApi("/articles/"),
-    staleTime: 10 * 60 * 1000,
-    refetchOnWindowFocus: false,
-  });
 
   const { data: categories } = useQuery<CategoriesType>({
     queryKey: ["categories"],
     queryFn: () => GetApi("/article-categories/"),
     staleTime: 10 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
+  const { data: Articles } = useQuery<ArticlesType>({
+    queryKey: ["articles"],
+    queryFn: () => GetApi("/articles/"),
+    staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
 
@@ -64,41 +44,39 @@ const Blog = () => {
         The latest Blogs
       </h4>
       <div className="pb-[80px]">
-        <LatestBlogSlider data={data ?? { results: [] }} />
+        <LatestBlogSlider data={Articles ?? { results: [] }} />
       </div>
-      <div className="lg:pt-[80px] flex flex-col lg:flex-row gap-[15px] lg:gap-[140px]">
-        <div className="w-full lg:w-[30%] flex-none">
-          <p className="text-[#fff] text-[20px] font-vesber mb-[16px] sm:mb-[24px]">
-            All articles
-          </p>
-          <ul className="text-[#B0B0B0] text-[14px] sm:text-[20px] font-monda">
+      <Tabs
+        className="blog-categories mt-[80px] mb-[150px]"
+        defaultValue="gallery"
+        orientation="vertical"
+      >
+        <div className="md:w-[20%] mr-[100px] flex-none">
+          <Tabs.List>
+            <h4 className="font-vesber text-[#fff] text-[18px] mb-[24px]">
+              All articles
+            </h4>
             {categories?.results?.map((d, i: number) => (
-              <li key={i}>{d?.name}</li>
+              <Tabs.Tab
+                key={i}
+                value={d?.name?.toLowerCase().replace(/\s+/g, "-")}
+              >
+                {d?.name}
+              </Tabs.Tab>
             ))}
-          </ul>
+          </Tabs.List>
         </div>
-        <div className="w-full mb-[150px] flex flex-col">
-          <ScrollArea classNames={classes} h={850}>
-            {data?.results?.map((d, i: number) => (
-              <ArticleItem data={d} key={i} />
-            ))}
-          </ScrollArea>
-        </div>
-      </div>
-      <Tabs defaultValue="gallery" orientation="vertical">
-        <Tabs.List>
-          {/* <Tabs.Tab value="gallery">Gallery</Tabs.Tab>
-          <Tabs.Tab value="messages">Messages</Tabs.Tab> */}
-          {
-            test?.map((d,i) => ( 
-              <Tabs.Tab key={i} value={d?.slug}>{d?.name}</Tabs.Tab>
-            ))
-          }
-        </Tabs.List>
 
-        <Tabs.Panel value="gallery">Gallery tab content</Tabs.Panel>
-        <Tabs.Panel value="messages">Messages tab content</Tabs.Panel>
-        <Tabs.Panel value="settings">Settings tab content</Tabs.Panel>
+        <div className="w-full">
+          {Articles?.results?.map((d, i: number) => (
+            <Tabs.Panel
+              key={i}
+              value={d?.category?.name?.toLowerCase().replace(/\s+/g, "-")}
+            >
+              <ArticleItem data={d} key={i} />
+            </Tabs.Panel>
+          ))}
+        </div>
       </Tabs>
     </main>
   );

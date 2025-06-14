@@ -2,9 +2,10 @@ import Image from "next/image";
 import React from "react";
 
 interface ArticleData {
-  category: string;
+  category: {name: string};
   name: string;
   image?: string;
+  reading_time?: string
 }
 
 interface ArticleProps {
@@ -25,10 +26,10 @@ const ArticleItem = ({ data } : ArticleProps) => {
       </div>
       <div>
         <p className="text-[13px] sm:text-[18px] font-monda text-[#fff]">
-          Time to read : 3 min
+          Time to read : {data?.reading_time}
         </p>
         <p className="text-[14px] sm:text-[15px] font-monda text-[#B0B0B0]">
-          {data?.category}
+          {data?.category?.name}
         </p>
         <h3 className="mt-[18px] sm:mt-[20px] text-[16px] sm:text-[22px] font-vesber sm:overflow-hidden sm:whitespace-nowrap sm:text-ellipsis">
           {data?.name}

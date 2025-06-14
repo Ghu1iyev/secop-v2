@@ -6,7 +6,8 @@
     "projects": "Projects",
     "services": "Services",
     "blog": "Blog",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+     "checkWebsite": "Check Your Website"
   },
 
 
@@ -75,5 +76,6 @@
     "title": "Blogs",
     "subtitle": "Empowering you with knowledge to stay safe in a connected world."
   }
+  
   }
 }
