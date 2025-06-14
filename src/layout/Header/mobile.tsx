@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageProvider";
-import { usePathname, useRouter } from "next/navigation";
 import { CancelIcon } from "../../../public/assets/images/vector";
 import { useTranslation } from "@/utils/i18n";
 
