@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { PostApi } from "@/lib/axios";
 import { toast } from "react-toastify";
 import { IMaskInput } from "react-imask";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 interface ContactValues {
   name: string;
@@ -19,6 +20,7 @@ interface ContactValues {
 }
 
 const ContactUs = () => {
+  const {data} = useHeaders()
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -63,7 +65,7 @@ const ContactUs = () => {
         <Title
           title="Contact Us"
           fontSize="text-[20px] sm:text-[48px]"
-          subtitle="Drop us a message — we’ll get back shortly."
+          subtitle={data?.results?.[0]?.contact_title}
         />
         <p
           className="

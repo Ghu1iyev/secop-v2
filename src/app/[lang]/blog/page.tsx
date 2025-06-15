@@ -7,11 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ArticlesType, CategoriesType } from "@/types/common";
 import BlogCategories from "./blog-category";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 
 
 const Blog = () => {
-
+  const {data}  = useHeaders()
   const { data: categories } = useQuery<CategoriesType>({
     queryKey: ["categories"],
     queryFn: () => GetApi("/article-categories/"),
@@ -31,7 +32,7 @@ const Blog = () => {
         <Title
           title="Blogs"
           fontSize="text-[20px] sm:text-[48px]"
-          subtitle="Insights and updates on cybersecurity, tech, and innovation — straight from our team."
+          subtitle={data?.results?.[0]?.blogs_title}
         />
       </div>
       <h4 className="text-[#B0B0B0] text-[20px] font-monda my-[20px] sm:my-[80px]">

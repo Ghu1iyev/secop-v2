@@ -10,29 +10,33 @@ import CompanySwiper from "@/components/swiper/company-swiper";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { useLanguage } from "@/context/LanguageProvider";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 
 type ProjectProps = {
   results: {
     name: string;
     image: string;
+    slug: string;
   }[];
 };
 
 const ProjectPage = () => {
   const {language} = useLanguage()
+  const {data: headerData} = useHeaders()
   const { data } = useQuery<ProjectProps>({
     queryKey: ["projects", language],
     queryFn: () => GetApi(`/projects/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
+
   return (
     <div className="container">
       <div className="mt-20">
         <Title
           title="Our Projects"
-          subtitle="Trusted solutions. Proven results."
+          subtitle={headerData?.results?.[0]?.projects_title}
           fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
       </div>
@@ -52,7 +56,7 @@ const ProjectPage = () => {
         >
           {data?.results?.map((project, i) => (
             <SwiperSlide key={i}>
-              <Link href={`/project/${i}`}>
+              <Link href={`/${language}/project/${project?.slug}`}>
                 <div className="relative h-[258px] w-full rounded-[16px] overflow-hidden">
                   <Image
                     src={project.image}

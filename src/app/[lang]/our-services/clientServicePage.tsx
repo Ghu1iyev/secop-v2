@@ -1,4 +1,6 @@
+'use client'
 import Title from "@/components/shared/Title/Title";
+import { useHeaders } from "@/hooks/useHeadersApi";
 import React from "react";
 
 interface ServiceProps {
@@ -10,13 +12,14 @@ interface ServiceProps {
   }
 }
 const ClientOurServices = ({ data } : ServiceProps) => {
+  const {data: headersData} = useHeaders()
   return (
     <main className="container">
       <div className="mt-20">
         <Title
           title="Our Services"
           fontSize="text-[48px]"
-          subtitle="Solutions That Safeguard Your Future."
+          subtitle={headersData?.results?.[0]?.service_title}
         />
       </div>
       <div className="mt-[60px] mb-[180px] flex flex-col gap-[40px]">
