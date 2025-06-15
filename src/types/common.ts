@@ -67,3 +67,13 @@ export interface CategoriesType {
     name: string;
   }[];
 }
+
+
+export interface ProjectProps {
+    image: string;
+    duration: string;
+    name: string;
+    services_provided: string;
+    detail_text: string;
+    client: string;
+}

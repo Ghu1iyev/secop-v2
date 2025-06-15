@@ -7,6 +7,7 @@ import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 type ProjectProps = {
   results: {
@@ -16,13 +17,8 @@ type ProjectProps = {
   }[];
 };
 
-type HeaderProps = {
-  about_title: string;
-  partners_title: string;
-  team_title: string;
-};
-
 const Aboutpage = () => {
+  const {data: headersData} = useHeaders()
   const { data } = useQuery<ProjectProps>({
     queryKey: ["about"],
     queryFn: () => GetApi("/about/"),
@@ -30,20 +26,12 @@ const Aboutpage = () => {
     refetchOnWindowFocus: false,
   });
   const content = data?.results?.[0];
-
-  const { data: headersData } = useQuery<HeaderProps>({
-    queryKey: ["headers"],
-    queryFn: () => GetApi("/headers/"),
-    staleTime: 10 * 60 * 1000,
-    refetchOnWindowFocus: false,
-  });
-
   return (
     <div className="container">
       <div className="mt-20 xl:w-[54%] w-full ">
         <Title
           title="About Us"
-          subtitle={headersData?.about_title}
+          subtitle={headersData?.results?.[0]?.about_title}
           fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
       </div>
@@ -73,7 +61,7 @@ const Aboutpage = () => {
         <div className="w-full lg:w-[50%]">
           <Title
             title="Our Trusted Partners"
-            subtitle="We grow stronger through collaboration — meet the trusted partners who help us shape secure digital futures"
+            subtitle={headersData?.results?.[0]?.partner_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
         </div>
@@ -83,8 +71,7 @@ const Aboutpage = () => {
         <div className="w-full lg:w-[40%]">
           <Title
             title="Meet Our Team"
-            subtitle="Meet the Experts Behind Our
-          Secure Solutions"
+            subtitle={headersData?.results?.[0]?.team_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
         </div>
