@@ -76,6 +76,16 @@
     "title": "Blogs",
     "subtitle": "Empowering you with knowledge to stay safe in a connected world."
   }
-  
+  },
+  "check": {
+    "title": "Check Your Website Security",
+    "subtitle": "Insert your website URL and get a free security status report in seconds.",
+    "placeholder": "example: example.com",
+    "button": "Check Website",
+    "errors": {
+      "empty": "Please enter a domain name.",
+      "invalid": "Please enter a valid domain name (e.g., example.com)."
+    }
   }
+  
 }

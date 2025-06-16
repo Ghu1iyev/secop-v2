@@ -1,17 +1,42 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Title from "@/components/shared/Title/Title";
 import { TextInput } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageProvider";
+import { useTranslation } from "@/utils/i18n";
 
 const CheckWebsitePage = () => {
   const router = useRouter();
   const { language } = useLanguage();
+  const { t } = useTranslation();
+
+  const [error, setError] = useState("");
+  const [domainValue, setDomainValue] = useState("");
+
+  const isValidDomain = (domain: string): boolean => {
+    const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-_]+\.)+[a-zA-Z]{2,}$/;
+    return domainRegex.test(domain);
+  };
 
   const handleCheck = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/${language}/check-your-website/detail`);
+    const trimmedDomain = domainValue.trim().toLowerCase();
+
+    if (!trimmedDomain) {
+      setError(t("check.errors.empty"));
+      return;
+    }
+
+    if (!isValidDomain(trimmedDomain)) {
+      setError(t("check.errors.invalid"));
+      return;
+    }
+
+    setError("");
+    router.push(
+      `/${language}/check-your-website/detail?domain=${trimmedDomain}`
+    );
   };
 
   return (
@@ -19,8 +44,8 @@ const CheckWebsitePage = () => {
       <div className="flex flex-col justify-center items-center container">
         <div className="w-full lg:w-[50%]">
           <Title
-            title="Check Your Website Security"
-            subtitle="Insert your website URL and get a free security status report in seconds."
+            title={t("check.title")}
+            subtitle={t("check.subtitle")}
             fontSize="lg:text-4xl text-xl"
             centered
           />
@@ -29,11 +54,17 @@ const CheckWebsitePage = () => {
         <div className="lg:text-4xl text-xl w-full lg:w-auto">
           <form
             onSubmit={handleCheck}
-            className="my-4 lg:my-16 lg:w-[683px] w-full flex flex-col md:flex-row"
+            className="mt-4 lg:mt-16 lg:w-[683px] w-full flex flex-col md:flex-row"
           >
             <TextInput
+              name="domain"
               size="lg"
-              placeholder="example.com"
+              placeholder={t("check.placeholder")}
+              value={domainValue}
+              onChange={(e) => {
+                setDomainValue(e.currentTarget.value);
+                setError("");
+              }}
               className="form-input flex-1 rounded-md md:rounded-l-md"
               styles={{
                 input: {
@@ -50,10 +81,15 @@ const CheckWebsitePage = () => {
               className="bg-[#FF7A00] md:rounded-r-md s:p-2 flex items-center justify-center md:px-6"
             >
               <span className="text-base md:text-xl font-monda font-normal text-white">
-                Check your website
+                {t("check.button")}
               </span>
             </button>
           </form>
+          {error && (
+            <p className="text-red-600 text-sm font-monda leading-5 ">
+              {error}
+            </p>
+          )}
         </div>
       </div>
     </div>
