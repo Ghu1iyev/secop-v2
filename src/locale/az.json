@@ -76,8 +76,17 @@
     "subtitle": "Birləşmiş dünyada təhlükəsiz qalmaq üçün sizi biliklə gücləndiririk."
   }
 
-
     
+  },
+  "check": {
+    "title": "Saytınızın Təhlükəsizliyini Yoxlayın",
+    "subtitle": "Saytınızın URL-ni daxil edin və saniyələr içində pulsuz təhlükəsizlik hesabatı əldə edin.",
+    "placeholder": "nümunə: example.com",
+    "button": "Saytı yoxla",
+    "errors": {
+      "empty": "Zəhmət olmasa domen adı daxil edin.",
+      "invalid": "Düzgün domen adı daxil edin. (məsələn: example.com)"
+    }
   }
   
 }

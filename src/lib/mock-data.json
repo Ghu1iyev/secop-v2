@@ -1,0 +1,87 @@
+[
+  {
+    "ip": "104.21.112.1",
+    "shodan_data": {
+      "domains": ["otpholding.com"],
+      "hostnames": ["otpholding.com"],
+      "region_code": "CA",
+      "org": "Cloudflare, Inc.",
+      "data": [
+        {
+          "timestamp": "2025-06-15T17:16:31.736177",
+          "isp": "Cloudflare, Inc.",
+          "location": {
+            "city": "San Francisco",
+            "latitude": 37.7621,
+            "longitude": -122.3971,
+            "country_name": "United States"
+          }
+        }
+      ]
+    }
+  },
+
+  {
+    "ip": "185.65.204.100",
+    "shodan_data": {
+      "domains": ["turkcell.com.tr"],
+      "hostnames": ["web.turkcell.com.tr"],
+      "region_code": "34",
+      "org": "Turkcell Iletisim Hizmetleri A.S.",
+      "data": [
+        {
+          "timestamp": "2025-06-01T14:45:00.000Z",
+          "isp": "Turkcell Superonline",
+          "location": {
+            "city": "Istanbul",
+            "latitude": 41.0082,
+            "longitude": 28.9784,
+            "country_name": "Turkey"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "ip": "81.94.144.150",
+    "shodan_data": {
+      "domains": ["kapitalbank.az"],
+      "hostnames": ["secure.kapitalbank.az"],
+      "region_code": "BA",
+      "org": "Kapital Bank ASC",
+      "data": [
+        {
+          "timestamp": "2025-05-21T09:20:00.000Z",
+          "isp": "Azercell Telekom",
+          "location": {
+            "city": "Ganja",
+            "latitude": 40.6828,
+            "longitude": 46.3606,
+            "country_name": "Azerbaijan"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "ip": "8.8.8.8",
+    "shodan_data": {
+      "domains": ["dns.google"],
+      "hostnames": ["dns.google"],
+      "region_code": "CA",
+      "org": "Google LLC",
+      "data": [
+        {
+          "timestamp": "2025-04-30T07:00:00.000Z",
+          "isp": "Google",
+          "location": {
+            "city": "Mountain View",
+            "latitude": 37.3861,
+            "longitude": -122.0839,
+            "country_name": "United States"
+          }
+        }
+      ]
+    }
+  }
+]
