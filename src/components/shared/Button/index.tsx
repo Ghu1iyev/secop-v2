@@ -1,8 +1,7 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import { IoMdArrowForward } from "react-icons/io";
 import { useLanguage } from "@/context/LanguageProvider";
-import { useRouter, usePathname } from "next/navigation";
 
 type ButtonProps = {
   text: string;
@@ -10,17 +9,27 @@ type ButtonProps = {
 };
 
 const Button = ({ text, url }: ButtonProps) => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <Link
-      className={`bg-[#2A2A2A] text-[16px] text-[#fff] inline-flex items-center gap-[10px] font-monda rounded-[12px] py-[17px] sm:py-[19px] px-[16px] sm:px-[24px] duration-200 sm:text-[20px] hover:bg-[#FF7A00] group`}
+      className="group relative inline-flex items-center gap-[10px] rounded-2xl px-[16px] py-[17px] sm:px-[24px] sm:py-[19px] text-[16px] sm:text-[20px] font-monda text-white duration-200"
       href={`/${language}/${url}`}
     >
-      {text}
+      <span
+        className="pointer-events-none absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#28282880] to-[#0161A180] blur-[0.5px]"
+        aria-hidden="true"
+      ></span>
+      <span
+        className="pointer-events-none absolute inset-[1px] rounded-2xl bg-[#1e1e1e] transition-colors duration-200 group-hover:bg-[#0161A1]"
+        aria-hidden="true"
+      ></span>
+
+      <span className="z-10">{text}</span>
+
       <IoMdArrowForward
         size={24}
-        className="text-[#B0B0B0] group-hover:text-[#fff]"
+        className="z-10 text-[#B0B0B0] transition-colors duration-200 group-hover:text-white"
       />
     </Link>
   );

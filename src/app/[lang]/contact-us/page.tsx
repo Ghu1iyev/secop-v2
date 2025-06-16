@@ -1,17 +1,17 @@
 "use client";
-import Title from "@/components/shared/Title/Title";
-import { Input, TextInput } from "@mantine/core";
-import { useForm } from "@mantine/form";
 import React from "react";
-import { IoMdArrowForward } from "react-icons/io";
-import ContactInfo from "./contact-info";
-import TitleAnimation from "@/components/title-animation";
-import { useMutation } from "@tanstack/react-query";
 import { PostApi } from "@/lib/axios";
 import { toast } from "react-toastify";
+import { useForm } from "@mantine/form";
 import { IMaskInput } from "react-imask";
-import { useHeaders } from "@/hooks/useHeadersApi";
+import ContactInfo from "./contact-info";
 import { useTranslation } from "@/utils/i18n";
+import { Input, TextInput } from "@mantine/core";
+import { IoMdArrowForward } from "react-icons/io";
+import { useHeaders } from "@/hooks/useHeadersApi";
+import Title from "@/components/shared/Title/Title";
+import { useMutation } from "@tanstack/react-query";
+import TitleAnimation from "@/components/title-animation";
 
 interface ContactValues {
   name: string;

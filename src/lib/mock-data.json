@@ -2,62 +2,61 @@
   {
     "ip": "104.21.112.1",
     "shodan_data": {
-      "domains": ["otpholding.com"],
-      "hostnames": ["otpholding.com"],
-      "region_code": "CA",
+      "domains": ["example-europe.com"],
+      "hostnames": ["example-europe.com"],
+      "region_code": "NLD",
       "org": "Cloudflare, Inc.",
       "data": [
         {
           "timestamp": "2025-06-15T17:16:31.736177",
           "isp": "Cloudflare, Inc.",
           "location": {
-            "city": "San Francisco",
-            "latitude": 37.7621,
-            "longitude": -122.3971,
-            "country_name": "United States"
-          }
-        }
-      ]
-    }
-  },
-
-  {
-    "ip": "185.65.204.100",
-    "shodan_data": {
-      "domains": ["turkcell.com.tr"],
-      "hostnames": ["web.turkcell.com.tr"],
-      "region_code": "34",
-      "org": "Turkcell Iletisim Hizmetleri A.S.",
-      "data": [
-        {
-          "timestamp": "2025-06-01T14:45:00.000Z",
-          "isp": "Turkcell Superonline",
-          "location": {
-            "city": "Istanbul",
-            "latitude": 41.0082,
-            "longitude": 28.9784,
-            "country_name": "Turkey"
+            "city": "Amsterdam",
+            "latitude": 52.3676,
+            "longitude": 4.9041,
+            "country_name": "Netherlands"
           }
         }
       ]
     }
   },
   {
-    "ip": "81.94.144.150",
+    "ip": "203.0.113.42",
     "shodan_data": {
-      "domains": ["kapitalbank.az"],
-      "hostnames": ["secure.kapitalbank.az"],
-      "region_code": "BA",
-      "org": "Kapital Bank ASC",
+      "domains": ["techasia.co.jp"],
+      "hostnames": ["server.techasia.co.jp"],
+      "region_code": "13",
+      "org": "NTT Communications Corporation",
       "data": [
         {
-          "timestamp": "2025-05-21T09:20:00.000Z",
-          "isp": "Azercell Telekom",
+          "timestamp": "2025-06-10T10:10:10.000Z",
+          "isp": "NTT Communications",
           "location": {
-            "city": "Ganja",
-            "latitude": 40.6828,
-            "longitude": 46.3606,
-            "country_name": "Azerbaijan"
+            "city": "Tokyo",
+            "latitude": 35.6895,
+            "longitude": 139.6917,
+            "country_name": "Japan"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "ip": "45.79.173.240",
+    "shodan_data": {
+      "domains": ["germanhosting.de"],
+      "hostnames": ["web1.germanhosting.de"],
+      "region_code": "BE",
+      "org": "Hetzner Online GmbH",
+      "data": [
+        {
+          "timestamp": "2025-06-11T12:00:00.000Z",
+          "isp": "Hetzner Online GmbH",
+          "location": {
+            "city": "Berlin",
+            "latitude": 52.5200,
+            "longitude": 13.4050,
+            "country_name": "Germany"
           }
         }
       ]
@@ -72,13 +71,13 @@
       "org": "Google LLC",
       "data": [
         {
-          "timestamp": "2025-04-30T07:00:00.000Z",
+          "timestamp": "2025-06-14T08:30:00.000Z",
           "isp": "Google",
           "location": {
-            "city": "Mountain View",
-            "latitude": 37.3861,
-            "longitude": -122.0839,
-            "country_name": "United States"
+            "city": "Zurich",
+            "latitude": 47.3769,
+            "longitude": 8.5417,
+            "country_name": "Switzerland"
           }
         }
       ]

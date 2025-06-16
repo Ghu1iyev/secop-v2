@@ -74,7 +74,7 @@ const OurProjects = () => {
                   className="w-full rounded-full transition-all duration-300 ease-out"
                   style={{
                     height: `${scrollProgress * 100}%`,
-                    backgroundColor: "#FF7A00",
+                    backgroundColor: "#0161A1",
                   }}
                 />
               </div>

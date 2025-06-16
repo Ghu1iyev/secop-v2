@@ -55,7 +55,6 @@ const Aboutpage = () => {
           <div className="w-[442] h-[1px] bg-[#2A2A2A] my-10"></div>
           <div className=" text-sm lg:text-base font-normal leading-7 font-monda  lg:h-80 overflow-y-auto">
             <p>{content?.text_1}</p>
-            {/* <p className="mt-8"></p> */}
           </div>
         </div>
       </div>

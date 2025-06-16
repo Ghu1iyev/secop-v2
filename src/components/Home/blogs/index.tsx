@@ -80,10 +80,10 @@ const Blogs = () => {
                 </ul>
                 {/* <Link
                 href={d?.slug}
-                className="text-[#FF7A00] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]"
+                className="text-[#0161A1] items-center text-[15px] font-monda sm:hidden flex gap-[10px] py-[17px]"
               >
                 Read Article
-                <IoMdArrowForward color="#FF7A00" size={20} />
+                <IoMdArrowForward color="#0161A1" size={20} />
               </Link> */}
                 <Link
                   className="hidden absolute w-[85px] h-[85px] sm:inline-flex items-center justify-center text-[#fff] bg-[#2A2A2A] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-[#929292] rounded-full opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"
