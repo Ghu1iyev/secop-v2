@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "@/components/Button";
+import Button from "@/components/shared/Button";
 import { useTranslation } from "@/utils/i18n";
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";

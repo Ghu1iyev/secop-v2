@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Title from "@/components/shared/Title/Title";
 import { TextInput } from "@mantine/core";
 import { useRouter } from "next/navigation";
-import { useLanguage } from "@/context/LanguageProvider";
 import { useTranslation } from "@/utils/i18n";
+import Title from "@/components/shared/Title/Title";
+import { useLanguage } from "@/context/LanguageProvider";
 
 const CheckWebsitePage = () => {
   const router = useRouter();

@@ -2,12 +2,13 @@
 import React from "react";
 import Team from "./team";
 import Image from "next/image";
+import { GetApi } from "@/lib/axios";
+import { useTranslation } from "@/utils/i18n";
+import { useQuery } from "@tanstack/react-query";
+import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
-import { useQuery } from "@tanstack/react-query";
-import { GetApi } from "@/lib/axios";
-import { useHeaders } from "@/hooks/useHeadersApi";
 
 type ProjectProps = {
   results: {
@@ -18,7 +19,8 @@ type ProjectProps = {
 };
 
 const Aboutpage = () => {
-  const {data: headersData} = useHeaders()
+  const { t } = useTranslation();
+  const { data: headersData } = useHeaders();
   const { data } = useQuery<ProjectProps>({
     queryKey: ["about"],
     queryFn: () => GetApi("/about/"),
@@ -30,7 +32,7 @@ const Aboutpage = () => {
     <div className="container">
       <div className="mt-20 xl:w-[54%] w-full ">
         <Title
-          title="About Us"
+          title={t("title.about")}
           subtitle={headersData?.results?.[0]?.about_title}
           fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
@@ -60,7 +62,7 @@ const Aboutpage = () => {
       <div className="lg:mt-44 mt-20">
         <div className="w-full lg:w-[50%]">
           <Title
-            title="Our Trusted Partners"
+            title={t("title.trustedPartners")}
             subtitle={headersData?.results?.[0]?.partner_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
@@ -70,7 +72,7 @@ const Aboutpage = () => {
       <div className="mt-20">
         <div className="w-full lg:w-[40%]">
           <Title
-            title="Meet Our Team"
+            title={t("title.team")}
             subtitle={headersData?.results?.[0]?.team_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />

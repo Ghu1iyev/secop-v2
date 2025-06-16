@@ -19,7 +19,7 @@ const Title = ({
         centered ? "items-center text-center" : ""
       }`}
     >
-      <h4 className="text-[16px] md:text-[20px] font-normal leading-3 text-[#B0B0B0]">
+      <h4 className="text-[16px] md:text-[20px] font-normal font-monda leading-3 text-[#B0B0B0]">
         {title}{" "}
       </h4>
       <p

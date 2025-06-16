@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { useLanguage } from "@/context/LanguageProvider";
 import { useHeaders } from "@/hooks/useHeadersApi";
-
+import { useTranslation } from "@/utils/i18n";
 
 type ProjectProps = {
   results: {
@@ -22,8 +22,9 @@ type ProjectProps = {
 };
 
 const ProjectPage = () => {
-  const {language} = useLanguage()
-  const {data: headerData} = useHeaders()
+  const { t } = useTranslation();
+  const { language } = useLanguage();
+  const { data: headerData } = useHeaders();
   const { data } = useQuery<ProjectProps>({
     queryKey: ["projects", language],
     queryFn: () => GetApi(`/projects/?lang=${language}`),
@@ -35,7 +36,7 @@ const ProjectPage = () => {
     <div className="container">
       <div className="mt-20">
         <Title
-          title="Our Projects"
+          title={t("title.projects")}
           subtitle={headerData?.results?.[0]?.projects_title}
           fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
