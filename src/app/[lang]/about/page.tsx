@@ -9,7 +9,7 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
-import { teamTypes } from "@/types/common";
+import { CertificateProps, teamTypes } from "@/types/common";
 import { useLanguage } from "@/context/LanguageProvider";
 
 type ProjectProps = {
@@ -35,6 +35,19 @@ const Aboutpage = () => {
   const { data: TeamData } = useQuery<teamTypes>({
     queryKey: ["team", language],
     queryFn: () => GetApi(`/team/?lang=${language}`),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+  const { data: TeamCertificate } = useQuery<CertificateProps>({
+    queryKey: ["team-certificare", language],
+    queryFn: () => GetApi(`/team-certificates/?lang=${language}`),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
+  const { data: Certificate } = useQuery<CertificateProps>({
+    queryKey: ["certificates"],
+    queryFn: () => GetApi(`/certificates/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
@@ -90,7 +103,10 @@ const Aboutpage = () => {
         </div>
         {TeamData && <Team data={TeamData} />}
         <div className="my-32">
-          <Certificates />
+          {Certificate && <Certificates data={Certificate} />}
+        </div>
+        <div className="my-32">
+          {TeamCertificate && <Certificates data={TeamCertificate} />}
         </div>
       </div>
     </div>

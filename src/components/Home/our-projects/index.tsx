@@ -24,6 +24,8 @@ const OurProjects = () => {
     refetchOnWindowFocus: false,
   });
 
+  console.log('s', data);
+  
   const slides = data?.results || [];
 
   useEffect(() => {
