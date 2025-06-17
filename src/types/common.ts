@@ -58,8 +58,7 @@ export interface BlogDetailProps {
     text: string;
     image: string;
   };
-    related_articles?: ArticlesType["results"];
-
+  related_articles?: ArticlesType["results"];
 }
 
 export interface CategoriesType {
@@ -68,14 +67,13 @@ export interface CategoriesType {
   }[];
 }
 
-
-export interface ProjectProps {
-    image: string;
-    duration: string;
-    name: string;
-    services_provided: string;
-    detail_text: string;
-    client: string;
+export interface DetailProjectProps {
+  image: string;
+  duration: string;
+  name: string;
+  services_provided: string;
+  detail_text: string;
+  client: string;
 }
 
 export interface teamTypes {
