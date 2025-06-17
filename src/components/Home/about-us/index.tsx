@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
-import Button from "@/components/Button";
-import { useTranslation } from "@/utils/i18n";
-import Title from "@/components/shared/Title/Title";
-import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
+import { useTranslation } from "@/utils/i18n";
 import { AboutUsProps } from "@/types/common";
+import Button from "@/components/shared/Button";
+import { useQuery } from "@tanstack/react-query";
+import Title from "@/components/shared/Title/Title";
 import { useLanguage } from "@/context/LanguageProvider";
-
 
 const AboutUs = () => {
   const { t } = useTranslation();
-  const {language} = useLanguage()
+  const { language } = useLanguage();
+
   const { data } = useQuery<AboutUsProps>({
     queryKey: ["about", language],
     queryFn: () => GetApi(`/about/?lang=${language}`),

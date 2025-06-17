@@ -2,12 +2,15 @@
 import React from "react";
 import Team from "./team";
 import Image from "next/image";
+import { GetApi } from "@/lib/axios";
+import { useTranslation } from "@/utils/i18n";
+import { useQuery } from "@tanstack/react-query";
+import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
-import { useQuery } from "@tanstack/react-query";
-import { GetApi } from "@/lib/axios";
-import { useHeaders } from "@/hooks/useHeadersApi";
+import { teamTypes } from "@/types/common";
+import { useLanguage } from "@/context/LanguageProvider";
 
 type ProjectProps = {
   results: {
@@ -18,19 +21,30 @@ type ProjectProps = {
 };
 
 const Aboutpage = () => {
-  const {data: headersData} = useHeaders()
+  const { t } = useTranslation();
+  const { language } = useLanguage();
+
+  const { data: headersData } = useHeaders();
   const { data } = useQuery<ProjectProps>({
-    queryKey: ["about"],
-    queryFn: () => GetApi("/about/"),
+    queryKey: ["about", language],
+    queryFn: () => GetApi(`/about/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
+
+  const { data: TeamData } = useQuery<teamTypes>({
+    queryKey: ["team", language],
+    queryFn: () => GetApi(`/team/?lang=${language}`),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
   const content = data?.results?.[0];
   return (
     <div className="container">
       <div className="mt-20 xl:w-[54%] w-full ">
         <Title
-          title="About Us"
+          title={t("title.about")}
           subtitle={headersData?.results?.[0]?.about_title}
           fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
         />
@@ -53,14 +67,13 @@ const Aboutpage = () => {
           <div className="w-[442] h-[1px] bg-[#2A2A2A] my-10"></div>
           <div className=" text-sm lg:text-base font-normal leading-7 font-monda  lg:h-80 overflow-y-auto">
             <p>{content?.text_1}</p>
-            {/* <p className="mt-8"></p> */}
           </div>
         </div>
       </div>
       <div className="lg:mt-44 mt-20">
         <div className="w-full lg:w-[50%]">
           <Title
-            title="Our Trusted Partners"
+            title={t("title.trustedPartners")}
             subtitle={headersData?.results?.[0]?.partner_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
@@ -70,12 +83,12 @@ const Aboutpage = () => {
       <div className="mt-20">
         <div className="w-full lg:w-[40%]">
           <Title
-            title="Meet Our Team"
+            title={t("title.team")}
             subtitle={headersData?.results?.[0]?.team_title}
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
         </div>
-        <Team />
+        {TeamData && <Team data={TeamData} />}
         <div className="my-32">
           <Certificates />
         </div>

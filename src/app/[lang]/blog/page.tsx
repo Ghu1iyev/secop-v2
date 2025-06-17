@@ -1,18 +1,19 @@
 "use client";
-import Title from "@/components/shared/Title/Title";
 import React from "react";
 // import classes from "./blog.module.scss";
-import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
-import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
-import { ArticlesType, CategoriesType } from "@/types/common";
 import BlogCategories from "./blog-category";
+import { useTranslation } from "@/utils/i18n";
+import { useQuery } from "@tanstack/react-query";
 import { useHeaders } from "@/hooks/useHeadersApi";
-
-
+import Title from "@/components/shared/Title/Title";
+import { ArticlesType, CategoriesType } from "@/types/common";
+import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
 
 const Blog = () => {
-  const {data}  = useHeaders()
+  const { data } = useHeaders();
+  const { t } = useTranslation();
+
   const { data: categories } = useQuery<CategoriesType>({
     queryKey: ["categories"],
     queryFn: () => GetApi("/article-categories/"),
@@ -28,20 +29,23 @@ const Blog = () => {
 
   return (
     <main className="container">
-      <div className="w-full mb-[40px] sm:mb-0 mt-[40px] lg:w-[990px]">
+      <div className="w-full mb-[40px] sm:mb-0 mt-[80px] lg:w-[990px]">
         <Title
-          title="Blogs"
+          title={t("title.blogs")}
           fontSize="text-[20px] sm:text-[48px]"
           subtitle={data?.results?.[0]?.blogs_title}
         />
       </div>
       <h4 className="text-[#B0B0B0] text-[20px] font-monda my-[20px] sm:my-[80px]">
-        The latest Blogs
+        {t("title.latestBlogs")}
       </h4>
       <div className="pb-[80px]">
         <LatestBlogSlider data={Articles ?? { results: [] }} />
       </div>
-      <BlogCategories categories={categories ?? { results: [] }} articles={Articles ?? { results: [] }} />
+      <BlogCategories
+        categories={categories ?? { results: [] }}
+        articles={Articles ?? { results: [] }}
+      />
     </main>
   );
 };

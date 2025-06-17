@@ -17,8 +17,8 @@ const HomeBanner = () => {
         </p>
       </div>
       <Image
-        src="/assets/images/jpg/secop.jpg"
-        blurDataURL="/assets/images/jpg/secop-image.jpg"
+        src="/assets/images/jpg/sec-web.jpg"
+        blurDataURL="/assets/images/jpg/sec-web.jpg"
         objectFit="cover"
         fill
         placeholder="blur"

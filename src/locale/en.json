@@ -42,8 +42,6 @@
 
   },
 
-
-
   "home":{
     "banner":{
      "security_priority": "YOUR SECURITY IS YOUR PRIORITY"
@@ -77,6 +75,46 @@
     "subtitle": "Empowering you with knowledge to stay safe in a connected world."
   }
   },
+  
+  "title":{
+    "all": "All Articles",
+    "about": "About Us",
+    "trustedPartners": "Who Trust Us",
+    "team": "Meet Our Team",
+    "projects": "Our Projects",
+    "home": "Home",
+    "projectPage": "Project page",
+    "services": "Our Services",
+    "blogs": "Blogs",
+    "latestBlogs": "The Latest Blogs",
+    "contact": "Contact Us"
+    
+  },
+
+  "contact": {
+    "title": "Have a project in mind or need expert advice on cybersecurity? Fill out the form below and let us know how we can help. Our team will get back to you shortly with the information or support you need.",
+    "name": "Your Name",
+    "namePlaceholder": "Name,surname",
+    "email": "Email Address",
+    "emailPlaceholder": "example@gmail.com",
+    "phone": "Your Number",
+    "message": "Add Your Message",
+    "messagePlaceholder": "write here your message",
+    "button": "Send Your Message",
+    "errors": {
+      "name": "Name cannot be empty",
+      "email": "Email address cannot be empty",
+      "emailInvalid": "Please enter a valid email address",
+      "phone": "Phone number cannot be empty",
+      "message": "Message cannot be empty"
+    },
+     "success": "Message sent successfully",
+     "ourContacts": "OUR CONTACTS",
+    "letsTalk": "Let’s Talk — We’re Available",
+    "emailUs": "Got Questions? Email Us Now",
+    "visitOffice": "Visit Our Office Location"
+  },
+
   "check": {
     "title": "Check Your Website Security",
     "subtitle": "Insert your website URL and get a free security status report in seconds.",

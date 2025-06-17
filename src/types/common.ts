@@ -77,3 +77,12 @@ export interface ProjectProps {
     detail_text: string;
     client: string;
 }
+
+export interface teamTypes {
+  results: {
+    image: string;
+    text: string;
+    position: string;
+    full_name: string;
+  }[];
+}

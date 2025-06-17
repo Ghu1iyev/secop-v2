@@ -1,29 +1,38 @@
-import Title from '@/components/shared/Title/Title'
-import { ProjectProps } from '@/types/common'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { IoIosArrowForward } from 'react-icons/io'
+"use client";
 
-const ClientProjectPage = ({data} : {data: ProjectProps}) => {
-    
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ProjectProps } from "@/types/common";
+import { useTranslation } from "@/utils/i18n";
+import { IoIosArrowForward } from "react-icons/io";
+import Title from "@/components/shared/Title/Title";
+import { useLanguage } from "@/context/LanguageProvider";
+
+const ClientProjectPage = ({ data }: { data: ProjectProps }) => {
+  const { t } = useTranslation();
+  const { language } = useLanguage();
+
   return (
     <main className="container">
       <div className=" mt-20 lg:mt-36 lg:mb-12 mb-8">
         <div className=" text-base md:text-lg lg:text-xl font-monda text-[#B0B0B099] leading-7 flex items-center gap-5">
-          <Link href="/" className="hover:text-white">
-            Home
+          <Link href={`/${language}`} className="hover:text-white">
+            {t("title.home")}
           </Link>
           <span>
             <IoIosArrowForward />
           </span>
-          <Link href="/project" className="hover:text-white">
-            Projects
+          <Link href={`/${language}/project`} className="hover:text-white">
+            {t("title.projects")}
           </Link>
           <span>
             <IoIosArrowForward />
           </span>
-          <span className="text-white font-semibold">Project Page</span>
+          <span className="text-white font-semibold">
+            {" "}
+            {t("title.projectPage")}
+          </span>
         </div>
       </div>
 
@@ -35,14 +44,14 @@ const ClientProjectPage = ({data} : {data: ProjectProps}) => {
             src={data?.image || ""}
             alt=""
             blurDataURL={data?.image || ""}
-            placeholder='blur'
+            placeholder="blur"
             fill
             className="object-cover rounded-[20px] "
           />
         </div>
 
         <p className="font-vesber text-xl md:text-2xl lg:text-3xl leading-8">
-         {data?.name}
+          {data?.name}
         </p>
         <div className="w-full h-[1px] bg-[#2A2A2A] my-10"></div>
 
@@ -57,9 +66,7 @@ const ClientProjectPage = ({data} : {data: ProjectProps}) => {
 
           <p>
             Services Provided: {""}
-            <span className="text-[#B0B0B0]">
-             {data?.services_provided}
-            </span>
+            <span className="text-[#B0B0B0]">{data?.services_provided}</span>
           </p>
         </div>
 
@@ -70,7 +77,7 @@ const ClientProjectPage = ({data} : {data: ProjectProps}) => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default ClientProjectPage
+export default ClientProjectPage;

@@ -75,9 +75,49 @@
     "title": "Bloqlar",
     "subtitle": "Birləşmiş dünyada təhlükəsiz qalmaq üçün sizi biliklə gücləndiririk."
   }
-
-    
+   
   },
+
+  "title":{
+    "all": "Bütün məqalələr",
+    "about": "Haqqımızda",
+    "trustedPartners": " Bizə Etibar Edənlər",
+    "team": "Komandamızla Tanış Olun",
+    "projects": "Layihələrimiz",
+    "home": "Ana Səhifə",
+    "projectPage": "Layihə səhifəsi",
+    "services": "Xidmətlərimiz",
+    "blogs": "Bloqlar",
+    "latestBlogs": "Ən Son Bloqlar",
+    "contact": "Bizimlə Əlaqə"
+
+  },
+
+  "contact": {
+    "title": "Ağlınızda layihə var? Yaxud kibertəhlükəsizlik üzrə peşəkar məsləhətə ehtiyacınız var? Aşağıdakı formu doldurun və sizə necə kömək edə biləcəyimizi bizə bildirin. Komandamız qısa zamanda sizə lazım olan məlumat və ya dəstəklə geri dönəcək.",
+    "name": "Adınız",
+    "namePlaceholder": "Ad,soyad",
+    "email": "Email ünvanı",
+    "emailPlaceholder": "nümunə@gmail.com",
+    "phone": "Əlaqə nömrəniz",
+    "message": "Mesaj əlavə edin",
+    "messagePlaceholder": "Mesaj",
+    "button": "Mesajınızı göndərin",
+    "errors": {
+      "name": "Ad boş ola bilməz",
+      "email": "Email adresi boş ola bilməz",
+      "emailInvalid": "Email adresini düzgün daxil edin",
+      "phone": "Telefon nömrəsi boş ola bilməz",
+      "message": "Mesaj boş ola bilməz"
+    }, 
+    
+    "success": "Mesaj göndərildi",
+   "ourContacts": "ƏLAQƏ MƏLUMATLARIMIZ",
+    "letsTalk": "Gəlin danışaq — Biz buradayıq",
+    "emailUs": "Suallarınız var? Bizə indi email göndərin",
+    "visitOffice": "Ofisimizi ziyarət edin"
+  },
+
   "check": {
     "title": "Saytınızın Təhlükəsizliyini Yoxlayın",
     "subtitle": "Saytınızın URL-ni daxil edin və saniyələr içində pulsuz təhlükəsizlik hesabatı əldə edin.",

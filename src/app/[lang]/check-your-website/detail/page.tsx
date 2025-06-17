@@ -1,39 +1,76 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { CheckIcon } from "../../../../../public/assets/images/vector";
-
-import { LineChart } from "@mantine/charts";
 import { useSearchParams } from "next/navigation";
 import { PostApi } from "@/lib/axios";
 import mockData from "@/lib/mock-data.json";
+import { Loader } from "@mantine/core";
+
+// API cavabı üçün interface təyin edirik
+interface ShodanLocation {
+  city?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+interface ShodanDataItem {
+  timestamp?: string;
+  isp?: string;
+  location?: ShodanLocation;
+}
+
+interface ShodanData {
+  region_code?: string;
+  hostnames?: string[] | string;
+  data?: ShodanDataItem[];
+}
+
+interface ApiResult {
+  ip?: string;
+  shodan_data?: ShodanData;
+}
+
+// Type guard funksiyası
+const isApiResult = (data: unknown): data is ApiResult => {
+  return typeof data === "object" && data !== null;
+};
 
 const CheckWebSiteInfo = () => {
   const searchParams = useSearchParams();
   const domain = searchParams.get("domain");
-  const [result, setResult] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<ApiResult | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  console.log(result, "resultt");
   useEffect(() => {
     const fetchData = async () => {
       if (!domain) return;
 
-      setLoading(true);
+      setIsLoading(true);
       try {
         const response = await PostApi("/scan/", { domain });
-        setResult(response);
-      } catch (error) {
+        if (isApiResult(response)) {
+          setResult(response);
+        } else {
+          console.warn("Unexpected response format:", response);
+          setResult(null);
+        }
+      } catch (error: unknown) {
         const randomIndex = Math.floor(Math.random() * mockData.length);
         const fallback = mockData[randomIndex];
         setResult(fallback);
 
         console.warn("API error oldu, mock data göstərilir:", fallback);
+        console.error("API xətası:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [domain]);
+
   const location = result?.shodan_data?.data?.[0]?.location;
+  const hasLocationData = location?.latitude && location?.longitude;
 
   return (
     <div className="container ">
@@ -96,15 +133,28 @@ const CheckWebSiteInfo = () => {
             </div>
           </div>
           <div className="w-[50%]">
-            <iframe
-              width="100%"
-              height="300"
-              style={{ border: 0, borderRadius: "12px" }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps?q=${result?.shodan_data?.data?.[0]?.location?.latitude},${result?.shodan_data?.data?.[0]?.location?.longitude}&output=embed`}
-            />
+            {isLoading ? (
+              <div className="flex items-center justify-center h-[300px] bg-gray-100 rounded-xl">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-2"></div>
+                  <Loader color="#0161A1" />
+                </div>
+              </div>
+            ) : hasLocationData ? (
+              <iframe
+                width="100%"
+                height="300"
+                style={{ border: 0, borderRadius: "12px" }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps?q=${location.latitude},${location.longitude}&output=embed`}
+              />
+            ) : (
+              <div className="flex items-center justify-center h-[300px] bg-gray-100 rounded-xl">
+                <p className="text-gray-600">Location data not available</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

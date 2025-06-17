@@ -6,19 +6,22 @@
     width: 8px;
   }
 
-  &[data-orientation='vertical'] .thumb {
-    background-color: #FF7A00;
-    border-radius: 8px; 
+  &[data-orientation="vertical"] .thumb {
+    background-color: #0161a1;
+    border-radius: 8px;
   }
 
-  &[data-orientation='horizontal'] .thumb {
-    background-color: #FF7A00;
+  &[data-orientation="horizontal"] .thumb {
+    background-color: #0161a1;
     border-radius: 8px;
-    height: 6px;      
+    height: 6px;
   }
 }
 
 .corner {
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  background-color: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-6)
+  );
   opacity: 1;
 }

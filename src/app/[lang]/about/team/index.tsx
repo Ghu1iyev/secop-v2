@@ -1,55 +1,11 @@
 "use client";
+import { teamTypes } from "@/types/common";
 import Image from "next/image";
 import React from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Team = () => {
-  const teamData = [
-    {
-      name: "Aslan Ashirov",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-    {
-      name: "Asu Abdulla",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team2.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-    {
-      name: "Aslan Ashirov",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-    {
-      name: "Aslan Ashirov",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-    {
-      name: "Aslan Ashirov",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-    {
-      name: "Aslan Ashirov",
-      role: "Founder & CEO",
-      image: "/assets/images/png/team.jpg",
-      description:
-        "As CEO of SECOP, I lead our strategic vision and ensure we stay ahead in an ever-changing digital security landscape. My role is to align innovation with trust — building a company that delivers both technical excellence and lasting partnerships.",
-    },
-  ];
-
+const Team = ({ data }: {data: teamTypes}) => {
   return (
     <>
       <Swiper
@@ -91,30 +47,30 @@ const Team = () => {
         allowTouchMove={false}
         className="mySwiper"
       >
-        {teamData.map((member, index) => (
+        {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
             <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
-              <div className="h-full">
+              <div className="rounded-xl overflow-hidden object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300 w-[326px] h-[412px]">
                 <Image
-                  className="rounded-xl object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300"
-                  alt={member.name}
-                  width={326}
-                  height={412}
-                  src={member.image}
-                  style={{ height: "412px" }}
+                  alt={member?.full_name}
+                  src={member?.image || ""}
+                  blurDataURL={member?.image || ""}
+                  fill
+                  objectFit="cover"
+                  placeholder="blur"
                 />
               </div>
               <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 group-hover:text-white">
                 <div className="mt-6">
                   <h2 className="font-vesber font-normal leading-8 text-2xl transition-all duration-300">
-                    {member.name}
+                    {member?.full_name}
                   </h2>
                   <h3 className="font-monda font-normal leading-4 lg:leading-8 tracking-tight text-sm  text-[#B0B0B0] group-hover:text-white transition-all duration-300">
-                    {member.role}
+                    {member?.position}
                   </h3>
                 </div>
                 <p className="text-sm lg:text-base font-normal leading-4 font-monda text-[#3A3A3A] group-hover:text-white transition-all duration-300">
-                  {member.description}
+                  {member?.text}
                 </p>
               </div>
             </div>

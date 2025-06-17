@@ -1,23 +1,26 @@
-'use client'
-import Title from "@/components/shared/Title/Title";
-import { useHeaders } from "@/hooks/useHeadersApi";
+"use client";
 import React from "react";
+import { useTranslation } from "@/utils/i18n";
+import { useHeaders } from "@/hooks/useHeadersApi";
+import Title from "@/components/shared/Title/Title";
 
 interface ServiceProps {
   data: {
     results: {
       name: string;
-      text: string
-    }[]
-  }
+      text: string;
+    }[];
+  };
 }
-const ClientOurServices = ({ data } : ServiceProps) => {
-  const {data: headersData} = useHeaders()
+const ClientOurServices = ({ data }: ServiceProps) => {
+  const { t } = useTranslation();
+
+  const { data: headersData } = useHeaders();
   return (
     <main className="container">
       <div className="mt-20">
         <Title
-          title="Our Services"
+          title={t("title.services")}
           fontSize="text-[48px]"
           subtitle={headersData?.results?.[0]?.service_title}
         />
