@@ -14,6 +14,7 @@ interface HeadersProps {
     team_certificates_title: string;
     service_title: string;
     projects_title: string;
+    service_text: string;
   }[];
 }
 export const useHeaders = () => {
