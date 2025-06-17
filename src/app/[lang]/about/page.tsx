@@ -9,6 +9,7 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
+import { useLanguage } from "@/context/LanguageProvider";
 
 type ProjectProps = {
   results: {
@@ -20,10 +21,12 @@ type ProjectProps = {
 
 const Aboutpage = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
+
   const { data: headersData } = useHeaders();
   const { data } = useQuery<ProjectProps>({
-    queryKey: ["about"],
-    queryFn: () => GetApi("/about/"),
+    queryKey: ["about", language],
+    queryFn: () => GetApi(`/about/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
