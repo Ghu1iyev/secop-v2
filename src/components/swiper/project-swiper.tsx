@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -32,6 +33,7 @@ const ProjectSwiper = ({
         }}
         speed={3000}
         loop
+        
         modules={[Autoplay]}
         breakpoints={{
           0: { slidesPerView: 1, spaceBetween: 20 },
