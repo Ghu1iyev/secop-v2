@@ -11,7 +11,7 @@ import { useLanguage } from "@/context/LanguageProvider";
 
 const ClientProjectPage = ({ data }: { data: ProjectProps }) => {
   const { t } = useTranslation();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <main className="container">

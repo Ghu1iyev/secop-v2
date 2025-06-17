@@ -8,10 +8,12 @@ import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ArticlesType, CategoryType } from "@/types/common";
 import { useLanguage } from "@/context/LanguageProvider";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 const Blogs = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const {data: headerData} = useHeaders()
   const { data: CategoryData } = useQuery<CategoryType>({
     queryKey: ["article-categories", language],
     queryFn: () => GetApi(`/article-categories/?lang=${language}`),
@@ -31,7 +33,7 @@ const Blogs = () => {
         <div className="w-6/12">
           <Title
             title={t("home.blogs.title")}
-            subtitle={t("home.blogs.subtitle")}
+            subtitle={headerData?.results?.[0]?.blogs_title}
             fontSize="md:text-[36px]"
           />
         </div>

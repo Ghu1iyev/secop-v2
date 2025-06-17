@@ -52,7 +52,7 @@ const PartnersSlider = () => {
                 src={partner.image || "/assets/images/png/Logo.png"}
                 alt="Partner Logo"
                 fill
-                className="object-contain"
+                className="object-contain grayscale hover:grayscale-0 transition duration-300"
                 placeholder="blur"
                 blurDataURL={partner.image || "/assets/images/png/Logo.png"}
               />
