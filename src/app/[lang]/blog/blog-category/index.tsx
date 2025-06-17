@@ -1,13 +1,15 @@
 import ArticleItem from "@/components/article-item";
 import { ArticlesType, CategoriesType } from "@/types/common";
+import { useTranslation } from "@/utils/i18n";
 import { Tabs } from "@mantine/core";
 import React from "react";
 
 interface BlogCategoriesTypes {
-    categories: CategoriesType;
-    articles: ArticlesType
+  categories: CategoriesType;
+  articles: ArticlesType;
 }
-const BlogCategories = ({categories, articles} : BlogCategoriesTypes) => {
+const BlogCategories = ({ categories, articles }: BlogCategoriesTypes) => {
+  const { t } = useTranslation();
   return (
     <Tabs
       className="blog-categories mt-[80px] mb-[150px]"
@@ -16,8 +18,8 @@ const BlogCategories = ({categories, articles} : BlogCategoriesTypes) => {
     >
       <div className="md:w-[20%] mr-[100px] flex-none">
         <Tabs.List>
-          <h4 className="font-vesber text-[#fff] text-[18px] mb-[24px]">
-            All articles
+          <h4 className="font-monda text-[#fff] text-[18px] mb-[24px]">
+            {t("title.all")}{" "}
           </h4>
           {categories?.results?.map((d, i: number) => (
             <Tabs.Tab

@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import Title from "@/components/shared/Title/Title";
 import { TextInput } from "@mantine/core";
 import { useRouter } from "next/navigation";
-import { useLanguage } from "@/context/LanguageProvider";
 import { useTranslation } from "@/utils/i18n";
+import Title from "@/components/shared/Title/Title";
+import { useLanguage } from "@/context/LanguageProvider";
 
 const CheckWebsitePage = () => {
   const router = useRouter();
@@ -78,7 +78,7 @@ const CheckWebsitePage = () => {
             />
             <button
               type="submit"
-              className="bg-[#FF7A00] md:rounded-r-md s:p-2 flex items-center justify-center md:px-6"
+              className="bg-[#0161A1] md:rounded-r-md s:p-2 flex items-center justify-center md:px-6"
             >
               <span className="text-base md:text-xl font-monda font-normal text-white">
                 {t("check.button")}
@@ -86,7 +86,7 @@ const CheckWebsitePage = () => {
             </button>
           </form>
           {error && (
-            <p className="text-red-600 text-sm font-monda leading-5 ">
+            <p className="text-red-700 text-sm font-monda leading-5 ">
               {error}
             </p>
           )}

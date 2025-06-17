@@ -1,19 +1,23 @@
-.scrollbar, .scrollbar:hover {
+.scrollbar,
+.scrollbar:hover {
   background-color: #000;
   border-radius: 5px;
   width: 8px;
 }
-.scrollbar[data-orientation=vertical] .thumb {
-  background-color: #FF7A00;
+.scrollbar[data-orientation="vertical"] .thumb {
+  background-color: #0161a1;
   border-radius: 8px;
 }
-.scrollbar[data-orientation=horizontal] .thumb {
-  background-color: #FF7A00;
+.scrollbar[data-orientation="horizontal"] .thumb {
+  background-color: #0161a1;
   border-radius: 8px;
   height: 6px;
 }
 
 .corner {
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  background-color: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-6)
+  );
   opacity: 1;
 }

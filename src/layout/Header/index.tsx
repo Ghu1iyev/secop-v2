@@ -134,7 +134,7 @@ export default function Header() {
                         ENG
                       </p>
                       <span
-                        className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#2a2a2a] to-[#FF602680] blur-[0.5px]"
+                        className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#28282880] to-[#0161A180] blur-[0.5px]"
                         aria-hidden="true"
                       ></span>
                       <span className="absolute inset-[1px] bg-[#1e1e1e] rounded-2xl"></span>
@@ -152,7 +152,7 @@ export default function Header() {
                     <ArrowIcon />
                   </span>{" "}
                   <span
-                    className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#2a2a2a] to-[#FF602680] blur-[0.5px]"
+                    className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#28282880] to-[#0161A180] blur-[0.5px]"
                     aria-hidden="true"
                   ></span>
                   <span className="absolute inset-[1px] bg-[#1e1e1e] rounded-2xl"></span>

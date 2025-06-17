@@ -20,7 +20,7 @@ interface teamTypes {
 }
 const OurTeams = () => {
   const { t } = useTranslation();
-  const {language} = useLanguage()
+  const { language } = useLanguage();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { data } = useQuery<teamTypes>({
     queryKey: ["team", language],
@@ -30,7 +30,7 @@ const OurTeams = () => {
   });
 
   return (
-    <div className="hidden md:block w-full py-6 mt-[80px]">
+    <div className="hidden md:block w-full py-6 mt-[80px] " id="team">
       <div className="w-[680px] mb-[80px] ">
         <Title
           title={t("home.team.title")}

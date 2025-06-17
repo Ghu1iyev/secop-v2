@@ -31,16 +31,11 @@ export default function Footer() {
             </li>
 
             <li className="text-[#B0B0B0]">
-              <Link href={`/${language}/team`}>
+              <Link href={`/${language}/#team`}>
                 {t("footer.navigation.team")}
               </Link>
             </li>
 
-            <li className="text-[#B0B0B0] hidden lg:block">
-              <Link href={`#partnerSlider`}>
-                {t("footer.navigation.partners")}
-              </Link>
-            </li>
             <li className="text-[#B0B0B0] hidden lg:block">
               <Link href={`/${language}/contact-us`}>
                 {t("footer.navigation.contacts")}
@@ -54,13 +49,15 @@ export default function Footer() {
           </p>
           <ul>
             <li className="text-[#B0B0B0]">
-              <Link href={"#our-certificates"}>
+              <Link href={`/${language}/#our-certificates`}>
                 {t("footer.navigation.teamCertificates")}
               </Link>
             </li>
-            <li className="text-[#B0B0B0]">
-              {t("footer.navigation.ourCertificates")}
-            </li>
+            <Link href={`/${language}/#our-certificates`}>
+              <li className="text-[#B0B0B0]">
+                {t("footer.navigation.ourCertificates")}
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="hidden lg:block">
@@ -90,10 +87,19 @@ export default function Footer() {
             {t("footer.navigation.social")}
           </p>
           <ul>
-            <li className="text-[#B0B0B0]">{t("footer.social.linkedin")}</li>
-            <li className="text-[#B0B0B0]">{t("footer.social.instagram")}</li>
-            <li className="text-[#B0B0B0]">{t("footer.social.youtube")}</li>
-            <li className="text-[#B0B0B0]">{t("footer.social.dribbble")}</li>
+            <a
+              href="https://www.linkedin.com/company/secop-co/"
+              rel="noopener noreferrer"
+            >
+              <li className="text-[#B0B0B0]">{t("footer.social.linkedin")}</li>
+            </a>
+
+            <a
+              href="https://www.instagram.com/secop.co/"
+              rel="noopener noreferrer"
+            >
+              <li className="text-[#B0B0B0]">{t("footer.social.instagram")}</li>
+            </a>
           </ul>
         </div>
 
