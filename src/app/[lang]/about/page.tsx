@@ -9,6 +9,10 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
+<<<<<<< pari
+=======
+import { teamTypes } from "@/types/common";
+>>>>>>> dev
 import { useLanguage } from "@/context/LanguageProvider";
 
 type ProjectProps = {
@@ -30,6 +34,14 @@ const Aboutpage = () => {
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
+
+  const { data: TeamData } = useQuery<teamTypes>({
+    queryKey: ["team", language],
+    queryFn: () => GetApi(`/team/?lang=${language}`),
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+  });
+
   const content = data?.results?.[0];
   return (
     <div className="container">
@@ -79,7 +91,7 @@ const Aboutpage = () => {
             fontSize="lg:text-5xl md:text-3xl text-xl font-vesber"
           />
         </div>
-        <Team />
+        {TeamData && <Team data={TeamData} />}
         <div className="my-32">
           <Certificates />
         </div>

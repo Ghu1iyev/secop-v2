@@ -9,20 +9,17 @@ import Title from "@/components/shared/Title/Title";
 import { GetApi } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/context/LanguageProvider";
+import { teamTypes } from "@/types/common";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
-interface teamTypes {
-  results: {
-    image: string;
-    text: string;
-    position: string;
-    full_name: string;
-  }[];
-}
+
 const OurTeams = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const {data} = useHeaders()
+
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const { data } = useQuery<teamTypes>({
+  const { data: TeamData } = useQuery<teamTypes>({
     queryKey: ["team", language],
     queryFn: () => GetApi(`/team/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
@@ -34,12 +31,12 @@ const OurTeams = () => {
       <div className="w-[680px] mb-[80px] ">
         <Title
           title={t("home.team.title")}
-          subtitle={t("home.team.subtitle")}
+          subtitle={data?.results?.[0]?.team_title}
           fontSize="md:text-[36px]"
         />
       </div>
       <Swiper spaceBetween={10} slidesPerView={"auto"}>
-        {data?.results?.map((card, index: number) => (
+        {TeamData?.results?.map((card, index: number) => (
           <SwiperSlide key={index} style={{ width: "auto" }}>
             <div
               className="relative w-[250px] h-[315px] rounded-xl overflow-hidden transition-all duration-500 group hover:w-[600px] hover:h-[320px] flex"

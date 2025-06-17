@@ -3,15 +3,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectProps } from "@/types/common";
 import { useTranslation } from "@/utils/i18n";
 import { IoIosArrowForward } from "react-icons/io";
 import Title from "@/components/shared/Title/Title";
 import { useLanguage } from "@/context/LanguageProvider";
+import { DetailProjectProps } from "@/types/common";
 
-const ClientProjectPage = ({ data }: { data: ProjectProps }) => {
+const ClientProjectPage = ({ data }: { data: DetailProjectProps }) => {
   const { t } = useTranslation();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <main className="container">
