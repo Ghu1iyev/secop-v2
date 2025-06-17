@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
 import { ProjectProps } from "@/types/common";
 import { useLanguage } from "@/context/LanguageProvider";
+import { Text } from "@mantine/core";
 
 const OurProjects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -123,15 +124,19 @@ const OurProjects = () => {
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h3 className="text-[16px] md:text-[20px] text-[#B0B0B0] font-monda mb-[24px]">
-                      {slides[currentSlide]?.name}
-                    </h3>
-                    <h4 className="text-[20px] sm:text-[36px] text-[#fff] font-vesber">
-                      {slides[currentSlide]?.list_text}
+                    <h4 className="text-[16px] md:text-[20px] text-[#B0B0B0] font-monda mb-[24px]">
+                      Our Projects
                     </h4>
-                    <p className="text-[#B0B0B0] font-monda text-[15px] mt-[25px] lg:text-[20px]">
-                      {slides[currentSlide]?.detail_text}
-                    </p>
+                    <Text lineClamp={2}>
+                      <h4 className="text-[20px] sm:text-[36px] text-[#fff] font-vesber">
+                        {slides[currentSlide]?.list_text}
+                      </h4>
+                    </Text>
+                    <Text  lineClamp={4}>
+                      <p className="text-[#B0B0B0] font-monda text-[15px] mt-[25px] lg:text-[20px]">
+                        {slides[currentSlide]?.detail_text}
+                      </p>
+                    </Text>
                   </motion.div>
                 </AnimatePresence>
                 <div className="mt-[38px]">

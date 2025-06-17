@@ -9,10 +9,7 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import Certificates from "@/components/Home/certificates";
 import PartnersSlider from "@/components/swiper/partners-slider";
-<<<<<<< pari
-=======
 import { teamTypes } from "@/types/common";
->>>>>>> dev
 import { useLanguage } from "@/context/LanguageProvider";
 
 type ProjectProps = {

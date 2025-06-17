@@ -159,7 +159,7 @@ export default function Header() {
                 </div>
               </Link>
 
-              <div className="lg:hidden flex justify-normal items-center gap-2">
+              <div className="lg:hidden relative z-[99999] flex justify-normal items-center gap-2">
                 <div onClick={handleOpenMenu}>
                   <MenuIcon />
                 </div>
