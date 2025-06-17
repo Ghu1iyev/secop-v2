@@ -1,40 +1,36 @@
 "use client";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-
+import az from "@/locale/az.json";
+import en from "@/locale/en.json";
+import { Autoplay } from "swiper/modules";
+import { useTranslation } from "@/utils/i18n";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useLanguage } from "@/context/LanguageProvider";
 interface LatestBlogProps {
- data: {
-   results: {
-    image: string;
-    name: string;
-    author: string;
-    created_at: string;
-  }[]
- }
+  data: {
+    results: {
+      image: string;
+      name: string;
+      author: string;
+      created_at: string;
+    }[];
+  };
 }
-const LatestBlogSlider:React.FC<LatestBlogProps> = ({ data }) => {
-  const azMonths = [
-    "Yanvar",
-    "Fevral",
-    "Mart",
-    "Aprel",
-    "May",
-    "Iyun",
-    "Iyul",
-    "Avqust",
-    "Sentyabr",
-    "Oktyabr",
-    "Noyabr",
-    "Dekabr",
-  ];
+
+const LatestBlogSlider: React.FC<LatestBlogProps> = ({ data }) => {
+  const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    const month = azMonths[date.getMonth()];
+    const monthIndex = date.getMonth();
     const day = date.getDate();
-    return `Published on ${month} ${day}`;
+    const months = language === "az" ? az.blog.months : en.blog.months;
+
+    const month = months[monthIndex];
+
+    return `${t("blog.published")} ${month} ${day}`;
   };
 
   return (
@@ -66,7 +62,7 @@ const LatestBlogSlider:React.FC<LatestBlogProps> = ({ data }) => {
         loop={true}
         className="mySwiper"
       >
-        {data?.results?.slice(0,4).map((d, i: number) => (
+        {data?.results?.slice(0, 4).map((d, i: number) => (
           <SwiperSlide key={i}>
             <div className="sm:max-w-[330px]">
               <div className="relative mb-[20px] w-full h-[235px] overflow-hidden rounded-[10px]">
@@ -80,7 +76,7 @@ const LatestBlogSlider:React.FC<LatestBlogProps> = ({ data }) => {
               </div>
               <div>
                 <p className="text=[16px] sm:text-[18px] mb-[6px] sm:mb-[12px] font-monda text-[#fff]">
-                {d?.created_at ? formatDate(d.created_at) : ""}
+                  {d?.created_at ? formatDate(d.created_at) : ""}
                 </p>
                 <p className="text-[13px] sm:text-[15px] text-[#B0B0B0] overflow-hidden whitespace-nowrap text-ellipsis">
                   {d?.author}

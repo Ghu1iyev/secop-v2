@@ -44,7 +44,7 @@
 
   "home":{
     "banner":{
-      "security_priority": "SƏNİN TƏHLÜKƏSİZLİYİN SƏNİN PRİORİTETİNDİR"
+      "security_priority": "SƏNİN TƏHLÜKƏSİZLİYİN BİZİM PRİORİTETİNDİR"
     },
     "about":{
       "title": "Haqqımızda",
@@ -127,6 +127,20 @@
       "empty": "Zəhmət olmasa domen adı daxil edin.",
       "invalid": "Düzgün domen adı daxil edin. (məsələn: example.com)"
     }
+  },
+
+  "blog": {
+    "published": "Yayımlandı",
+    "months": [
+      "Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun",
+      "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"
+    ]
+  },
+  "projectDetail": {
+    "title": "Layihə Təfərrüatı",
+    "client": "Müştəri",
+    "duration": "Müddət",
+    "servicesProvided": "Təqdim Edilən Xidmətlər"
   }
   
 }

@@ -23,7 +23,7 @@ const Title = ({
         {title}{" "}
       </h4>
       <p
-        className={`font-vesber leading-7 lg:leading-[44px] text-[#fff] ${fontSize}`}
+        className={`font-vesber leading-7 lg:leading-[54px] text-[#fff] ${fontSize}`}
       >
         {subtitle}{" "}
       </p>

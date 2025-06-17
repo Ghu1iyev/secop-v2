@@ -25,6 +25,8 @@ const OurProjects = () => {
 
   const slides = data?.results || [];
 
+  console.log(slides, "slides");
+
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current || slides.length === 0) return;
