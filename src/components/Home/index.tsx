@@ -14,11 +14,12 @@ import { useQuery } from '@tanstack/react-query'
 import { CertificateProps } from '@/types/common'
 import { GetApi } from '@/lib/axios'
 import { useLanguage } from '@/context/LanguageProvider'
+import { useTranslation } from '@/utils/i18n'
 
 
 const Home = () => {
     const { language } = useLanguage();
-  
+    const {t} = useTranslation()
     const { data } = useQuery<CertificateProps>({
     queryKey: ["certificates"],
     queryFn: () => GetApi(`/certificates/?lang=${language}`),
@@ -35,7 +36,7 @@ const Home = () => {
       <Services />
       <Marquee />
       <CompanySwiper />
-      {data && <Certificates data={data}/>}
+      {data && <Certificates title={t("home.certificates.title")} data={data}/>}
       <OurTeams />
       <Blogs />
     </div>

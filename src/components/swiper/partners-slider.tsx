@@ -54,6 +54,7 @@ const PartnersSlider = () => {
                 fill
                 className="object-contain grayscale hover:grayscale-0 transition duration-300"
                 placeholder="blur"
+                objectFit="cover"
                 blurDataURL={partner.image || "/assets/images/png/Logo.png"}
               />
             </div>

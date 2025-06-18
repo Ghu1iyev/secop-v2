@@ -4,7 +4,6 @@ import { CheckIcon } from "../../../../../public/assets/images/vector";
 import { useSearchParams } from "next/navigation";
 import { PostApi } from "@/lib/axios";
 import mockData from "@/lib/mock-data.json";
-import { Loader } from "@mantine/core";
 
 // API cavabı üçün interface təyin edirik
 interface ShodanLocation {
@@ -39,13 +38,13 @@ const CheckWebSiteInfo = () => {
   const searchParams = useSearchParams();
   const domain = searchParams.get("domain");
   const [result, setResult] = useState<ApiResult | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (!domain) return;
 
-      setIsLoading(true);
+      // setIsLoading(true);
       try {
         const response = await PostApi("/scan/", { domain });
         if (isApiResult(response)) {
@@ -62,7 +61,7 @@ const CheckWebSiteInfo = () => {
         console.warn("API error oldu, mock data göstərilir:", fallback);
         console.error("API xətası:", error);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
 
@@ -70,7 +69,7 @@ const CheckWebSiteInfo = () => {
   }, [domain]);
 
   const location = result?.shodan_data?.data?.[0]?.location;
-  const hasLocationData = location?.latitude && location?.longitude;
+  // const hasLocationData = location?.latitude && location?.longitude;
 
   return (
     <div className="container ">
@@ -132,7 +131,7 @@ const CheckWebSiteInfo = () => {
               </span>
             </div>
           </div>
-          <div className="w-[50%]">
+          {/* <div className="w-[50%]">
             {isLoading ? (
               <div className="flex items-center justify-center h-[300px] bg-gray-100 rounded-xl">
                 <div className="text-center">
@@ -155,7 +154,7 @@ const CheckWebSiteInfo = () => {
                 <p className="text-gray-600">Location data not available</p>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
