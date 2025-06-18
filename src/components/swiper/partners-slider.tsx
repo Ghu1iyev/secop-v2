@@ -47,13 +47,14 @@ const PartnersSlider = () => {
       >
         {data?.results?.map((partner, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[30px]">
+            <div className="relative w-full h-[35px]">
               <Image
                 src={partner.image || "/assets/images/png/Logo.png"}
                 alt="Partner Logo"
                 fill
                 className="object-contain grayscale hover:grayscale-0 transition duration-300"
                 placeholder="blur"
+                objectFit="cover"
                 blurDataURL={partner.image || "/assets/images/png/Logo.png"}
               />
             </div>

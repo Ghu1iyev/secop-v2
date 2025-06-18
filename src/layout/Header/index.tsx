@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import MobileVersion from "./mobile";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "@/utils/i18n";
 import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageProvider";
@@ -15,8 +15,9 @@ import {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-
   const [showLanguages, setShowLanguages] = useState(false);
+
+  const languageMenuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleLanguageMenu = () => {
     setShowLanguages((prev) => !prev);
@@ -63,6 +64,27 @@ export default function Header() {
 
   const { t } = useTranslation();
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        languageMenuRef.current &&
+        !languageMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowLanguages(false);
+      }
+    };
+
+    if (showLanguages) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showLanguages]);
+
   return (
     <>
       {!isMenuOpen && (
@@ -73,9 +95,9 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="lg:flex justify-between items-center font-monda lg:gap-24  ">
+          <div className="lg:flex justify-between items-center font-monda lg:gap-24">
             <nav className="hidden lg:flex">
-              <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg  font-semibold text-[#B0B0B099]">
+              <ul className="flex gap-14 lg:gap-6 xl:text-xl text-lg font-semibold text-[#B0B0B099]">
                 <li>
                   <Link href={`/${language}/about`}>
                     {t("navbar.about us")}
@@ -102,21 +124,24 @@ export default function Header() {
               </ul>
             </nav>
 
-            <div className="flex items-center gap-2 lg:gap-8  ">
+            <div className="flex items-center gap-2 lg:gap-8">
               <div className="relative">
                 <div onClick={toggleLanguageMenu}>
                   <LanguageIcon />
                 </div>
 
                 {showLanguages && (
-                  <div className="absolute top-full mt-1 right-0 z-10 w-[90px] flex rounded-2xl bg-gradient-to-r ">
-                    <div className="rounded-2xl w-[90px] border border-transparent transition flex items-center flex-col bg-[#2A2A2A] p-2 text-white font-monda ">
+                  <div
+                    ref={languageMenuRef}
+                    className="absolute top-full mt-1 right-0 z-10 w-[90px] flex rounded-2xl bg-gradient-to-r"
+                  >
+                    <div className="rounded-2xl w-[90px] border border-transparent transition flex items-center flex-col bg-[#2A2A2A] p-2 text-white font-monda">
                       <p
                         onClick={() => {
                           handleLanguageChange("AZE");
                           setShowLanguages(false);
                         }}
-                        className={`cursor-pointer text-[#B0B0B099]  z-10 hover:text-white ${
+                        className={`cursor-pointer text-[#B0B0B099] z-10 hover:text-white ${
                           language === "az" ? "AZE" : "ENG"
                         }`}
                       >
@@ -127,7 +152,7 @@ export default function Header() {
                           handleLanguageChange("ENG");
                           setShowLanguages(false);
                         }}
-                        className={`cursor-pointer text-[#B0B0B099]  z-10 hover:text-white ${
+                        className={`cursor-pointer text-[#B0B0B099] z-10 hover:text-white ${
                           language === "en" ? "AZE" : "ENG"
                         }`}
                       >
@@ -144,13 +169,13 @@ export default function Header() {
               </div>
 
               <Link href={`/${language}/check-your-website`}>
-                <div className="relative lg:inline-flex items-center gap-2   px-6 py-5 rounded-2xl text-white bg-[#2A2A2A] font-medium border border-transparent transition hidden">
+                <div className="relative lg:inline-flex items-center gap-2 px-6 py-5 rounded-2xl text-white bg-[#2A2A2A] font-medium border border-transparent transition hidden">
                   <p className="text-xl font-monda leading-5 font-normal z-10">
                     {t("navbar.checkWebsite")}
-                  </p>{" "}
+                  </p>
                   <span className="z-10">
                     <ArrowIcon />
-                  </span>{" "}
+                  </span>
                   <span
                     className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-tr from-[#D4D4D466] via-[#28282880] to-[#0161A180] blur-[0.5px]"
                     aria-hidden="true"
@@ -159,7 +184,7 @@ export default function Header() {
                 </div>
               </Link>
 
-              <div className="lg:hidden flex justify-normal items-center gap-2">
+              <div className="lg:hidden relative z-[99999] flex justify-normal items-center gap-2">
                 <div onClick={handleOpenMenu}>
                   <MenuIcon />
                 </div>

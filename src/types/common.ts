@@ -84,3 +84,10 @@ export interface teamTypes {
     full_name: string;
   }[];
 }
+
+export type CertificateProps = {
+  results: {
+    image: string;
+    name: string;
+  }[];
+};

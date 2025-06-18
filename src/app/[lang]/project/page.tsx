@@ -1,22 +1,13 @@
-"use client";
-
-import React from "react";
-import Title from "@/components/shared/Title/Title";
-import CompanySwiper from "@/components/swiper/company-swiper";
+'use client'
 import { useQuery } from "@tanstack/react-query";
 import { GetApi } from "@/lib/axios";
-import { useLanguage } from "@/context/LanguageProvider";
-import { useHeaders } from "@/hooks/useHeadersApi";
 import { useTranslation } from "@/utils/i18n";
 import ProjectSwiper from "@/components/swiper/project-swiper";
-
-interface ProjectProps {
-  results: {
-    name: string;
-    image: string;
-    slug: string;
-  }[];
-}
+import CompanySwiper from "@/components/swiper/company-swiper";
+import Title from "@/components/shared/Title/Title";
+import { ProjectProps } from "@/types/common";
+import { useLanguage } from "@/context/LanguageProvider";
+import { useHeaders } from "@/hooks/useHeadersApi";
 
 const ProjectPage = () => {
   const { t } = useTranslation();
@@ -29,6 +20,8 @@ const ProjectPage = () => {
     refetchOnWindowFocus: false,
   });
 
+  const firstTen = data?.results.slice(0, 10) || [];
+  const rest = data?.results.slice(10) || [];
 
   return (
     <div className="container">
@@ -41,10 +34,22 @@ const ProjectPage = () => {
       </div>
       <div className="mt-20">
         <div className="my-[80px]">
-          {data && <ProjectSwiper reverseDirection={false} data={data} language={language} />}
+          {firstTen.length > 0 && (
+            <ProjectSwiper
+              reverseDirection={false}
+              data={{ results: firstTen }}
+              language={language}
+            />
+          )}
         </div>
         <div>
-          {data && <ProjectSwiper reverseDirection={true} data={data} language={language} />}
+          {rest.length > 0 && (
+            <ProjectSwiper
+              reverseDirection={true}
+              data={{ results: rest }}
+              language={language}
+            />
+          )}
         </div>
       </div>
       <div className="mt-20">
