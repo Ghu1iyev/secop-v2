@@ -32,7 +32,7 @@ const OurTeams = () => {
         <Title
           title={t("home.team.title")}
           subtitle={data?.results?.[0]?.team_title}
-          fontSize="md:text-[36px]"
+          fontSize="text-[20px] md:text-[36px]"
         />
       </div>
       <Swiper spaceBetween={10} slidesPerView={"auto"}>

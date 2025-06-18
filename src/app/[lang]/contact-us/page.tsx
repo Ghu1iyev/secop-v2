@@ -66,7 +66,7 @@ const ContactUs = () => {
       <div className="mt-20 lg:w-[990px]">
         <Title
           title={t("title.contact")}
-          fontSize="text-[20px] sm:text-[48px]"
+          fontSize="text-[20px] md:text-[48px]"
           subtitle={data?.results?.[0]?.contact_title}
         />
         <p
