@@ -21,7 +21,7 @@ const ClientOurServices = ({ data }: ServiceProps) => {
       <div className="mt-20">
         <Title
           title={t("title.services")}
-          fontSize="text-[20px] md:text-[48px]"
+          fontSize="lg:text-[48px] text-[20px]"
           subtitle={headersData?.results?.[0]?.service_title}
         />
       </div>
