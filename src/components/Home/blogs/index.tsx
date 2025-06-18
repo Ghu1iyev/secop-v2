@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Title from "@/components/shared/Title/Title";
 import { useTranslation } from "@/utils/i18n";
@@ -13,7 +13,13 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 const Blogs = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
-  const {data: headerData} = useHeaders()
+  const { data: headerData } = useHeaders();
+  const [orientation, setOrientation] = useState<"horizontal" | "vertical">(
+    typeof window !== "undefined" && window.innerWidth <= 550
+      ? "horizontal"
+      : "vertical"
+  );
+
   const { data: CategoryData } = useQuery<CategoryType>({
     queryKey: ["article-categories", language],
     queryFn: () => GetApi(`/article-categories/?lang=${language}`),
@@ -27,6 +33,21 @@ const Blogs = () => {
     refetchOnWindowFocus: false,
   });
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 550) {
+        setOrientation("horizontal");
+      } else {
+        setOrientation("vertical");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="pt-[80px]">
       <div className="flex justify-end">
@@ -34,14 +55,14 @@ const Blogs = () => {
           <Title
             title={t("home.blogs.title")}
             subtitle={headerData?.results?.[0]?.blogs_title}
-            fontSize="md:text-[36px]"
+            fontSize="text-[20px] md:text-[36px]"
           />
         </div>
       </div>
       <Tabs
         className="blog-categories mt-[80px] mb-[150px]"
-        defaultValue="gallery"
-        orientation="vertical"
+        defaultValue="i̇nkişaf-və-avtomatlaşdırma"
+        orientation={orientation}
       >
         <div className="md:w-[20%] mr-[100px] flex-none">
           <Tabs.List>

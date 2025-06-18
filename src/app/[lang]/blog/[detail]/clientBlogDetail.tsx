@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { ScrollArea } from "@mantine/core";
 import classes from "../blog.module.scss";
@@ -8,6 +9,8 @@ import { useTranslation } from "@/utils/i18n";
 
 const ClientBlogDetail = ({ data }: { data: BlogDetailProps }) => {
   const { t } = useTranslation();
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_BASE_URL}`
+  
   return (
     <main className="container">
       <h1 className="text-[48px] mt-[80px] mb-[60px] font-vesber text-center">
@@ -17,16 +20,14 @@ const ClientBlogDetail = ({ data }: { data: BlogDetailProps }) => {
         <div className="relative w-full h-full">
           <Image
             alt={data?.article?.name}
-            src={data?.article?.image}
-            blurDataURL={data?.article?.image}
+            src={`${baseUrl}${data?.article?.image}` || ""}
+            blurDataURL={`${baseUrl}${data?.article?.image}` || ""}
             fill
             placeholder="blur"
           />
         </div>
       </div>
-      <p className="text-[20px] text-[#B0B0B0] font-monda">
-        {data?.article?.text}
-      </p>
+     <div dangerouslySetInnerHTML={{__html: data?.article?.text}}/>
       <div className="pt-[80px] flex gap-[140px]">
         <div className="w-[30%] flex-none">
           <p className="text-[#fff] text-[20px] font-monda mb-[24px]">
