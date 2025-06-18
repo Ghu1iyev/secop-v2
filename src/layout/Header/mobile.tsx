@@ -16,7 +16,7 @@ const MobileVersion = ({
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-full z-50 bg-white text-[#1E1E1E] p-10 pt-16 font-monda transition-transform duration-300 ease-in-out 
+      className={`fixed top-0 left-0 w-full h-full z-[9999] bg-white text-[#1E1E1E] p-10 pt-16 font-monda transition-transform duration-300 ease-in-out 
         ${isClosing ? "animate-slide-left-out" : "animate-slide-left"}`}
     >
       <div className="flex justify-end">
