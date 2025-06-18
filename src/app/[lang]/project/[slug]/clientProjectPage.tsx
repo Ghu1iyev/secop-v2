@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "@/utils/i18n";
 import { IoIosArrowForward } from "react-icons/io";
-import Title from "@/components/shared/Title/Title";
 import { useLanguage } from "@/context/LanguageProvider";
 import { DetailProjectProps } from "@/types/common";
 
@@ -37,8 +36,9 @@ const ClientProjectPage = ({ data }: { data: DetailProjectProps }) => {
       </div>
 
       <div className="p-8 md:p-12 lg:p-20 bg-[#121212] rounded-3xl w-100% h-auto ">
-        <Title title={"slug"} subtitle={"slug"} />
-
+        <h2 className="lg:text-5xl md:text-3xl text-xl font-vesber">
+          {data?.name}
+        </h2>
         <div className="w-full h-[276px] md:h-[516px] mt-10 lg:mb-14 mb-10 relative">
           <Image
             src={data?.image || ""}
@@ -51,21 +51,23 @@ const ClientProjectPage = ({ data }: { data: DetailProjectProps }) => {
         </div>
 
         <p className="font-vesber text-xl md:text-2xl lg:text-3xl leading-8">
-          {data?.name}
+          {t("projectDetail.title")}
         </p>
         <div className="w-full h-[1px] bg-[#2A2A2A] my-10"></div>
 
         <div className="font-monda text-xs md:text-sm lg:text-base leading-8 font-normal">
           <p>
-            Client: <span className="text-[#B0B0B0]">{data?.client}</span>
+            {t("projectDetail.client")}:{" "}
+            <span className="text-[#B0B0B0]">{data?.client}</span>
           </p>
 
           <p>
-            Duration: <span className="text-[#B0B0B0]">{data?.duration}</span>
+            {t("projectDetail.duration")}:{" "}
+            <span className="text-[#B0B0B0]">{data?.duration}</span>
           </p>
 
           <p>
-            Services Provided: {""}
+            {t("projectDetail.servicesProvided")}:
             <span className="text-[#B0B0B0]">{data?.services_provided}</span>
           </p>
         </div>

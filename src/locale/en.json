@@ -44,7 +44,7 @@
 
   "home":{
     "banner":{
-     "security_priority": "YOUR SECURITY IS YOUR PRIORITY"
+     "security_priority": "YOUR SECURITY IS OUR PRIORITY"
     },
     "about": {
     "title": "About Us",
@@ -124,6 +124,20 @@
       "empty": "Please enter a domain name.",
       "invalid": "Please enter a valid domain name (e.g., example.com)."
     }
+  },
+
+  "blog": {
+    "published": "Published on",
+    "months": [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ]
+  },
+  "projectDetail": {
+    "title": "Project Detail",
+    "client": "Client",
+    "duration": "Duration",
+    "servicesProvided": "Services Provided"
   }
   
 }
