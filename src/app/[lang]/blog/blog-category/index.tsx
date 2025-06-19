@@ -10,10 +10,11 @@ interface BlogCategoriesTypes {
 }
 const BlogCategories = ({ categories, articles }: BlogCategoriesTypes) => {
   const { t } = useTranslation();
+  
   return (
     <Tabs
       className="blog-categories mt-[80px] mb-[150px]"
-      defaultValue="gallery"
+      defaultValue="i̇nkişaf-və-avtomatlaşdırma"
       orientation="vertical"
     >
       <div className="md:w-[20%] mr-[100px] flex-none">

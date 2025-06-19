@@ -7,6 +7,7 @@ import { Autoplay } from "swiper/modules";
 import { useTranslation } from "@/utils/i18n";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useLanguage } from "@/context/LanguageProvider";
+import Link from "next/link";
 interface LatestBlogProps {
   data: {
     results: {
@@ -14,6 +15,7 @@ interface LatestBlogProps {
       name: string;
       author: string;
       created_at: string;
+      slug: string;
     }[];
   };
 }
@@ -64,28 +66,30 @@ const LatestBlogSlider: React.FC<LatestBlogProps> = ({ data }) => {
       >
         {data?.results?.slice(0, 4).map((d, i: number) => (
           <SwiperSlide key={i}>
-            <div className="sm:max-w-[330px]">
-              <div className="relative mb-[20px] w-full h-[235px] overflow-hidden rounded-[10px]">
-                <Image
-                  src={d?.image || ""}
-                  blurDataURL={d?.image || ""}
-                  fill
-                  placeholder="blur"
-                  alt=""
-                />
+            <Link href={`/${language}/blog/${d?.slug}`}>
+              <div className="sm:max-w-[330px]">
+                <div className="relative mb-[20px] w-full h-[235px] overflow-hidden rounded-[10px]">
+                  <Image
+                    src={d?.image || ""}
+                    blurDataURL={d?.image || ""}
+                    fill
+                    placeholder="blur"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <p className="text=[16px] sm:text-[18px] mb-[6px] sm:mb-[12px] font-monda text-[#fff]">
+                    {d?.created_at ? formatDate(d.created_at) : ""}
+                  </p>
+                  <p className="text-[13px] sm:text-[15px] text-[#B0B0B0] overflow-hidden whitespace-nowrap text-ellipsis">
+                    {d?.author}
+                  </p>
+                  <h3 className="mt-[14px] sm:mt-[20px] text-[19px] sm:text-[22px] font-vesber overflow-hidden whitespace-nowrap text-ellipsis">
+                    {d?.name}
+                  </h3>
+                </div>
               </div>
-              <div>
-                <p className="text=[16px] sm:text-[18px] mb-[6px] sm:mb-[12px] font-monda text-[#fff]">
-                  {d?.created_at ? formatDate(d.created_at) : ""}
-                </p>
-                <p className="text-[13px] sm:text-[15px] text-[#B0B0B0] overflow-hidden whitespace-nowrap text-ellipsis">
-                  {d?.author}
-                </p>
-                <h3 className="mt-[14px] sm:mt-[20px] text-[19px] sm:text-[22px] font-vesber overflow-hidden whitespace-nowrap text-ellipsis">
-                  {d?.name}
-                </h3>
-              </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
