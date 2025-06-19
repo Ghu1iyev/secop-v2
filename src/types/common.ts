@@ -74,6 +74,7 @@ export interface DetailProjectProps {
   services_provided: string;
   detail_text: string;
   client: string;
+  list_text: string;
 }
 
 export interface teamTypes {
