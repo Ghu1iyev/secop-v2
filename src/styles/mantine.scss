@@ -57,9 +57,11 @@
         border: none;
         color: #0161a1;
       }
-      &:focus {
-        color: #0161a1;
+      &[aria-selected='true'] {
+        color: #0161a1; 
+        font-weight: bold; 
       }
+
       .mantine-Tabs-tabLabel {
         text-align: start;
       }

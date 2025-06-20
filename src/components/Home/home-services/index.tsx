@@ -10,14 +10,18 @@ const Services = () => {
   const { data } = useHeaders();
 
   return (
+<<<<<<< HEAD
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[180px] items-start md:mt-[80px] mt-20">
+=======
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-[34px] md:gap-[180px] items-start mt-[80px]">
+>>>>>>> ac357ab5cea85e56b0107186c49e12dcf72086b8
       <Title
         title={t("home.services.title")}
         subtitle={data?.results?.[0]?.service_title}
-        fontSize="md:text-[36px]"
+        fontSize="text-[20px] md:text-[36px]"
       />
       <div>
-        <p className="text-[#B0B0B0] leading-[24px] sm:leading-[34px] font-monda text-[15px] sm:text-[20px] mb-[38px]">
+        <p className="text-[#B0B0B0] md:leading-[24px] sm:leading-[34px] font-monda text-[15px] sm:text-[20px] mb-[38px]">
           {data?.results?.[0]?.service_text}
         </p>
 

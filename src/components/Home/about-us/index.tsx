@@ -25,7 +25,7 @@ const AboutUs = () => {
           <Title
             title={t("home.about.title")}
             subtitle={data?.results?.[0]?.subtitle_1}
-            fontSize="md:text-[48px]"
+            fontSize="text-[20px] md:text-[48px]"
           />
         </div>
         <div>

@@ -32,7 +32,7 @@ const Blog = () => {
       <div className="w-full mb-[40px] sm:mb-0 mt-[80px] lg:w-[990px]">
         <Title
           title={t("title.blogs")}
-          fontSize="text-[20px] sm:text-[48px]"
+          fontSize="text-[20px] md:text-[48px]"
           subtitle={data?.results?.[0]?.blogs_title}
         />
       </div>
