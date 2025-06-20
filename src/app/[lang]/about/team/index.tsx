@@ -5,7 +5,7 @@ import React from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Team = ({ data }: {data: teamTypes}) => {
+const Team = ({ data }: { data: teamTypes }) => {
   return (
     <>
       <Swiper
@@ -50,7 +50,7 @@ const Team = ({ data }: {data: teamTypes}) => {
         {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
             <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
-              <div className="rounded-xl overflow-hidden object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300 w-[326px] h-[412px]">
+              <div className="relative rounded-xl overflow-hidden object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300 max-w-[326px] h-[412px] mx-auto">
                 <Image
                   alt={member?.full_name}
                   src={member?.image || ""}
