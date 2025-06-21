@@ -26,7 +26,7 @@ const PartnersSlider = () => {
         breakpoints={{
           0: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           500: {
             slidesPerView: 3,
@@ -47,14 +47,14 @@ const PartnersSlider = () => {
       >
         {data?.results?.map((partner, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[35px]">
+            <div className="relative w-full h-[45px]">
               <Image
                 src={partner.image || "/assets/images/png/Logo.png"}
                 alt="Partner Logo"
                 fill
-                className="object-contain grayscale hover:grayscale-0 transition duration-300"
+                className="object-contain md:grayscale hover:grayscale-0 transition duration-300"
                 placeholder="blur"
-                objectFit="cover"
+                objectFit="contain"
                 blurDataURL={partner.image || "/assets/images/png/Logo.png"}
               />
             </div>

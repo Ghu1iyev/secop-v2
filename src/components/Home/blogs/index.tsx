@@ -32,7 +32,7 @@ const Blogs = () => {
   return (
     <section className="pt-[80px]">
       <div className="flex justify-end">
-        <div className="w-6/12">
+        <div className="md:w-6/12">
           <Title
             title={t("home.blogs.title")}
             subtitle={headerData?.results?.[0]?.blogs_title}
@@ -41,7 +41,7 @@ const Blogs = () => {
         </div>
       </div>
       <Tabs
-        className="blog-categories mt-[80px] mb-[150px]"
+        className="blog-categories mt-[50px] md:mt-[80px] mb-[150px]"
         defaultValue="i̇nkişaf-və-avtomatlaşdırma"
         orientation="vertical"
       >

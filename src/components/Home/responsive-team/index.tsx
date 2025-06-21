@@ -5,9 +5,9 @@ import React from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Team = ({ data }: {data: teamTypes}) => {
+const ResponsiveTeam = ({ data }: {data: teamTypes | undefined}) => {
   return (
-    <>
+    <div className="md:hidden">
       <Swiper
         autoplay={{ delay: 0, disableOnInteraction: false }}
         slidesPerView={4}
@@ -49,8 +49,8 @@ const Team = ({ data }: {data: teamTypes}) => {
       >
         {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
-            <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
-              <div className="rounded-xl overflow-hidden object-cover relative md:filter md:grayscale group-hover:grayscale-0 transition-all duration-300 w-full md:w-[326px] h-[300px] md:h-[412px]">
+            <div className="mt-20 transition-all duration-300 hover:cursor-pointer">
+              <div className="rounded-xl overflow-hidden object-cover relative  transition-all duration-300 w-full h-[300px] md:h-[412px]">
                 <Image
                   alt={member?.full_name}
                   src={member?.image || ""}
@@ -60,16 +60,16 @@ const Team = ({ data }: {data: teamTypes}) => {
                   placeholder="blur"
                 />
               </div>
-              <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 md:group-hover:text-white">
+              <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 group-hover:text-white">
                 <div className="mt-6">
                   <h2 className="font-vesber font-normal leading-8 text-2xl transition-all duration-300">
                     {member?.full_name}
                   </h2>
-                  <h3 className="font-monda font-normal leading-4 lg:leading-8 tracking-tight text-sm text-[#fff] md:text-[#B0B0B0] md:group-hover:text-white transition-all duration-300">
+                  <h3 className="font-monda font-normal leading-4 lg:leading-8 tracking-tight text-sm  text-[#B0B0B0] group-hover:text-white transition-all duration-300">
                     {member?.position}
                   </h3>
                 </div>
-                <p className="text-sm lg:text-base font-normal leading-4 font-monda text-[#9e9e9e] md:group-hover:text-white transition-all duration-300">
+                <p className="text-sm lg:text-base font-normal leading-4 font-monda text-[#9e9e9e] group-hover:text-white transition-all duration-300">
                   {member?.text}
                 </p>
               </div>
@@ -77,8 +77,8 @@ const Team = ({ data }: {data: teamTypes}) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 
-export default Team;
+export default ResponsiveTeam;
