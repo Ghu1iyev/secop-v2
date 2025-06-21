@@ -4,6 +4,7 @@ import React from "react";
 import { GetApi } from "@/lib/axios";
 import { MdDone } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/context/LanguageProvider";
 
 type ServicesProps = {
   results: {
@@ -12,9 +13,10 @@ type ServicesProps = {
 };
 
 export default function Marquee() {
-  const { data } = useQuery<ServicesProps>({
-    queryKey: ["services"],
-    queryFn: () => GetApi("/services/"),
+  const {language} = useLanguage()
+   const { data } = useQuery<ServicesProps>({
+    queryKey: ["services", language],
+    queryFn: () => GetApi(`/services/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });

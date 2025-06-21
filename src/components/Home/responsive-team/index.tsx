@@ -11,7 +11,7 @@ const ResponsiveTeam = ({ data }: {data: teamTypes | undefined}) => {
       <Swiper
         autoplay={{ delay: 0, disableOnInteraction: false }}
         slidesPerView={4}
-        speed={3000}
+        speed={2800}
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -44,7 +44,6 @@ const ResponsiveTeam = ({ data }: {data: teamTypes | undefined}) => {
         }}
         modules={[Autoplay]}
         loop={true}
-        allowTouchMove={false}
         className="mySwiper"
       >
         {data?.results?.map((member, index) => (
