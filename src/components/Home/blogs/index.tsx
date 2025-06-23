@@ -28,7 +28,6 @@ const Blogs = () => {
     refetchOnWindowFocus: false,
   });
 
-
   return (
     <section className="pt-[80px]">
       <div className="flex justify-end">
@@ -42,7 +41,7 @@ const Blogs = () => {
       </div>
       <Tabs
         className="blog-categories mt-[50px] md:mt-[80px] mb-[150px]"
-        defaultValue="i̇nkişaf-və-avtomatlaşdırma"
+        defaultValue={language === "az" ? "i̇nkişaf-və-avtomatlaşdırma" : "development-&-automation"}
         orientation="vertical"
       >
         <div className="md:w-[20%] mr-[100px] flex-none">

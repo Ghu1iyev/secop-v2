@@ -17,6 +17,8 @@ interface ArticleProps {
 }
 const ArticleItem = ({ data }: ArticleProps) => {
   const { language } = useLanguage();
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_BASE_URL}`
+
   return (
     <Link href={`/${language}/blog/${data?.slug}`}>
       <div className="border-b py-[20px] sm:py-[30px] flex gap-[24px] items-center border-b-[#424242] ">
@@ -25,8 +27,8 @@ const ArticleItem = ({ data }: ArticleProps) => {
             alt=""
             fill
             placeholder="blur"
-            blurDataURL={data?.image || ""}
-            src={data?.image || ""}
+            blurDataURL={`${baseUrl}${data?.image || ""}`}
+            src={`${baseUrl}${data?.image || ""}`}
             objectFit="cover"
           />
         </div>
@@ -35,7 +37,7 @@ const ArticleItem = ({ data }: ArticleProps) => {
           Time to read : {data?.reading_time}
         </p> */}
           <p className="text-[14px] sm:text-[15px] font-monda text-[#B0B0B0]">
-            {data?.author}
+            {data?.category?.name}
           </p>
           <h3 className="mt-[18px] sm:mt-[20px] text-[16px] sm:text-[22px] font-vesber sm:overflow-hidden sm:whitespace-nowrap sm:text-ellipsis">
             {data?.name}

@@ -57,6 +57,7 @@ export interface BlogDetailProps {
     name: string;
     text: string;
     image: string;
+    author: string;
   };
   related_articles?: ArticlesType["results"];
 }

@@ -133,6 +133,10 @@
       "July", "August", "September", "October", "November", "December"
     ]
   },
+   "blog_detail": {
+    "title": "Related articles",
+    "author": "Author"
+  },
   "projectDetail": {
     "title": "Project Detail",
     "client": "Client",
