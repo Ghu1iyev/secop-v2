@@ -48,8 +48,8 @@ const ResponsiveTeam = ({ data }: {data: teamTypes | undefined}) => {
       >
         {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
-            <div className="mt-20">
-              <div className="rounded-xl overflow-hidden object-cover relative w-full h-[300px] md:h-[412px]">
+            <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
+              <div className="rounded-xl overflow-hidden object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 relative w-full h-[300px] md:h-[412px]">
                 <Image
                   alt={member?.full_name}
                   src={member?.image || ""}
@@ -59,16 +59,16 @@ const ResponsiveTeam = ({ data }: {data: teamTypes | undefined}) => {
                   placeholder="blur"
                 />
               </div>
-              <div className="flex flex-col gap-4 lg:gap-6">
+              <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 group-hover:text-white">
                 <div className="mt-6">
-                  <h2 className="font-vesber text-[#fff] font-normal leading-8 text-2xl">
+                  <h2 className="font-vesber font-normal leading-8 text-2xl transition-all duration-300">
                     {member?.full_name}
                   </h2>
-                  <h3 className="font-monda font-normal leading-4 lg:leading-8 tracking-tight text-sm  text-[#ffffff]">
+                  <h3 className="font-monda font-normal leading-4 lg:leading-8 tracking-tight text-sm text-[#B0B0B0] group-hover:text-white transition-all duration-300">
                     {member?.position}
                   </h3>
                 </div>
-                <p className="text-sm lg:text-base font-normal leading-4 font-monda text-[#9e9e9e]">
+                <p className="text-sm lg:text-base font-normal leading-4 font-monda text-[#9e9e9e] group-hover:text-white transition-all duration-300">
                   {member?.text}
                 </p>
               </div>
