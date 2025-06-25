@@ -11,6 +11,7 @@ const Team = ({ data }: {data: teamTypes}) => {
       <Swiper
         autoplay={{ delay: 0, disableOnInteraction: false }}
         slidesPerView={4}
+        spaceBetween={20}
         speed={3000}
         breakpoints={{
           0: {
@@ -21,15 +22,7 @@ const Team = ({ data }: {data: teamTypes}) => {
             slidesPerView: 1,
             spaceBetween: 16,
           },
-          420: {
-            slidesPerView: 1.4,
-            spaceBetween: 16,
-          },
-          480: {
-            slidesPerView: 1.5,
-            spaceBetween: 16,
-          },
-          640: {
+          500: {
             slidesPerView: 2,
             spaceBetween: 16,
           },
@@ -50,7 +43,7 @@ const Team = ({ data }: {data: teamTypes}) => {
         {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
             <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
-              <div className="rounded-xl overflow-hidden object-cover relative md:filter md:grayscale group-hover:grayscale-0 transition-all duration-300 w-full md:w-[326px] h-[300px] md:h-[412px]">
+              <div className="rounded-xl overflow-hidden object-cover relative md:filter md:grayscale group-hover:grayscale-0 transition-all duration-300 w-full h-[300px] md:h-[412px]">
                 <Image
                   alt={member?.full_name}
                   src={member?.image || ""}
