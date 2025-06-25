@@ -35,7 +35,7 @@
           "dribbble": "Dribbble"
         },
         "legal": {
-          "copyright": "© 2025. All rights are protected.",
+          "copyright": "All rights are protected.",
           "terms": "Terms",
           "sitemap": "Sitemap"
         }
@@ -132,6 +132,10 @@
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ]
+  },
+   "blog_detail": {
+    "title": "Related articles",
+    "author": "Author"
   },
   "projectDetail": {
     "title": "Project Detail",

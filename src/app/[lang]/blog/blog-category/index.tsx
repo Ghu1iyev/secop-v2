@@ -7,13 +7,15 @@ import React from "react";
 interface BlogCategoriesTypes {
   categories: CategoriesType;
   articles: ArticlesType;
+  language: string;
 }
-const BlogCategories = ({ categories, articles }: BlogCategoriesTypes) => {
+const BlogCategories = ({ categories, articles, language }: BlogCategoriesTypes) => {
   const { t } = useTranslation();
+  
   return (
     <Tabs
       className="blog-categories mt-[80px] mb-[150px]"
-      defaultValue="gallery"
+      defaultValue={language === "az" ? "i̇nkişaf-və-avtomatlaşdırma" : "development-&-automation"}
       orientation="vertical"
     >
       <div className="md:w-[20%] mr-[100px] flex-none">

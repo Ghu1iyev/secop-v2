@@ -35,7 +35,7 @@
       "dribbble": "Dribbble"
     },
     "legal": {
-      "copyright": "© 2025. Bütün hüquqlar qorunur.",
+      "copyright": "Bütün hüquqlar qorunur.",
       "terms": "Şərtlər",
       "sitemap": "Sayt Xəritəsi"
     }
@@ -74,7 +74,7 @@
   "blogs": {
     "title": "Bloqlar",
     "subtitle": "Birləşmiş dünyada təhlükəsiz qalmaq üçün sizi biliklə gücləndiririk."
-  }
+  } 
    
   },
 
@@ -135,6 +135,10 @@
       "Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun",
       "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"
     ]
+  },
+  "blog_detail": {
+    "title": "Əlaqədar məqalələr",
+    "author": "Yazıçı"
   },
   "projectDetail": {
     "title": "Layihə Təfərrüatı",

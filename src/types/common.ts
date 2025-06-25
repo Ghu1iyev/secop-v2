@@ -57,6 +57,7 @@ export interface BlogDetailProps {
     name: string;
     text: string;
     image: string;
+    author: string;
   };
   related_articles?: ArticlesType["results"];
 }
@@ -74,6 +75,7 @@ export interface DetailProjectProps {
   services_provided: string;
   detail_text: string;
   client: string;
+  list_text: string;
 }
 
 export interface teamTypes {

@@ -9,20 +9,21 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 import Title from "@/components/shared/Title/Title";
 import { ArticlesType, CategoriesType } from "@/types/common";
 import LatestBlogSlider from "@/components/swiper/latest-blog-slider";
+import { useLanguage } from "@/context/LanguageProvider";
 
 const Blog = () => {
   const { data } = useHeaders();
   const { t } = useTranslation();
-
+  const {language} = useLanguage()
   const { data: categories } = useQuery<CategoriesType>({
-    queryKey: ["categories"],
-    queryFn: () => GetApi("/article-categories/"),
+    queryKey: ["categories", language],
+    queryFn: () => GetApi(`/article-categories/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
   const { data: Articles } = useQuery<ArticlesType>({
-    queryKey: ["articles"],
-    queryFn: () => GetApi("/articles/"),
+    queryKey: ["articles", language],
+    queryFn: () => GetApi(`/articles/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
@@ -45,6 +46,7 @@ const Blog = () => {
       <BlogCategories
         categories={categories ?? { results: [] }}
         articles={Articles ?? { results: [] }}
+        language={language}
       />
     </main>
   );

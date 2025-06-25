@@ -105,7 +105,7 @@ const Aboutpage = () => {
         <div className="my-32">
           {Certificate && <Certificates title="CERTIFICATES" data={Certificate} />}
         </div>
-        <div className="my-32">
+        <div className="my-32" id="team-certificates">
           {TeamCertificate && <Certificates title="TEAM CERTIFICATES" data={TeamCertificate} />}
         </div>
       </div>

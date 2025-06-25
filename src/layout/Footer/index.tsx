@@ -49,7 +49,7 @@ export default function Footer() {
           </p>
           <ul>
             <li className="text-[#B0B0B0]">
-              <Link href={`/${language}/#our-certificates`}>
+              <Link href={`/${language}/about/#team-certificates`}>
                 {t("footer.navigation.teamCertificates")}
               </Link>
             </li>
@@ -109,7 +109,7 @@ export default function Footer() {
             <li className="text-[#fff] font-semibold lg:pb-5 ">SECOP</li>
             <div className="flex justify-between flex-col lg:gap-12 gap-7">
               <li className="text-[#B0B0B0]">
-                &copy; {new Date().getFullYear()}.{t("footer.legal.copyright")}.
+                &copy; {new Date().getFullYear()} {t("footer.legal.copyright")}.
               </li>
               <li className="text-[#B0B0B0]">
                 {t("footer.legal.terms")}. {t("footer.legal.sitemap")}

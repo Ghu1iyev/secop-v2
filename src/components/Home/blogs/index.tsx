@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Title from "@/components/shared/Title/Title";
 import { useTranslation } from "@/utils/i18n";
@@ -14,11 +14,6 @@ const Blogs = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const { data: headerData } = useHeaders();
-  const [orientation, setOrientation] = useState<"horizontal" | "vertical">(
-    typeof window !== "undefined" && window.innerWidth <= 550
-      ? "horizontal"
-      : "vertical"
-  );
 
   const { data: CategoryData } = useQuery<CategoryType>({
     queryKey: ["article-categories", language],
@@ -33,25 +28,10 @@ const Blogs = () => {
     refetchOnWindowFocus: false,
   });
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 550) {
-        setOrientation("horizontal");
-      } else {
-        setOrientation("vertical");
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section className="pt-[80px]">
       <div className="flex justify-end">
-        <div className="w-6/12">
+        <div className="md:w-6/12">
           <Title
             title={t("home.blogs.title")}
             subtitle={headerData?.results?.[0]?.blogs_title}
@@ -60,9 +40,9 @@ const Blogs = () => {
         </div>
       </div>
       <Tabs
-        className="blog-categories mt-[80px] mb-[150px]"
-        defaultValue="i̇nkişaf-və-avtomatlaşdırma"
-        orientation={orientation}
+        className="blog-categories mt-[50px] md:mt-[80px] mb-[150px]"
+        defaultValue={language === "az" ? "i̇nkişaf-və-avtomatlaşdırma" : "development-&-automation"}
+        orientation="vertical"
       >
         <div className="md:w-[20%] mr-[100px] flex-none">
           <Tabs.List>

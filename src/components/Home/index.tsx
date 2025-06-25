@@ -11,10 +11,11 @@ import PartnersSlider from '../swiper/partners-slider'
 import OurTeams from './our-team'
 import HomeBanner from './home-banner'
 import { useQuery } from '@tanstack/react-query'
-import { CertificateProps } from '@/types/common'
+import { CertificateProps, teamTypes } from '@/types/common'
 import { GetApi } from '@/lib/axios'
 import { useLanguage } from '@/context/LanguageProvider'
 import { useTranslation } from '@/utils/i18n'
+import ResponsiveTeam from './responsive-team'
 
 
 const Home = () => {
@@ -27,6 +28,13 @@ const Home = () => {
     refetchOnWindowFocus: false,
   });
 
+  const { data: TeamData } = useQuery<teamTypes>({
+      queryKey: ["team", language],
+      queryFn: () => GetApi(`/team/?lang=${language}`),
+      staleTime: 1000 * 60 * 10,
+      refetchOnWindowFocus: false,
+    });
+
   return (
     <div className="container">
       <HomeBanner />
@@ -38,6 +46,7 @@ const Home = () => {
       <CompanySwiper />
       {data && <Certificates title={t("home.certificates.title")} data={data}/>}
       <OurTeams />
+      <ResponsiveTeam data={TeamData}/>
       <Blogs />
     </div>
   );

@@ -13,11 +13,10 @@ type ServicesProps = {
 };
 
 export default function Marquee() {
-  const { language } = useLanguage();
-
-  const { data } = useQuery<ServicesProps>({
+  const {language} = useLanguage()
+   const { data } = useQuery<ServicesProps>({
     queryKey: ["services", language],
-    queryFn: () => GetApi(`services/?lang=${language}`),
+    queryFn: () => GetApi(`/services/?lang=${language}`),
     staleTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
   });

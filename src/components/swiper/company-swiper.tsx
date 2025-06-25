@@ -13,12 +13,11 @@ const CompanySwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const {language} = useLanguage()
    const { data } = useQuery<ClientFeedbackProps>({
-    queryKey: ["client-feedback"],
+    queryKey: ["client-feedback", language],
     queryFn: () => GetApi(`/client-feedbacks/?lang=${language}`),
     staleTime: 1000 * 60 * 10,
     refetchOnWindowFocus: false,
   });
-
 
   return (
     <section className="pt-[80px] md:pb-[80px] relative ">
