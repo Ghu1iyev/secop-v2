@@ -7,10 +7,10 @@ import { useHeaders } from "@/hooks/useHeadersApi";
 
 const Services = () => {
   const { t } = useTranslation();
-  const {data} = useHeaders()
+  const { data } = useHeaders();
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-[34px] md:gap-[180px] items-start mt-[80px]">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[180px] items-start md:mt-[80px] mt-20">
       <Title
         title={t("home.services.title")}
         subtitle={data?.results?.[0]?.service_title}

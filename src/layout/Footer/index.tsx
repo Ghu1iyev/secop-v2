@@ -97,6 +97,7 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/secop.co/"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <li className="text-[#B0B0B0]">{t("footer.social.instagram")}</li>
             </a>

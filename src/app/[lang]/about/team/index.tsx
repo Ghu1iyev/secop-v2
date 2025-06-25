@@ -5,7 +5,7 @@ import React from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Team = ({ data }: {data: teamTypes}) => {
+const Team = ({ data }: { data: teamTypes }) => {
   return (
     <>
       <Swiper
@@ -44,7 +44,6 @@ const Team = ({ data }: {data: teamTypes}) => {
         }}
         modules={[Autoplay]}
         loop={true}
-        allowTouchMove={false}
         className="mySwiper"
       >
         {data?.results?.map((member, index) => (
@@ -55,9 +54,12 @@ const Team = ({ data }: {data: teamTypes}) => {
                   alt={member?.full_name}
                   src={member?.image || ""}
                   blurDataURL={member?.image || ""}
-                  fill
-                  objectFit="cover"
-                  placeholder="blur"
+                  height={412}
+                  width={326}
+                  style={{
+                    height: "412px",
+                  }}
+                  className="rounded-xl object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 md:group-hover:text-white">
