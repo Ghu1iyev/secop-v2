@@ -44,20 +44,22 @@ const Team = ({ data }: { data: teamTypes }) => {
         }}
         modules={[Autoplay]}
         loop={true}
-        allowTouchMove={false}
         className="mySwiper"
       >
         {data?.results?.map((member, index) => (
           <SwiperSlide key={index}>
             <div className="mt-20 group transition-all duration-300 hover:cursor-pointer">
-              <div className="relative rounded-xl overflow-hidden object-cover filter grayscale group-hover:grayscale-0  transition-all duration-300 max-w-[326px] h-[412px] mx-auto">
+              <div className=" h-full">
                 <Image
                   alt={member?.full_name}
                   src={member?.image || ""}
                   blurDataURL={member?.image || ""}
-                  fill
-                  objectFit="cover"
-                  placeholder="blur"
+                  height={412}
+                  width={326}
+                  style={{
+                    height: "412px",
+                  }}
+                  className="rounded-xl object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
               <div className="flex flex-col gap-4 lg:gap-6 transition-all duration-300 group-hover:text-white">

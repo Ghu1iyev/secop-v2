@@ -10,11 +10,7 @@ const Services = () => {
   const { data } = useHeaders();
 
   return (
-<<<<<<< HEAD
     <section className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[180px] items-start md:mt-[80px] mt-20">
-=======
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-[34px] md:gap-[180px] items-start mt-[80px]">
->>>>>>> ac357ab5cea85e56b0107186c49e12dcf72086b8
       <Title
         title={t("home.services.title")}
         subtitle={data?.results?.[0]?.service_title}
