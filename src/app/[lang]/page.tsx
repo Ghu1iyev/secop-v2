@@ -4,7 +4,7 @@ import React from "react";
 
 const Main = () => {
   const imageUrl = "/images/png/favicon.png";
-  const content = ""
+  const content = "Secop – kibertəhlükəsizlik, veb və mobil tətbiqlər üzrə ağıllı və təhlükəsiz texnoloji həllər təqdim edən yerli B2B texnologiya şirkətidir."
   return (
     <main>
       <Head>
@@ -14,7 +14,7 @@ const Main = () => {
         <meta property="og:type" content="website" />
         <meta
           name="keywords"
-          content="secop, secop.az, S"
+          content="secop, secop.az, kibertəhlükəsizlik, cyber security, veb və mobil tətbiqlər, təhlükəsiz texnoloji"
         />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
